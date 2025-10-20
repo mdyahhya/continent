@@ -242,6 +242,22 @@
         }
 
         @media (max-width: 768px) {
+
+            /* existing mobile styles... */
+    
+    .pwa-image {
+        font-size: 4rem;  /* Add this - reduces emoji size on mobile */
+        padding: 2rem;
+    }
+    
+    .logo-image {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo-text {
+        font-size: 1.4rem;
+    }
             .nav-links {
                 position: fixed;
                 top: 0;
@@ -377,16 +393,43 @@
     }
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.logo-image {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #FFFFFF, #0A1F44);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
     </style>
 </head>
 <body>
     <nav>
        <nav id="navbar">
-       <div class="logo" onclick="window.location.href='index.html'">
-    <img src="ctbase.png" alt="Continent Base Logo" class="logo-image">
-    <span class="logo-text">CONTINENT BASE</span>
-        <ul class="nav-links" id="navLinks">
+    <div class="logo" onclick="window.location.href='index.html'">
+        <img src="ctbase.png" alt="Continent Base Logo" class="logo-image">
+        <span class="logo-text">CONTINENT BASE</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+
             <li><a href="index.html">Home</a></li>
             <li><a href="studio.html">Continent Studio</a></li>
             <li><a href="services.html">Services</a></li>
