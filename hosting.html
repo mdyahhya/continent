@@ -302,11 +302,90 @@
                 font-size: 1rem;
             }
         }
+
+        .domain-savings-info {
+    background: linear-gradient(90deg, rgba(10,31,68,0.12) 0%, transparent 100%);
+    padding: 30px 5%;
+    border-radius: 14px;
+    margin: 55px auto 32px auto;
+    max-width: 900px;
+    text-align: center;
+}
+
+.domain-savings-info h2 {
+    font-size: 1.4rem;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 10px;
+    color: #ffd700;
+    background: linear-gradient(to right, #FFD700 70%, #0A1F44 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pricing-comparison-table-wrapper {
+    overflow-x: auto;
+    margin: 12px 0;
+}
+.pricing-comparison-table {
+    border-collapse: collapse;
+    margin: 0 auto 0 auto;
+    min-width: 370px;
+    width: 100%;
+    background: rgba(0,0,0,0.36);
+    font-size: 1rem;
+}
+.pricing-comparison-table th,
+.pricing-comparison-table td {
+    border: 1px solid rgba(10,31,68,0.18);
+    padding: 0.7em 1em;
+    text-align: center;
+}
+.pricing-comparison-table tr:last-child td {
+    background: #0A1F44;
+    color: #fff;
+    font-weight: bold;
+}
+.download-pdf-wrapper {
+    margin-top: 18px;
+}
+.download-pdf-btn {
+    display: inline-block;
+    color: #fff;
+    background: linear-gradient(90deg, #0A1F44 40%, #1a3a6b 100%);
+    border-radius: 6px;
+    padding: 10px 22px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.2s;
+    font-size: 1rem;
+    margin-top: 7px;
+}
+.download-pdf-btn:hover {
+    background: #ffd700;
+    color: #0A1F44;
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .domain-savings-info {
+        padding: 14px 2%;
+        margin-top: 28px;
+    }
+    .pricing-comparison-table th, .pricing-comparison-table td {
+        padding: 0.4em 0.3em;
+        font-size: 0.96rem;
+    }
+}
+
+
     </style>
 </head>
 <body>
     <nav>
-        <div class="logo" onclick="window.location.href='index.html'">CONTINENT BASE</div>
+       <nav id="navbar">
+       <div class="logo" onclick="window.location.href='index.html'">
+    <img src="ctbase.png" alt="Continent Base Logo" class="logo-image">
+    <span class="logo-text">CONTINENT BASE</span>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="studio.html">Continent Studio</a></li>
@@ -325,6 +404,48 @@
     <section class="hosting-hero">
         <h1>Domain & Hosting Solutions</h1>
     </section>
+
+    <section class="domain-savings-info">
+    <h2>We Charge 40% Less Than Major Software Companies</h2>
+    <p>
+        Compared with top software service providers, our domain and hosting charges are <strong>up to 40% less</strong> for the same quality of service. We deliver the latest technology solutions and unbeatable value.
+    </p>
+    <div class="pricing-comparison-table-wrapper">
+        <table class="pricing-comparison-table">
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Domain (.com) Price/Year</th>
+                    <th>Hosting (1 yr basic)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Others (XYZ Software)</td>
+                    <td>₹1,599</td>
+                    <td>₹3,500</td>
+                </tr>
+                <tr>
+                    <td>Others (GoWeb Pro)</td>
+                    <td>₹1,499</td>
+                    <td>₹3,000</td>
+                </tr>
+                <tr>
+                    <td><b>Continent Base</b></td>
+                    <td><b>₹999</b></td>
+                    <td><b>₹1,999</b></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="download-pdf-wrapper">
+        <a href="ContinentBase_vs_Others_Pricing.pdf" download class="download-pdf-btn">
+            &#128462; Download Proof of Costs (PDF)
+        </a>
+    </div>
+    <p style="margin-top:12px;color:rgba(255,255,255,0.7);max-width:540px;font-size: 1rem;">*All prices are inclusive of the latest GST and standard features. No compromise in project quality—just lower margins, better technology, and smarter efficiency than other providers.</p>
+</section>
+
 
     <section class="pwa-section">
         <div class="pwa-content">
@@ -439,7 +560,7 @@
 
         function sendInquiry(domain, price) {
             const message = `Hi, I am interested in registering a ${domain} domain (${price} per year). Please provide more details.`;
-            const whatsappURL = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+            const whatsappURL = `https://wa.me/919307426215?text=${encodeURIComponent(message)}`;
             window.open(whatsappURL, '_blank');
         }
     </script>
