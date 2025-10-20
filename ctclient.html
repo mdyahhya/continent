@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Continent Base</title>
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #000000;
+            --primary-text: #FFFFFF;
+            --accent-blue: #0A1F44;
+            --accent-blue-light: #1a3a6b;
+            --transition-speed: 0.4s;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(10, 31, 68, 0.3);
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FFFFFF, #0A1F44);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links li a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all var(--transition-speed);
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-light));
+            transition: width var(--transition-speed);
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: var(--primary-text);
+            margin: 4px 0;
+            transition: all var(--transition-speed);
+        }
+
+        /* Services Section */
+        .services-hero {
+            min-height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 150px 5% 80px;
+            background: radial-gradient(circle at center, rgba(10, 31, 68, 0.3) 0%, transparent 70%);
+        }
+
+        .services-hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FFFFFF 0%, #0A1F44 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .services-container {
+            padding: 80px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: center;
+        }
+
+        .service-detail:nth-child(even) {
+            direction: rtl;
+        }
+
+        .service-detail:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-content h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-text);
+        }
+
+        .service-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon-large {
+            font-size: 8rem;
+            text-align: center;
+            filter: drop-shadow(0 0 30px rgba(10, 31, 68, 0.8));
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .feature-list li {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, rgba(10, 31, 68, 0.2), rgba(10, 31, 68, 0.05));
+            border-left: 4px solid var(--accent-blue-light);
+            border-radius: 8px;
+            font-size: 1.1rem;
+        }
+
+        /* Client Projects Section */
+        .client-projects {
+            padding: 100px 5%;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 31, 68, 0.1) 50%, transparent 100%);
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            background: linear-gradient(135deg, #FFFFFF, #0A1F44);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-showcase {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+        }
+
+        .project-item {
+            background: linear-gradient(135deg, rgba(10, 31, 68, 0.2), rgba(10, 31, 68, 0.05));
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(10, 31, 68, 0.3);
+            transition: all var(--transition-speed);
+        }
+
+        .project-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(10, 31, 68, 0.5);
+        }
+
+        .project-item h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-blue-light);
+        }
+
+        .project-item p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .project-media {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(10, 31, 68, 0.4), rgba(10, 31, 68, 0.2));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-top: 2rem;
+            border: 1px solid rgba(10, 31, 68, 0.3);
+        }
+
+        .project-media img,
+        .project-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 31, 68, 0.2);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(10, 31, 68, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 3rem;
+                transition: right var(--transition-speed);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(10px, 10px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(8px, -8px);
+            }
+
+            .services-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .service-detail {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .service-detail:nth-child(even) {
+                direction: ltr;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .project-media {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo" onclick="window.location.href='index.html'">CONTINENT BASE</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="studio.html">Continent Studio</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="hosting.html">Domain Hosting</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="founder.html">Founder</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section class="services-hero">
+        <h1>Our Services</h1>
+    </section>
+
+    <section class="services-container">
+        <div class="service-detail">
+            <div class="service-content">
+                <h2>Mobile Application Development</h2>
+                <p>Transform your ideas into powerful mobile applications that work seamlessly across all devices. We build native-like apps with cutting-edge technology, ensuring optimal performance and user experience.</p>
+                <ul class="feature-list">
+                    <li>✓ Cross-platform development for iOS and Android</li>
+                    <li>✓ Native app performance and smooth animations</li>
+                    <li>✓ Offline functionality and data synchronization</li>
+                    <li>✓ Push notifications and real-time updates</li>
+                    <li>✓ Integration with device features (camera, GPS, sensors)</li>
+                </ul>
+            </div>
+            <div class="service-icon-large">📱</div>
+        </div>
+
+        <div class="service-detail">
+            <div class="service-content">
+                <h2>Mobile Web Development</h2>
+                <p>Create responsive, mobile-first websites that adapt perfectly to any screen size. Our mobile web solutions deliver exceptional user experiences with lightning-fast loading times.</p>
+                <ul class="feature-list">
+                    <li>✓ Responsive design for all screen sizes</li>
+                    <li>✓ Touch-optimized interface</li>
+                    <li>✓ Fast loading and performance optimization</li>
+                    <li>✓ SEO-friendly architecture</li>
+                    <li>✓ Progressive enhancement techniques</li>
+                </ul>
+            </div>
+            <div class="service-icon-large">🌐</div>
+        </div>
+
+        <div class="service-detail">
+            <div class="service-content">
+                <h2>Progressive Web Apps (PWA)</h2>
+                <p>Combine the best of web and mobile apps with PWAs that work offline, load instantly, and provide app-like experiences right from the browser.</p>
+                <ul class="feature-list">
+                    <li>✓ Installable on home screen without app store</li>
+                    <li>✓ Offline functionality with service workers</li>
+                    <li>✓ Push notifications for user engagement</li>
+                    <li>✓ Automatic updates without user intervention</li>
+                    <li>✓ App-like navigation and interactions</li>
+                </ul>
+            </div>
+            <div class="service-icon-large">⚡</div>
+        </div>
+
+        <div class="service-detail">
+            <div class="service-content">
+                <h2>AI & AI Chatbots</h2>
+                <p>Integrate intelligent AI solutions and chatbots that enhance customer engagement, automate support, and provide personalized experiences 24/7.</p>
+                <ul class="feature-list">
+                    <li>✓ Natural language processing and understanding</li>
+                    <li>✓ 24/7 automated customer support</li>
+                    <li>✓ Multi-language support</li>
+                    <li>✓ Integration with existing systems</li>
+                    <li>✓ Continuous learning and improvement</li>
+                </ul>
+            </div>
+            <div class="service-icon-large">🤖</div>
+        </div>
+    </section>
+
+    <section class="client-projects">
+        <h2 class="section-title">Client Projects</h2>
+        <div class="project-showcase">
+            <div class="project-item">
+                <h3>Healthcare Management System</h3>
+                <p>Developed a comprehensive hospital management platform with patient records, appointment scheduling, billing system, and telemedicine capabilities. The system reduced administrative workload by 60% and improved patient satisfaction scores significantly.</p>
+                <div class="project-media">
+                    <!-- <img src="project1.jpg" alt="Healthcare System"> -->
+                    <!-- <video src="project1.mp4" controls></video> -->
+                    🏥 Project Image/Video Placeholder
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>E-Learning Platform</h3>
+                <p>Built an interactive online education platform with live streaming, course management, student assessment tools, and AI-powered personalized learning paths. Currently serving over 10,000 active students across multiple institutions.</p>
+                <div class="project-media">
+                    <!-- <img src="project2.jpg" alt="E-Learning Platform"> -->
+                    <!-- <video src="project2.mp4" controls></video> -->
+                    📚 Project Image/Video Placeholder
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>Restaurant Food Ordering App</h3>
+                <p>Created a feature-rich PWA for a restaurant chain with online ordering, real-time tracking, payment integration, and loyalty programs. The app increased online orders by 150% within the first quarter of launch.</p>
+                <div class="project-media">
+                    <!-- <img src="project3.jpg" alt="Food Ordering App"> -->
+                    <!-- <video src="project3.mp4" controls></video> -->
+                    🍽️ Project Image/Video Placeholder
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>Real Estate Property Portal</h3>
+                <p>Designed and developed a property listing platform with advanced search filters, virtual tours, mortgage calculators, and AI-powered property recommendations. Connects buyers, sellers, and agents seamlessly.</p>
+                <div class="project-media">
+                    <!-- <img src="project4.jpg" alt="Real Estate Portal"> -->
+                    <!-- <video src="project4.mp4" controls></video> -->
+                    🏠 Project Image/Video Placeholder
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>Fintech Investment Dashboard</h3>
+                <p>Developed a secure financial technology platform with real-time stock tracking, portfolio management, automated trading algorithms, and comprehensive analytics dashboards for retail and institutional investors.</p>
+                <div class="project-media">
+                    <!-- <img src="project5.jpg" alt="Fintech Dashboard"> -->
+                    <!-- <video src="project5.mp4" controls></video> -->
+                    💰 Project Image/Video Placeholder
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>Fitness & Wellness App</h3>
+                <p>Built a comprehensive fitness tracking application with workout plans, nutrition tracking, AI personal trainer, progress analytics, and social community features. Achieved 4.8/5 rating with over 50,000 downloads.</p>
+                <div class="project-media">
+                    <!-- <img src="project6.jpg" alt="Fitness App"> -->
+                    <!-- <video src="project6.mp4" controls></video> -->
+                    💪 Project Image/Video Placeholder
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Continent Base Pvt Ltd. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

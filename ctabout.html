@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Continent Base</title>
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #000000;
+            --primary-text: #FFFFFF;
+            --accent-blue: #0A1F44;
+            --accent-blue-light: #1a3a6b;
+            --transition-speed: 0.4s;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(10, 31, 68, 0.3);
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FFFFFF, #0A1F44);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links li a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: all var(--transition-speed);
+            position: relative;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue-light);
+            transition: width var(--transition-speed);
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: var(--primary-text);
+            margin: 4px 0;
+            transition: all var(--transition-speed);
+        }
+
+        .about-hero {
+            min-height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 150px 5% 80px;
+            background: radial-gradient(circle, rgba(10, 31, 68, 0.3) 0%, transparent 70%);
+        }
+
+        .about-hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FFFFFF, #0A1F44);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-content {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-block {
+            margin-bottom: 5rem;
+        }
+
+        .content-block h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: var(--accent-blue-light);
+        }
+
+        .content-block p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, rgba(10, 31, 68, 0.2), rgba(10, 31, 68, 0.05));
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(10, 31, 68, 0.3);
+            transition: all var(--transition-speed);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(10, 31, 68, 0.5);
+        }
+
+        .value-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-text);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 4rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--accent-blue), var(--accent-blue-light));
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: linear-gradient(135deg, rgba(10, 31, 68, 0.2), rgba(10, 31, 68, 0.05));
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(10, 31, 68, 0.3);
+        }
+
+        .timeline-date {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--accent-blue-light);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--accent-blue-light);
+            border-radius: 50%;
+            border: 4px solid var(--primary-bg);
+        }
+
+        footer {
+            background: rgba(10, 31, 68, 0.2);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(10, 31, 68, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 3rem;
+                transition: right var(--transition-speed);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(10px, 10px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(8px, -8px);
+            }
+
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px;
+            }
+
+            .timeline-marker {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo" onclick="window.location.href='index.html'">CONTINENT BASE</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="studio.html">Continent Studio</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="hosting.html">Domain Hosting</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="founder.html">Founder</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <h1>About Continent Base</h1>
+    </section>
+
+    <section class="about-content">
+        <div class="content-block">
+            <h2>Our Vision</h2>
+            <p>At Continent Base, we envision a digital future where every startup and business, regardless of size or budget, has access to cutting-edge technology solutions that propel them toward success. We believe in democratizing technology, making advanced web and mobile solutions accessible to innovators worldwide.</p>
+            <p>Our vision extends beyond mere service provision—we aim to be the foundational partner that transforms ambitious ideas into market-ready digital products, creating lasting impact in the global startup ecosystem.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>Our Mission</h2>
+            <p>Our mission is to empower startups and businesses by implementing complex ideas into functional, scalable websites and applications. We specialize in mobile and web development, Progressive Web Apps, AI integration, and chatbot solutions that drive growth and innovation.</p>
+            <p>We are committed to delivering excellence through continuous innovation, leveraging the latest technologies, and maintaining unwavering dedication to our clients' success. Every project we undertake is an opportunity to create something extraordinary.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>🚀 Innovation</h3>
+                    <p>We constantly push boundaries, exploring new technologies and methodologies to deliver cutting-edge solutions that keep our clients ahead of the competition.</p>
+                </div>
+                <div class="value-card">
+                    <h3>🎯 Excellence</h3>
+                    <p>Quality is non-negotiable. We maintain the highest standards in every aspect of our work, from code quality to user experience design.</p>
+                </div>
+                <div class="value-card">
+                    <h3>🤝 Partnership</h3>
+                    <p>We view our clients as partners, working collaboratively to understand their vision and bring it to life with dedication and transparency.</p>
+                </div>
+                <div class="value-card">
+                    <h3>⚡ Agility</h3>
+                    <p>In a rapidly evolving digital landscape, we stay nimble and adaptable, quickly responding to changing requirements and emerging opportunities.</p>
+                </div>
+                <div class="value-card">
+                    <h3>🌍 Impact</h3>
+                    <p>We measure success not just in projects delivered, but in the real-world impact our solutions create for businesses and their customers.</p>
+                </div>
+                <div class="value-card">
+                    <h3>💡 Learning</h3>
+                    <p>Continuous learning is embedded in our culture. We invest in our team's growth and stay updated with the latest industry trends and technologies.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h2>Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020</div>
+                        <h3>Foundation</h3>
+                        <p>Continent Base was founded with a vision to democratize access to premium technology solutions for startups and small businesses.</p>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021</div>
+                        <h3>First Major Client</h3>
+                        <p>Delivered our first enterprise-level project, establishing credibility and setting high standards for quality and innovation.</p>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022</div>
+                        <h3>PWA Specialization</h3>
+                        <p>Became industry leaders in Progressive Web App development, helping clients bridge the gap between web and mobile experiences.</p>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023</div>
+                        <h3>AI Integration</h3>
+                        <p>Expanded our services to include AI solutions and chatbots, positioning ourselves at the forefront of intelligent application development.</p>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024</div>
+                        <h3>Global Expansion</h3>
+                        <p>Reached 100+ successful projects and expanded our client base internationally, serving startups across multiple continents.</p>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025</div>
+                        <h3>Innovation Hub</h3>
+                        <p>Established Continent Studio, our design and innovation hub, creating drastically amazing designs and pushing creative boundaries.</p>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h2>Why Choose Us</h2>
+            <p>Choosing Continent Base means partnering with a team that genuinely cares about your success. We bring together technical expertise, creative innovation, and business acumen to deliver solutions that not only meet requirements but exceed expectations.</p>
+            <p>Our track record speaks for itself—from healthcare platforms to e-commerce solutions, educational portals to fintech dashboards, we've helped businesses across industries achieve their digital transformation goals. We don't just build applications; we build foundations for long-term growth and success.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Continent Base Pvt Ltd. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

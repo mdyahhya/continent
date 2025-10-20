@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continent Base Pvt Ltd - Create the Base for Your Startup</title>
+    <meta name="description" content="We create the base for your startup ideas and scale them online with mobile apps, web development, PWA, AI solutions, and chatbots.">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0A1F44">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #000000;
+            --primary-text: #FFFFFF;
+            --accent-blue: #0A1F44;
+            --accent-blue-light: #1a3a6b;
+            --accent-blue-glow: rgba(10, 31, 68, 0.5);
+            --transition-speed: 0.4s;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animated Background Particles */
+        .background-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(100vw, 100vh) scale(0);
+            }
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(10, 31, 68, 0.3);
+            transition: all var(--transition-speed);
+        }
+
+        nav.scrolled {
+            padding: 0.8rem 5%;
+            box-shadow: 0 5px 30px rgba(10, 31, 68, 0.5);
+        }
+
+       .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 20px rgba(10, 31, 68, 0.8));
+}
+
+.logo-image {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #FFFFFF, #0A1F44);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Mobile responsive for logo */
+@media (max-width: 768px) {
+    .logo-image {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo-text {
+        font-size: 1.4rem;
+    }
+}
+
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links li a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all var(--transition-speed);
+            text-transform: uppercase;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-light));
+            transition: width var(--transition-speed);
+        }
+
+        .nav-links li a:hover {
+            color: var(--accent-blue-light);
+            transform: translateY(-2px);
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: var(--primary-text);
+            margin: 4px 0;
+            transition: all var(--transition-speed);
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 150px 5% 100px;
+            background: radial-gradient(circle at center, rgba(10, 31, 68, 0.2) 0%, transparent 70%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(10, 31, 68, 0.1) 50%, transparent 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #FFFFFF 0%, #0A1F44 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 20px rgba(10, 31, 68, 0.5));
+            }
+            50% {
+                filter: drop-shadow(0 0 40px rgba(10, 31, 68, 0.8));
+            }
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light));
+            color: var(--primary-text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: all var(--transition-speed);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(10, 31, 68, 0.6);
+            border-color: var(--accent-blue-light);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 5%;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 31, 68, 0.1) 50%, transparent 100%);
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #FFFFFF, #0A1F44);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(10, 31, 68, 0.2), rgba(10, 31, 68, 0.05));
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all var(--transition-speed);
+            border: 1px solid rgba(10, 31, 68, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(10, 31, 68, 0.3) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.6s;
+        }
+
+        .service-card:hover::before {
+            transform: scale(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 60px rgba(10, 31, 68, 0.5);
+            border-color: var(--accent-blue-light);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 20px rgba(10, 31, 68, 0.8));
+            transition: all var(--transition-speed);
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 0 30px rgba(10, 31, 68, 1));
+        }
+
+        .service-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--primary-text);
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 5%;
+            background: radial-gradient(circle at center, rgba(10, 31, 68, 0.15) 0%, transparent 70%);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(10, 31, 68, 0.2), rgba(10, 31, 68, 0.05));
+            border-radius: 15px;
+            border: 1px solid rgba(10, 31, 68, 0.3);
+            transition: all var(--transition-speed);
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--primary-text);
+        }
+
+        .contact-method:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 40px rgba(10, 31, 68, 0.5);
+            border-color: var(--accent-blue-light);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            color: var(--accent-blue-light);
+            transition: all var(--transition-speed);
+        }
+
+        .contact-method:hover .contact-icon {
+            transform: scale(1.2) rotate(10deg);
+            filter: drop-shadow(0 0 20px rgba(10, 31, 68, 0.8));
+        }
+
+        .contact-info h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Enquiry Form */
+        .enquiry-form {
+            background: linear-gradient(135deg, rgba(10, 31, 68, 0.2), rgba(10, 31, 68, 0.05));
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(10, 31, 68, 0.3);
+        }
+
+        .enquiry-form h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(10, 31, 68, 0.5);
+            border-radius: 10px;
+            color: var(--primary-text);
+            font-size: 1rem;
+            font-family: 'Rajdhani', sans-serif;
+            transition: all var(--transition-speed);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue-light);
+            box-shadow: 0 0 20px rgba(10, 31, 68, 0.5);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light));
+            color: var(--primary-text);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(10, 31, 68, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 31, 68, 0.2);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(10, 31, 68, 0.3);
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* PWA Install Prompt */
+        .pwa-install-prompt {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light));
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(10, 31, 68, 0.8);
+            z-index: 1000;
+            display: none;
+            max-width: 500px;
+            width: 90%;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateX(-50%) translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .pwa-install-prompt.show {
+            display: block;
+        }
+
+        .pwa-prompt-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .pwa-prompt-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .pwa-prompt-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .pwa-btn {
+            flex: 1;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pwa-btn-install {
+            background: var(--primary-text);
+            color: var(--accent-blue);
+        }
+
+        .pwa-btn-install:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .pwa-btn-later {
+            background: transparent;
+            color: var(--primary-text);
+            border: 2px solid var(--primary-text);
+        }
+
+        .pwa-btn-later:hover {
+            background: var(--primary-text);
+            color: var(--accent-blue);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 3rem;
+                transition: right var(--transition-speed);
+                backdrop-filter: blur(20px);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .enquiry-form {
+                padding: 2rem 1.5rem;
+            }
+
+            .cta-button {
+                padding: 15px 35px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- Background Particles -->
+    <div class="background-particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+       <div class="logo" onclick="window.location.href='index.html'">
+    <img src="ctbase.png" alt="Continent Base Logo" class="logo-image">
+    <span class="logo-text">CONTINENT BASE</span>
+</div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="studio.html">Continent Studio</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="hosting.html">Domain Hosting</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="founder.html">Founder</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>We Create the Base for Your Startup Ideas</h1>
+            <p>And Scale Them Online</p>
+            <div class="hero-description">
+                Continent Base helps startups implement any complex idea into websites, applications, and online technologies. Our services include mobile/web development, PWA, AI integration, AI chatbots, and more. We help grow businesses and startups from scratch, providing cutting-edge solutions for the digital age.
+            </div>
+            <a href="#services" class="cta-button">Explore Our Services</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title">Our Expertise</h2>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">📱</div>
+                <h3>Mobile App Development</h3>
+                <p>Build powerful, native-like mobile applications that work seamlessly across all devices with cutting-edge technology and user-friendly interfaces.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🌐</div>
+                <h3>Web Development</h3>
+                <p>Create stunning, responsive websites that captivate audiences and drive business growth with modern frameworks and best practices.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">⚡</div>
+                <h3>Progressive Web Apps</h3>
+                <p>Deliver app-like experiences on the web with PWAs that work offline, load instantly, and engage users like never before.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🤖</div>
+                <h3>AI Solutions</h3>
+                <p>Integrate intelligent AI capabilities into your business processes, automating tasks and unlocking new possibilities for innovation.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">💬</div>
+                <h3>AI Chatbots</h3>
+                <p>Enhance customer engagement with smart AI-powered chatbots that provide 24/7 support and personalized interactions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-methods fade-in">
+                <a href="https://www.instagram.com/continentbase" target="_blank" class="contact-method">
+                    <div class="contact-icon">📷</div>
+                    <div class="contact-info">
+                        <h4>Instagram</h4>
+                        <p>Follow us on Instagram</p>
+                    </div>
+                </a>
+                <a href="https://wa.me/919876543210?text=Hi, I want to know more about your services" target="_blank" class="contact-method">
+                    <div class="contact-icon">💬</div>
+                    <div class="contact-info">
+                        <h4>WhatsApp</h4>
+                        <p>Chat with us directly</p>
+                    </div>
+                </a>
+                <a href="tel:+919876543210" class="contact-method">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-info">
+                        <h4>Call Us</h4>
+                        <p>+91 98765 43210</p>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/company/continentbase" target="_blank" class="contact-method">
+                    <div class="contact-icon">💼</div>
+                    <div class="contact-info">
+                        <h4>LinkedIn</h4>
+                        <p>Connect professionally</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="enquiry-form fade-in">
+                <h3>Send Enquiry</h3>
+                <form id="enquiryForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="Mobile App Development">Mobile App Development</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Progressive Web Apps">Progressive Web Apps</option>
+                            <option value="AI Solutions">AI Solutions</option>
+                            <option value="AI Chatbots">AI Chatbots</option>
+                            <option value="Domain & Hosting">Domain & Hosting</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Continent Base Pvt Ltd. All Rights Reserved. | Innovating the Future</p>
+    </footer>
+
+    <!-- PWA Install Prompt -->
+    <div class="pwa-install-prompt" id="pwaPrompt">
+        <div class="pwa-prompt-content">
+            <div class="pwa-prompt-text">Install Continent Base App for Quick Access!</div>
+            <div class="pwa-prompt-buttons">
+                <button class="pwa-btn pwa-btn-install" id="installBtn">Install</button>
+                <button class="pwa-btn pwa-btn-later" id="laterBtn">Later</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registered:', registration);
+                        
+                        // Check for updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'activated') {
+                                    window.location.reload();
+                                }
+                            });
+                        });
+                    })
+                    .catch(err => console.log('ServiceWorker registration failed:', err));
+            });
+        }
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Background Particles Animation
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (Math.random() * 20 + 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Scroll Animation for Fade In Elements
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Enquiry Form Handler
+        document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            const whatsappMessage = `Hi, I am ${name}. I am interested in ${service}. ${message}`;
+            const whatsappURL = `https://wa.me/919876543210?text=${encodeURIComponent(whatsappMessage)}`;
+            
+            window.open(whatsappURL, '_blank');
+        });
+
+        // PWA Install Prompt Logic
+        let deferredPrompt;
+        const pwaPrompt = document.getElementById('pwaPrompt');
+        const installBtn = document.getElementById('installBtn');
+        const laterBtn = document.getElementById('laterBtn');
+
+        // Check if prompt was dismissed and when
+        function checkPromptStatus() {
+            const dismissedTime = localStorage.getItem('pwaPromptDismissed');
+            const dismissCount = parseInt(localStorage.getItem('pwaPromptDismissCount') || '0');
+            
+            if (dismissCount >= 2) {
+                return false; // Don't show after 2 dismissals
+            }
+            
+            if (!dismissedTime) {
+                return true; // Show if never dismissed
+            }
+            
+            const timeSinceDismissed = Date.now() - parseInt(dismissedTime);
+            const halfDay = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
+            
+            return timeSinceDismissed >= halfDay;
+        }
+
+        // Show PWA install prompt
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            if (checkPromptStatus()) {
+                setTimeout(() => {
+                    pwaPrompt.classList.add('show');
+                }, 2000);
+            }
+        });
+
+        // Install button click
+        installBtn.addEventListener('click', async () => {
+            if (!deferredPrompt) {
+                return;
+            }
+            
+            pwaPrompt.classList.remove('show');
+            deferredPrompt.prompt();
+            
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`User response: ${outcome}`);
+            
+            deferredPrompt = null;
+            localStorage.removeItem('pwaPromptDismissed');
+            localStorage.removeItem('pwaPromptDismissCount');
+        });
+
+        // Later button click
+        laterBtn.addEventListener('click', () => {
+            pwaPrompt.classList.remove('show');
+            localStorage.setItem('pwaPromptDismissed', Date.now().toString());
+            
+            const currentCount = parseInt(localStorage.getItem('pwaPromptDismissCount') || '0');
+            localStorage.setItem('pwaPromptDismissCount', (currentCount + 1).toString());
+        });
+
+        // Check for installed PWA
+        window.addEventListener('appinstalled', () => {
+            console.log('PWA was installed');
+            localStorage.removeItem('pwaPromptDismissed');
+            localStorage.removeItem('pwaPromptDismissCount');
+        });
+
+        // Auto-refresh to fetch latest code from GitHub
+        setInterval(() => {
+            if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+                navigator.serviceWorker.controller.postMessage({ type: 'CHECK_UPDATE' });
+            }
+        }, 5 * 60 * 1000); // Check every 5 minutes
+    </script>
+</body>
+</html>

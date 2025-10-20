@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continent Studio - Drastically Amazing Designs</title>
+    <meta name="description" content="Explore our portfolio of amazing design projects at Continent Studio.">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #000000;
+            --primary-text: #FFFFFF;
+            --accent-blue: #0A1F44;
+            --accent-blue-light: #1a3a6b;
+            --transition-speed: 0.4s;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(10, 31, 68, 0.3);
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary-text);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #FFFFFF, #0A1F44);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links li a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all var(--transition-speed);
+            text-transform: uppercase;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-light));
+            transition: width var(--transition-speed);
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: var(--primary-text);
+            margin: 4px 0;
+            transition: all var(--transition-speed);
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        /* Hero Section */
+        .studio-hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 150px 5% 80px;
+            background: radial-gradient(circle at center, rgba(10, 31, 68, 0.3) 0%, transparent 70%);
+        }
+
+        .studio-hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, #0A1F44 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 20px rgba(10, 31, 68, 0.5));
+            }
+            50% {
+                filter: drop-shadow(0 0 40px rgba(10, 31, 68, 0.8));
+            }
+        }
+
+        .studio-hero p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+        }
+
+        /* Projects Grid */
+        .projects-section {
+            padding: 80px 5% 100px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(10, 31, 68, 0.2), rgba(10, 31, 68, 0.05));
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            border: 1px solid rgba(10, 31, 68, 0.3);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 60px rgba(10, 31, 68, 0.6);
+            border-color: var(--accent-blue-light);
+        }
+
+        .project-thumbnail {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(10, 31, 68, 0.4), rgba(10, 31, 68, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all var(--transition-speed);
+        }
+
+        .project-card:hover .project-thumbnail img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 31, 68, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all var(--transition-speed);
+            padding: 2rem;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay p {
+            font-size: 1.1rem;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .project-info {
+            padding: 2rem;
+        }
+
+        .project-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-text);
+        }
+
+        .project-info p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 31, 68, 0.2);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(10, 31, 68, 0.3);
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 3rem;
+                transition: right var(--transition-speed);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .studio-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .studio-hero p {
+                font-size: 1.2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .project-thumbnail {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo" onclick="window.location.href='index.html'">CONTINENT BASE</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="studio.html">Continent Studio</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="hosting.html">Domain Hosting</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="founder.html">Founder</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Studio Hero -->
+    <section class="studio-hero">
+        <h1>Continent Studio</h1>
+        <p>We Create Drastically Amazing Designs</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="projects-grid">
+            <div class="project-card" onclick="window.location.href='galaxy.html'">
+                <div class="project-thumbnail">
+                    🌌
+                    <div class="project-overlay">
+                        <p>Immersive galaxy exploration experience with stunning 3D graphics and interactive elements.</p>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Galaxy Explorer</h3>
+                    <p>An interactive space exploration platform with real-time rendering.</p>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.location.href='ecommerce.html'">
+                <div class="project-thumbnail">
+                    🛍️
+                    <div class="project-overlay">
+                        <p>Modern e-commerce platform with seamless checkout and inventory management.</p>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>E-Commerce Platform</h3>
+                    <p>Full-featured online shopping solution with advanced features.</p>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.location.href='healthcare.html'">
+                <div class="project-thumbnail">
+                    🏥
+                    <div class="project-overlay">
+                        <p>Comprehensive healthcare management system for hospitals and clinics.</p>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Healthcare Portal</h3>
+                    <p>Patient management and appointment scheduling system.</p>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.location.href='fintech.html'">
+                <div class="project-thumbnail">
+                    💰
+                    <div class="project-overlay">
+                        <p>Secure financial technology platform with real-time analytics.</p>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>FinTech Dashboard</h3>
+                    <p>Advanced financial tracking and investment management.</p>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.location.href='education.html'">
+                <div class="project-thumbnail">
+                    📚
+                    <div class="project-overlay">
+                        <p>Interactive learning platform with live classes and assessments.</p>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Education Platform</h3>
+                    <p>Online learning management system with AI-powered features.</p>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.location.href='social.html'">
+                <div class="project-thumbnail">
+                    👥
+                    <div class="project-overlay">
+                        <p>Next-generation social networking platform with real-time connections.</p>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Social Network</h3>
+                    <p>Connect, share, and engage with a global community.</p>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.location.href='travel.html'">
+                <div class="project-thumbnail">
+                    ✈️
+                    <div class="project-overlay">
+                        <p>Complete travel booking system with itinerary planning.</p>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Travel Booking App</h3>
+                    <p>Plan, book, and manage your journeys seamlessly.</p>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.location.href='fitness.html'">
+                <div class="project-thumbnail">
+                    💪
+                    <div class="project-overlay">
+                        <p>Personalized fitness tracking and workout planning application.</p>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Fitness Tracker</h3>
+                    <p>Track workouts, nutrition, and achieve your health goals.</p>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.location.href='realestate.html'">
+                <div class="project-thumbnail">
+                    🏠
+                    <div class="project-overlay">
+                        <p>Property listing and management platform with virtual tours.</p>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Real Estate Portal</h3>
+                    <p>Find your dream home with advanced search and filters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Continent Base Pvt Ltd. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
