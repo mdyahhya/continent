@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Startups - Continent Base</title>
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #000000;
+            --primary-text: #FFFFFF;
+            --accent-blue: #0A1F44;
+            --accent-blue-light: #1a3a6b;
+            --accent-gold: #FFD700;
+            --transition-speed: 0.4s;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(10, 31, 68, 0.3);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px rgba(10, 31, 68, 0.8));
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #FFFFFF, #0A1F44);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links li a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: all var(--transition-speed);
+            position: relative;
+            letter-spacing: 1px;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-light));
+            transition: width var(--transition-speed);
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: var(--primary-text);
+            margin: 4px 0;
+            transition: all var(--transition-speed);
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .startup-hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 150px 5% 80px;
+            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            position: relative;
+        }
+
+        .startup-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(10, 31, 68, 0.2) 50%, transparent 100%);
+            z-index: -1;
+        }
+
+        .startup-hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent-gold), #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .startup-hero p {
+            font-size: 1.6rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 900px;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: linear-gradient(135deg, var(--accent-gold), #FFA500);
+            color: #000;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: all var(--transition-speed);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Main Offer Section */
+        .main-offer {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .offer-highlight {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(10, 31, 68, 0.2));
+            border: 2px solid var(--accent-gold);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .offer-highlight h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .offer-highlight p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+        }
+
+        /* Benefits Grid */
+        .benefits-section {
+            padding: 80px 5%;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 31, 68, 0.1) 50%, transparent 100%);
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--accent-gold), #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, rgba(10, 31, 68, 0.3), rgba(10, 31, 68, 0.1));
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(10, 31, 68, 0.5);
+            transition: all var(--transition-speed);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.6s;
+        }
+
+        .benefit-card:hover::before {
+            transform: scale(1);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.2);
+            border-color: var(--accent-gold);
+        }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .benefit-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+            position: relative;
+            z-index: 1;
+        }
+
+        .benefit-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-gold), #FFA500);
+            color: #000;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .step-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-text);
+        }
+
+        .step-card p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* Application Form Section */
+        .application-section {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, rgba(10, 31, 68, 0.2), rgba(255, 215, 0, 0.05));
+        }
+
+        .application-form {
+            max-width: 700px;
+            margin: 3rem auto 0;
+            background: linear-gradient(135deg, rgba(10, 31, 68, 0.3), rgba(10, 31, 68, 0.1));
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(10, 31, 68, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(10, 31, 68, 0.5);
+            border-radius: 10px;
+            color: var(--primary-text);
+            font-size: 1rem;
+            font-family: 'Rajdhani', sans-serif;
+            transition: all var(--transition-speed);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-gold), #FFA500);
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 31, 68, 0.2);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(10, 31, 68, 0.3);
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 3rem;
+                transition: right var(--transition-speed);
+                backdrop-filter: blur(20px);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(10px, 10px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(8px, -8px);
+            }
+
+            .logo-image {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo-text {
+                font-size: 1.4rem;
+            }
+
+            .startup-hero {
+                padding: 120px 5% 60px;
+            }
+
+            .startup-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .startup-hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .offer-highlight h2 {
+                font-size: 2rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .application-form {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo" onclick="window.location.href='index.html'">
+            <img src="ctbase.png" alt="Continent Base Logo" class="logo-image">
+            <span class="logo-text">CONTINENT BASE</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="startups.html">For Startups</a></li>
+            <li><a href="studio.html">Continent Studio</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="hosting.html">Domain Hosting</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="founder.html">Founder</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="startup-hero">
+        <h1>Built for Startups</h1>
+        <p>Partner with Continent Base and turn your vision into reality. We handle all the technology while you focus on building your business.</p>
+        <a href="#apply" class="cta-button">Apply Now</a>
+    </section>
+
+    <!-- Main Offer Section -->
+    <section class="main-offer">
+        <div class="offer-highlight">
+            <h2>🚀 Startup Partnership Program</h2>
+            <p><strong>50% Cost Reduction</strong> in exchange for equity partnership. We believe in your vision and want to be part of your success story.</p>
+            <p>Building a company? Partner with Continent Base and we'll handle the entire technology infrastructure—from web and mobile apps to live databases with real-time updates across all devices, just like Instagram.</p>
+            <p><strong>Exceptional Ideas, Hardworking Founders?</strong> We provide our services completely <strong>FREE</strong> when we see genuine potential and dedication. Your success is our success.</p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <h2 class="section-title">What You Get</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <span class="benefit-icon">💰</span>
+                <h3>50% Cost Savings</h3>
+                <p>Significantly reduced development costs in exchange for equity partnership. Get enterprise-grade solutions at startup-friendly terms.</p>
+            </div>
+
+            <div class="benefit-card">
+                <span class="benefit-icon">⚡</span>
+                <h3>Real-Time Infrastructure</h3>
+                <p>Live databases with instant synchronization across all devices. Your users see updates in real-time, creating engaging experiences.</p>
+            </div>
+
+            <div class="benefit-card">
+                <span class="benefit-icon">🎯</span>
+                <h3>Full Tech Stack</h3>
+                <p>Complete technology solution including web apps, mobile apps, PWAs, APIs, cloud infrastructure, and backend systems.</p>
+            </div>
+
+            <div class="benefit-card">
+                <span class="benefit-icon">🚀</span>
+                <h3>Rapid MVP Development</h3>
+                <p>Launch your Minimum Viable Product in 30-60 days. Get to market fast and start validating your business model.</p>
+            </div>
+
+            <div class="benefit-card">
+                <span class="benefit-icon">📈</span>
+                <h3>Scalable Architecture</h3>
+                <p>Built to grow from 100 users to millions. Our infrastructure scales seamlessly as your startup succeeds.</p>
+            </div>
+
+            <div class="benefit-card">
+                <span class="benefit-icon">🤝</span>
+                <h3>Long-Term Partnership</h3>
+                <p>We're not just vendors—we're co-founders. Get 6-12 months of free maintenance, ongoing support, and strategic guidance.</p>
+            </div>
+
+            <div class="benefit-card">
+                <span class="benefit-icon">🔒</span>
+                <h3>Enterprise Security</h3>
+                <p>Bank-grade security, data encryption, compliance standards, and secure authentication systems built-in from day one.</p>
+            </div>
+
+            <div class="benefit-card">
+                <span class="benefit-icon">📊</span>
+                <h3>Analytics & Insights</h3>
+                <p>Comprehensive dashboards with user analytics, growth metrics, and business intelligence to drive data-informed decisions.</p>
+            </div>
+
+            <div class="benefit-card">
+                <span class="benefit-icon">💼</span>
+                <h3>Investor-Ready Tech</h3>
+                <p>Technical documentation, architecture diagrams, and working demos that impress investors during fundraising rounds.</p>
+            </div>
+
+            <div class="benefit-card">
+                <span class="benefit-icon">🌐</span>
+                <h3>Cloud Deployment</h3>
+                <p>Professional deployment on AWS, Google Cloud, or Azure with automated scaling, monitoring, and backup systems.</p>
+            </div>
+
+            <div class="benefit-card">
+                <span class="benefit-icon">🤖</span>
+                <h3>AI Integration</h3>
+                <p>Leverage AI and machine learning capabilities to give your product a competitive edge with intelligent features.</p>
+            </div>
+
+            <div class="benefit-card">
+                <span class="benefit-icon">🎁</span>
+                <h3>Free for Great Ideas</h3>
+                <p>Exceptional concept with hardworking founders? We'll build your entire platform for FREE and become your technology co-founder.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <h2 class="section-title">How It Works</h2>
+        <div class="process-steps">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Apply</h3>
+                <p>Submit your startup idea, team details, and business vision through our application form.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Review</h3>
+                <p>Our team evaluates your application within 3-5 business days and schedules a discovery call.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Strategy</h3>
+                <p>We discuss your requirements, create technical roadmap, and finalize partnership terms.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3>Build</h3>
+                <p>Development begins with regular updates, milestones, and collaborative feedback sessions.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <h3>Launch</h3>
+                <p>We deploy your product, handle all technical aspects, and provide ongoing support.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">6</div>
+                <h3>Grow</h3>
+                <p>Scale together as partners, continuously improving and expanding your platform.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Section -->
+    <section class="application-section" id="apply">
+        <h2 class="section-title">Apply for Partnership</h2>
+        <div class="application-form">
+            <form id="startupApplicationForm">
+                <div class="form-group">
+                    <label for="founderName">Founder Name *</label>
+                    <input type="text" id="founderName" name="founderName" required placeholder="Your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210">
+                </div>
+
+                <div class="form-group">
+                    <label for="startupName">Startup Name *</label>
+                    <input type="text" id="startupName" name="startupName" required placeholder="Your startup name">
+                </div>
+
+                <div class="form-group">
+                    <label for="industry">Industry/Sector *</label>
+                    <select id="industry" name="industry" required>
+                        <option value="">Select industry</option>
+                        <option value="ecommerce">E-commerce</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                        <option value="fintech">Fintech</option>
+                        <option value="social">Social Media</option>
+                        <option value="foodtech">Food Tech</option>
+                        <option value="travel">Travel & Hospitality</option>
+                        <option value="logistics">Logistics</option>
+                        <option value="saas">SaaS</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="stage">Current Stage *</label>
+                    <select id="stage" name="stage" required>
+                        <option value="">Select stage</option>
+                        <option value="idea">Idea Stage</option>
+                        <option value="mvp">Building MVP</option>
+                        <option value="launched">Already Launched</option>
+                        <option value="growing">Growing/Scaling</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="teamSize">Team Size *</label>
+                    <select id="teamSize" name="teamSize" required>
+                        <option value="">Select team size</option>
+                        <option value="solo">Solo Founder</option>
+                        <option value="2-3">2-3 Members</option>
+                        <option value="4-10">4-10 Members</option>
+                        <option value="10+">10+ Members</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="idea">Describe Your Startup Idea *</label>
+                    <textarea id="idea" name="idea" required placeholder="Tell us about your vision, target market, and what problem you're solving..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="techNeeds">Technology Requirements *</label>
+                    <textarea id="techNeeds" name="techNeeds" required placeholder="What kind of technology solutions do you need? (e.g., web app, mobile app, database, etc.)"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="why">Why Should We Partner? *</label>
+                    <textarea id="why" name="why" required placeholder="Why is your idea exceptional? What makes your team special?"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Continent Base Pvt Ltd. All Rights Reserved. | Building the Future Together</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Application Form Handler
+        document.getElementById('startupApplicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                founderName: document.getElementById('founderName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                startupName: document.getElementById('startupName').value,
+                industry: document.getElementById('industry').value,
+                stage: document.getElementById('stage').value,
+                teamSize: document.getElementById('teamSize').value,
+                idea: document.getElementById('idea').value,
+                techNeeds: document.getElementById('techNeeds').value,
+                why: document.getElementById('why').value
+            };
+            
+            const message = `
+*Startup Partnership Application*
+
+*Founder:* ${formData.founderName}
+*Email:* ${formData.email}
+*Phone:* ${formData.phone}
+*Startup Name:* ${formData.startupName}
+*Industry:* ${formData.industry}
+*Stage:* ${formData.stage}
+*Team Size:* ${formData.teamSize}
+
+*Idea:*
+${formData.idea}
+
+*Tech Needs:*
+${formData.techNeeds}
+
+*Why Partner:*
+${formData.why}
+            `;
+            
+            const whatsappURL = `https://wa.me/919307426215?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+</body>
+</html>
