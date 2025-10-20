@@ -26,12 +26,14 @@
             background-color: var(--primary-bg);
             color: var(--primary-text);
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
         html {
             scroll-behavior: smooth;
         }
 
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -47,14 +49,35 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px rgba(10, 31, 68, 0.8));
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .logo-text {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
             font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             background: linear-gradient(135deg, #FFFFFF, #0A1F44);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            cursor: pointer;
-            letter-spacing: 2px;
+            background-clip: text;
         }
 
         .nav-links {
@@ -71,6 +94,7 @@
             text-transform: uppercase;
             transition: all var(--transition-speed);
             position: relative;
+            letter-spacing: 1px;
         }
 
         .nav-links li a::after {
@@ -80,7 +104,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent-blue-light);
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-light));
             transition: width var(--transition-speed);
         }
 
@@ -100,8 +124,10 @@
             background: var(--primary-text);
             margin: 4px 0;
             transition: all var(--transition-speed);
+            border-radius: 2px;
         }
 
+        /* Hero Section */
         .hosting-hero {
             min-height: 50vh;
             display: flex;
@@ -119,8 +145,95 @@
             background: linear-gradient(135deg, #FFFFFF, #0A1F44);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
+        /* Domain Savings Info */
+        .domain-savings-info {
+            background: linear-gradient(90deg, rgba(10,31,68,0.12) 0%, transparent 100%);
+            padding: 30px 5%;
+            border-radius: 14px;
+            margin: 55px auto 32px auto;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .domain-savings-info h2 {
+            font-size: 1.8rem;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 15px;
+            color: #ffd700;
+            background: linear-gradient(to right, #FFD700 70%, #0A1F44 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .domain-savings-info > p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .pricing-comparison-table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .pricing-comparison-table {
+            border-collapse: collapse;
+            margin: 0 auto;
+            min-width: 370px;
+            width: 100%;
+            max-width: 700px;
+            background: rgba(0,0,0,0.36);
+            font-size: 1rem;
+        }
+
+        .pricing-comparison-table th,
+        .pricing-comparison-table td {
+            border: 1px solid rgba(10,31,68,0.18);
+            padding: 0.7em 1em;
+            text-align: center;
+        }
+
+        .pricing-comparison-table th {
+            background: var(--accent-blue);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .pricing-comparison-table tr:last-child td {
+            background: #0A1F44;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .download-pdf-wrapper {
+            margin-top: 20px;
+        }
+
+        .download-pdf-btn {
+            display: inline-block;
+            color: #fff;
+            background: linear-gradient(90deg, #0A1F44 40%, #1a3a6b 100%);
+            border-radius: 8px;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .download-pdf-btn:hover {
+            background: #ffd700;
+            color: #0A1F44;
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        /* PWA Section */
         .pwa-section {
             padding: 80px 5%;
             max-width: 1200px;
@@ -158,6 +271,7 @@
             border: 1px solid rgba(10, 31, 68, 0.3);
         }
 
+        /* Domain Pricing Section */
         .domain-pricing {
             padding: 80px 5%;
             background: linear-gradient(180deg, transparent 0%, rgba(10, 31, 68, 0.1) 50%, transparent 100%);
@@ -171,6 +285,7 @@
             background: linear-gradient(135deg, #FFFFFF, #0A1F44);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .pricing-table {
@@ -234,6 +349,7 @@
             box-shadow: 0 10px 30px rgba(10, 31, 68, 0.6);
         }
 
+        /* Footer */
         footer {
             background: rgba(10, 31, 68, 0.2);
             padding: 3rem 5%;
@@ -241,23 +357,13 @@
             border-top: 1px solid rgba(10, 31, 68, 0.3);
         }
 
-        @media (max-width: 768px) {
+        footer p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
 
-            /* existing mobile styles... */
-    
-    .pwa-image {
-        font-size: 4rem;  /* Add this - reduces emoji size on mobile */
-        padding: 2rem;
-    }
-    
-    .logo-image {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .logo-text {
-        font-size: 1.4rem;
-    }
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
                 top: 0;
@@ -270,6 +376,7 @@
                 align-items: center;
                 gap: 3rem;
                 transition: right var(--transition-speed);
+                backdrop-filter: blur(20px);
             }
 
             .nav-links.active {
@@ -292,13 +399,54 @@
                 transform: rotate(-45deg) translate(8px, -8px);
             }
 
+            .logo-image {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo-text {
+                font-size: 1.4rem;
+            }
+
+            .hosting-hero {
+                padding: 120px 5% 60px;
+            }
+
             .hosting-hero h1 {
                 font-size: 2.5rem;
+            }
+
+            .domain-savings-info {
+                padding: 20px 4%;
+                margin: 30px auto 20px auto;
+            }
+
+            .domain-savings-info h2 {
+                font-size: 1.3rem;
+            }
+
+            .pricing-comparison-table th,
+            .pricing-comparison-table td {
+                padding: 0.5em 0.4em;
+                font-size: 0.9rem;
             }
 
             .pwa-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            .pwa-text h2 {
+                font-size: 2rem;
+            }
+
+            .pwa-text p {
+                font-size: 1.1rem;
+            }
+
+            .pwa-image {
+                font-size: 4rem;
+                padding: 2rem;
             }
 
             .section-title {
@@ -318,118 +466,16 @@
                 font-size: 1rem;
             }
         }
-
-        .domain-savings-info {
-    background: linear-gradient(90deg, rgba(10,31,68,0.12) 0%, transparent 100%);
-    padding: 30px 5%;
-    border-radius: 14px;
-    margin: 55px auto 32px auto;
-    max-width: 900px;
-    text-align: center;
-}
-
-.domain-savings-info h2 {
-    font-size: 1.4rem;
-    font-family: 'Orbitron', sans-serif;
-    margin-bottom: 10px;
-    color: #ffd700;
-    background: linear-gradient(to right, #FFD700 70%, #0A1F44 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.pricing-comparison-table-wrapper {
-    overflow-x: auto;
-    margin: 12px 0;
-}
-.pricing-comparison-table {
-    border-collapse: collapse;
-    margin: 0 auto 0 auto;
-    min-width: 370px;
-    width: 100%;
-    background: rgba(0,0,0,0.36);
-    font-size: 1rem;
-}
-.pricing-comparison-table th,
-.pricing-comparison-table td {
-    border: 1px solid rgba(10,31,68,0.18);
-    padding: 0.7em 1em;
-    text-align: center;
-}
-.pricing-comparison-table tr:last-child td {
-    background: #0A1F44;
-    color: #fff;
-    font-weight: bold;
-}
-.download-pdf-wrapper {
-    margin-top: 18px;
-}
-.download-pdf-btn {
-    display: inline-block;
-    color: #fff;
-    background: linear-gradient(90deg, #0A1F44 40%, #1a3a6b 100%);
-    border-radius: 6px;
-    padding: 10px 22px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background 0.2s, transform 0.2s;
-    font-size: 1rem;
-    margin-top: 7px;
-}
-.download-pdf-btn:hover {
-    background: #ffd700;
-    color: #0A1F44;
-    transform: scale(1.05);
-}
-
-@media (max-width: 600px) {
-    .domain-savings-info {
-        padding: 14px 2%;
-        margin-top: 28px;
-    }
-    .pricing-comparison-table th, .pricing-comparison-table td {
-        padding: 0.4em 0.3em;
-        font-size: 0.96rem;
-    }
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    cursor: pointer;
-    transition: all var(--transition-speed);
-}
-
-.logo-image {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    border-radius: 8px;
-}
-
-.logo-text {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 900;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    background: linear-gradient(135deg, #FFFFFF, #0A1F44);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
     </style>
 </head>
 <body>
-    <nav>
-       <nav id="navbar">
-    <div class="logo" onclick="window.location.href='index.html'">
-        <img src="ctbase.png" alt="Continent Base Logo" class="logo-image">
-        <span class="logo-text">CONTINENT BASE</span>
-    </div>
-    <ul class="nav-links" id="navLinks">
-
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo" onclick="window.location.href='index.html'">
+            <img src="ctbase.png" alt="Continent Base Logo" class="logo-image">
+            <span class="logo-text">CONTINENT BASE</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="studio.html">Continent Studio</a></li>
             <li><a href="services.html">Services</a></li>
@@ -444,52 +490,56 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hosting-hero">
         <h1>Domain & Hosting Solutions</h1>
     </section>
 
+    <!-- Savings Info Section -->
     <section class="domain-savings-info">
-    <h2>We Charge 40% Less Than Major Software Companies</h2>
-    <p>
-        Compared with top software service providers, our domain and hosting charges are <strong>up to 40% less</strong> for the same quality of service. We deliver the latest technology solutions and unbeatable value.
-    </p>
-    <div class="pricing-comparison-table-wrapper">
-        <table class="pricing-comparison-table">
-            <thead>
-                <tr>
-                    <th>Company</th>
-                    <th>Domain (.com) Price/Year</th>
-                    <th>Hosting (1 yr basic)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Others (XYZ Software)</td>
-                    <td>₹1,599</td>
-                    <td>₹3,500</td>
-                </tr>
-                <tr>
-                    <td>Others (GoWeb Pro)</td>
-                    <td>₹1,499</td>
-                    <td>₹3,000</td>
-                </tr>
-                <tr>
-                    <td><b>Continent Base</b></td>
-                    <td><b>₹999</b></td>
-                    <td><b>₹1,999</b></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="download-pdf-wrapper">
-        <a href="ContinentBase_vs_Others_Pricing.pdf" download class="download-pdf-btn">
-            &#128462; Download Proof of Costs (PDF)
-        </a>
-    </div>
-    <p style="margin-top:12px;color:rgba(255,255,255,0.7);max-width:540px;font-size: 1rem;">*All prices are inclusive of the latest GST and standard features. No compromise in project quality—just lower margins, better technology, and smarter efficiency than other providers.</p>
-</section>
+        <h2>We Charge 40% Less Than Major Software Companies</h2>
+        <p>
+            Compared with top software service providers, our domain and hosting charges are <strong>up to 40% less</strong> for the same quality of service. We deliver the latest technology solutions and unbeatable value.
+        </p>
+        <div class="pricing-comparison-table-wrapper">
+            <table class="pricing-comparison-table">
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Domain (.com) Price/Year</th>
+                        <th>Hosting (1 yr basic)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Others (XYZ Software)</td>
+                        <td>₹1,599</td>
+                        <td>₹3,500</td>
+                    </tr>
+                    <tr>
+                        <td>Others (GoWeb Pro)</td>
+                        <td>₹1,499</td>
+                        <td>₹3,000</td>
+                    </tr>
+                    <tr>
+                        <td><b>Continent Base</b></td>
+                        <td><b>₹999</b></td>
+                        <td><b>₹1,999</b></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="download-pdf-wrapper">
+            <a href="ContinentBase_vs_Others_Pricing.pdf" download class="download-pdf-btn">
+                📄 Download Proof of Costs (PDF)
+            </a>
+        </div>
+        <p style="margin:15px auto 0 auto;color:rgba(255,255,255,0.7);max-width:640px;font-size:0.95rem;line-height:1.5;">
+            *All prices are inclusive of the latest GST and standard features. No compromise in project quality—just lower margins, better technology, and smarter efficiency than other providers.
+        </p>
+    </section>
 
-
+    <!-- PWA Section -->
     <section class="pwa-section">
         <div class="pwa-content">
             <div class="pwa-text">
@@ -504,6 +554,7 @@
         </div>
     </section>
 
+    <!-- Domain Pricing Section -->
     <section class="domain-pricing">
         <h2 class="section-title">Domain Pricing</h2>
         <div class="pricing-table">
@@ -581,10 +632,12 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Continent Base Pvt Ltd. All Rights Reserved.</p>
     </footer>
 
+    <!-- JavaScript -->
     <script>
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
@@ -603,7 +656,7 @@
 
         function sendInquiry(domain, price) {
             const message = `Hi, I am interested in registering a ${domain} domain (${price} per year). Please provide more details.`;
-            const whatsappURL = `https://wa.me/919307426215?text=${encodeURIComponent(message)}`;
+            const whatsappURL = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
             window.open(whatsappURL, '_blank');
         }
     </script>
