@@ -118,328 +118,372 @@
             transition: all var(--transition-speed);
         }
 
-        /* Top Founder Image Circle */
-        .founder-top-section {
-            padding-top: 120px;
-            padding-bottom: 30px;
-            display: flex;
-            justify-content: center;
-            background: radial-gradient(circle at center, rgba(10, 31, 68, 0.2) 0%, transparent 70%);
-        }
+       /* Founder Profile Section */
+.founder-profile {
+    padding: 150px 5% 80px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
 
-        .founder-circle-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(10, 31, 68, 0.4), rgba(10, 31, 68, 0.2));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            border: 4px solid var(--accent-blue-light);
-            box-shadow: 0 10px 40px rgba(10, 31, 68, 0.6);
-            cursor: pointer;
-            transition: all var(--transition-speed);
-            overflow: hidden;
-        }
+.founder-circle-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(10, 31, 68, 0.4), rgba(10, 31, 68, 0.2));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    border: 4px solid var(--accent-blue-light);
+    box-shadow: 0 10px 40px rgba(10, 31, 68, 0.6);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
 
-        .founder-circle-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.founder-circle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        .founder-circle-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 50px rgba(10, 31, 68, 0.8);
-        }
+.founder-circle-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 50px rgba(10, 31, 68, 0.8);
+}
 
-        /* Tweet Box */
-        .tweet-section {
-            padding: 50px 5%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+.founder-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #FFFFFF, #0A1F44);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-        .tweet-box {
-            background: linear-gradient(135deg, rgba(10, 31, 68, 0.2), rgba(10, 31, 68, 0.05));
-            border-radius: 20px;
-            padding: 2rem;
-            border: 1px solid rgba(10, 31, 68, 0.3);
-        }
+.founder-title {
+    font-size: 1.5rem;
+    color: var(--accent-blue-light);
+    margin-bottom: 3rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
 
-        .tweet-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
+.founder-about {
+    background: linear-gradient(135deg, rgba(10, 31, 68, 0.2), rgba(10, 31, 68, 0.05));
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    border: 1px solid rgba(10, 31, 68, 0.3);
+    text-align: left;
+}
 
-        .tweet-dp {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(10, 31, 68, 0.4), rgba(10, 31, 68, 0.2));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            border: 2px solid var(--accent-blue-light);
-            cursor: pointer;
-            transition: all var(--transition-speed);
-            overflow: hidden;
-        }
+.founder-about h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-blue-light);
+    text-align: center;
+}
 
-        .tweet-dp img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.founder-about p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+}
 
-        .tweet-dp:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 20px rgba(10, 31, 68, 0.8);
-        }
+.founder-achievements {
+    background: linear-gradient(135deg, rgba(10, 31, 68, 0.2), rgba(10, 31, 68, 0.05));
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    border: 1px solid rgba(10, 31, 68, 0.3);
+    text-align: left;
+}
 
-        .tweet-info {
-            flex: 1;
-        }
+.founder-achievements h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-blue-light);
+    text-align: center;
+}
 
-        .tweet-name {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.2rem;
-        }
+.achievements-list {
+    list-style: none;
+    margin-top: 2rem;
+}
 
-        .tweet-handle {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
+.achievements-list li {
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    background: rgba(10, 31, 68, 0.2);
+    border-left: 4px solid var(--accent-blue-light);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: all var(--transition-speed);
+}
 
-        .tweet-content {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
-        }
+.achievements-list li:hover {
+    transform: translateX(10px);
+    background: rgba(10, 31, 68, 0.3);
+}
 
-        /* Image Zoom Modal */
-        .image-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.3s ease-out;
-        }
+/* Tweet Section */
+.tweet-section {
+    padding: 50px 5%;
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-        .image-modal.active {
-            display: flex;
-        }
+.section-heading {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--accent-blue-light);
+}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+.tweet-box {
+    background: linear-gradient(135deg, rgba(10, 31, 68, 0.2), rgba(10, 31, 68, 0.05));
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(10, 31, 68, 0.3);
+    transition: all var(--transition-speed);
+}
 
-        .modal-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
-            animation: zoomIn 0.3s ease-out;
-        }
+.tweet-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(10, 31, 68, 0.5);
+}
 
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.5);
-            }
-            to {
-                transform: scale(1);
-            }
-        }
+.tweet-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
 
-        .modal-image {
-            max-width: 100%;
-            max-height: 90vh;
-            border-radius: 20px;
-            box-shadow: 0 20px 80px rgba(10, 31, 68, 0.9);
-            border: 3px solid var(--accent-blue-light);
-        }
+.tweet-dp {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(10, 31, 68, 0.4), rgba(10, 31, 68, 0.2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    border: 2px solid var(--accent-blue-light);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    overflow: hidden;
+}
 
-        .modal-placeholder {
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, rgba(10, 31, 68, 0.4), rgba(10, 31, 68, 0.2));
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 15rem;
-            border: 3px solid var(--accent-blue-light);
-        }
+.tweet-dp img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        .close-modal {
-            position: absolute;
-            top: -50px;
-            right: 0;
-            background: var(--accent-blue-light);
-            color: var(--primary-text);
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all var(--transition-speed);
-        }
+.tweet-dp:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(10, 31, 68, 0.8);
+}
 
-        .close-modal:hover {
-            background: var(--accent-blue);
-            transform: rotate(90deg);
-        }
+.tweet-info {
+    flex: 1;
+}
 
-        /* Founder Details */
-        .founder-details {
-            padding: 60px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.tweet-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
 
-        .detail-section {
-            background: linear-gradient(135deg, rgba(10, 31, 68, 0.2), rgba(10, 31, 68, 0.05));
-            border-radius: 20px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            border: 1px solid rgba(10, 31, 68, 0.3);
-        }
+.tweet-handle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+}
 
-        .detail-section h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent-blue-light);
-        }
+.tweet-content {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+}
 
-        .detail-section p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 1rem;
-        }
+/* Image Modal (keep existing modal CSS) */
+.image-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-out;
+}
 
-        .achievements-list {
-            list-style: none;
-            margin-top: 2rem;
-        }
+.image-modal.active {
+    display: flex;
+}
 
-        .achievements-list li {
-            padding: 1.2rem;
-            margin-bottom: 1rem;
-            background: rgba(10, 31, 68, 0.2);
-            border-left: 4px solid var(--accent-blue-light);
-            border-radius: 8px;
-            font-size: 1.1rem;
-        }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
-        .contact-links {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    animation: zoomIn 0.3s ease-out;
+}
 
-        .contact-link {
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light));
-            color: var(--primary-text);
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all var(--transition-speed);
-        }
+@keyframes zoomIn {
+    from { transform: scale(0.5); }
+    to { transform: scale(1); }
+}
 
-        .contact-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(10, 31, 68, 0.6);
-        }
+.modal-image {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 20px;
+    box-shadow: 0 20px 80px rgba(10, 31, 68, 0.9);
+    border: 3px solid var(--accent-blue-light);
+}
 
-        footer {
-            background: rgba(10, 31, 68, 0.2);
-            padding: 3rem 5%;
-            text-align: center;
-            border-top: 1px solid rgba(10, 31, 68, 0.3);
-        }
+.modal-placeholder {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, rgba(10, 31, 68, 0.4), rgba(10, 31, 68, 0.2));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15rem;
+    border: 3px solid var(--accent-blue-light);
+}
 
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                height: 100vh;
-                background: rgba(0, 0, 0, 0.98);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 3rem;
-                transition: right var(--transition-speed);
-            }
+.close-modal {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: var(--accent-blue-light);
+    color: var(--primary-text);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-speed);
+}
 
-            .nav-links.active {
-                right: 0;
-            }
+.close-modal:hover {
+    background: var(--accent-blue);
+    transform: rotate(90deg);
+}
 
-            .hamburger {
-                display: flex;
-            }
+/* Founder Details Section */
+.founder-details {
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-            .hamburger.active span:nth-child(1) {
-                transform: rotate(45deg) translate(10px, 10px);
-            }
+.detail-section {
+    background: linear-gradient(135deg, rgba(10, 31, 68, 0.2), rgba(10, 31, 68, 0.05));
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    border: 1px solid rgba(10, 31, 68, 0.3);
+}
 
-            .hamburger.active span:nth-child(2) {
-                opacity: 0;
-            }
+.detail-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-blue-light);
+}
 
-            .hamburger.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(8px, -8px);
-            }
+.detail-section p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+}
 
-            .founder-circle-image {
-                width: 150px;
-                height: 150px;
-                font-size: 4rem;
-            }
+.contact-links {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
 
-            .modal-placeholder {
-                width: 300px;
-                height: 300px;
-                font-size: 8rem;
-            }
+.contact-link {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light));
+    color: var(--primary-text);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all var(--transition-speed);
+}
 
-            .detail-section {
-                padding: 2rem;
-            }
-        }
+.contact-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(10, 31, 68, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .founder-circle-image {
+        width: 150px;
+        height: 150px;
+        font-size: 4rem;
+    }
+
+    .founder-name {
+        font-size: 2.5rem;
+    }
+
+    .founder-title {
+        font-size: 1.2rem;
+    }
+
+    .founder-about, .founder-achievements {
+        padding: 2rem;
+    }
+
+    .founder-about h2, .founder-achievements h2 {
+        font-size: 2rem;
+    }
+
+    .modal-placeholder {
+        width: 300px;
+        height: 300px;
+        font-size: 8rem;
+    }
+}
+
     </style>
 </head>
 <body>
     <nav>
         <div class="logo" onclick="window.location.href='index.html'">
-            <img src="logo.png" alt="Continent Base Logo" class="logo-image">
+            <img src="ctbase.png" alt="Continent Base Logo" class="logo-image">
             <span class="logo-text">CONTINENT BASE</span>
         </div>
         <ul class="nav-links" id="navLinks">
@@ -457,51 +501,36 @@
         </div>
     </nav>
 
-    <!-- Top Circular Founder Image -->
-    <section class="founder-top-section">
-        <div class="founder-circle-image" onclick="openImageModal()">
-            <!-- <img src="founder.jpg" alt="Founder"> -->
-            👤
-        </div>
-    </section>
-
     <!-- Image Zoom Modal -->
     <div class="image-modal" id="imageModal" onclick="closeImageModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="close-modal" onclick="closeImageModal()">×</button>
-            <!-- <img src="founder.jpg" alt="Founder" class="modal-image"> -->
-            <div class="modal-placeholder">👤</div>
+            <img src="yahyadp.jpg" alt="Founder" class="modal-image">
+            
         </div>
     </div>
 
-    <!-- Tweet Box -->
-    <section class="tweet-section">
-        <div class="tweet-box">
-            <div class="tweet-header">
-                <div class="tweet-dp" onclick="openImageModal()">
-                    <!-- <img src="founder.jpg" alt="Founder"> -->
-                    👤
-                </div>
-                <div class="tweet-info">
-                    <div class="tweet-name">John Doe</div>
-                    <div class="tweet-handle">Founder @Continent</div>
-                </div>
-            </div>
-            <div class="tweet-content">
-                "Building the future of technology, one startup at a time. At Continent Base, we don't just create applications—we build dreams into reality. Every line of code is a step toward innovation. 🚀"
-            </div>
+    <!-- Founder Profile Section -->
+    <section class="founder-profile">
+        <!-- Top Circular Founder Image -->
+        <div class="founder-circle-image" onclick="openImageModal()">
+            <img src="yahyadp.jpg" alt="Founder">
+            
         </div>
-    </section>
 
-    <!-- Founder Details -->
-    <section class="founder-details">
-        <div class="detail-section">
+        <!-- Founder Name -->
+        <h1 class="founder-name">Yahya Mundewadi</h1>
+        <p class="founder-title">Founder of Continent Base</p>
+
+        <!-- About the Founder -->
+        <div class="founder-about">
             <h2>About the Founder</h2>
-            <p>John Doe is a visionary entrepreneur and technology leader with over 15 years of experience in software development and startup innovation. With a passion for democratizing technology access, he founded Continent Base with the mission to empower startups and businesses worldwide.</p>
+            <p>Yahya is a visionary entrepreneur and technology leader with over 15 years of experience in software development and startup innovation. With a passion for democratizing technology access, he founded Continent Base with the mission to empower startups and businesses worldwide.</p>
             <p>His expertise spans full-stack development, artificial intelligence, progressive web applications, and cloud architecture. Under his leadership, Continent Base has delivered over 100 successful projects across healthcare, e-commerce, education, and fintech sectors.</p>
         </div>
 
-        <div class="detail-section">
+        <!-- Achievements -->
+        <div class="founder-achievements">
             <h2>Key Achievements</h2>
             <ul class="achievements-list">
                 <li>🏆 Founded Continent Base Pvt Ltd and scaled to 100+ successful projects</li>
@@ -513,7 +542,30 @@
                 <li>⚡ Integrated cutting-edge AI and ML technologies in 30+ applications</li>
             </ul>
         </div>
+    </section>
 
+    <!-- Tweet Box -->
+    <section class="tweet-section">
+        <h2 class="section-heading">Latest Thoughts</h2>
+        <div class="tweet-box">
+            <div class="tweet-header">
+                <div class="tweet-dp" onclick="openImageModal()">
+                    <img src="yahyadp.jpg" alt="Founder">
+                    
+                </div>
+                <div class="tweet-info">
+                    <div class="tweet-name">Yahya Mundewadi</div>
+                    <div class="tweet-handle">Founder @Continent Base</div>
+                </div>
+            </div>
+            <div class="tweet-content">
+                "Building the future of technology, one startup at a time. At Continent Base, we don't just create applications—we build dreams into reality. Every line of code is a step toward innovation. 🚀"
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Contact -->
+    <section class="founder-details">
         <div class="detail-section">
             <h2>Vision & Personal Message</h2>
             <p>"Technology should be accessible to everyone with a vision. At Continent Base, we believe that every startup, regardless of its size or budget, deserves world-class technology solutions. Our mission is to bridge the gap between ambitious ideas and market-ready products."</p>
@@ -523,10 +575,10 @@
         <div class="detail-section">
             <h2>Connect with the Founder</h2>
             <div class="contact-links">
-                <a href="mailto:founder@continentbase.com" class="contact-link">📧 Email</a>
+                <a href="mailto:mdyahyamundewadi@gmail.com" class="contact-link">📧 Email</a>
                 <a href="https://www.linkedin.com/in/johndoe" target="_blank" class="contact-link">💼 LinkedIn</a>
                 <a href="https://twitter.com/johndoe" target="_blank" class="contact-link">🐦 Twitter</a>
-                <a href="https://wa.me/919876543210" target="_blank" class="contact-link">💬 WhatsApp</a>
+                <a href="https://wa.me/919307426215" target="_blank" class="contact-link">💬 WhatsApp</a>
             </div>
         </div>
     </section>
@@ -562,7 +614,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Close modal with Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeImageModal();
