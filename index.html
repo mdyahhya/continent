@@ -745,6 +745,77 @@
             transform: translateY(0);
         }
 
+
+        /* Company Logo Center Section */
+.company-logo-center {
+    padding: 100px 5%;
+    text-align: center;
+    background: linear-gradient(180deg, transparent 0%, rgba(10, 31, 68, 0.15) 50%, transparent 100%);
+}
+
+.logo-circle {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(10, 31, 68, 0.4), rgba(10, 31, 68, 0.2));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    border: 5px solid var(--accent-blue-light);
+    box-shadow: 0 15px 60px rgba(10, 31, 68, 0.7);
+    transition: all var(--transition-speed);
+    overflow: hidden;
+    font-size: 8rem;
+}
+
+.logo-circle img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+.logo-circle:hover {
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 20px 80px rgba(10, 31, 68, 0.9);
+    border-color: var(--accent-blue);
+}
+
+.company-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #FFFFFF, #0A1F44);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 4px;
+}
+
+.company-tagline {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+    .logo-circle {
+        width: 180px;
+        height: 180px;
+        font-size: 5rem;
+    }
+
+    .company-name {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+
+    .company-tagline {
+        font-size: 1.1rem;
+    }
+}
+
         
     </style>
 </head>
@@ -776,6 +847,16 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <!-- Company Logo Center Section -->
+<section class="company-logo-center">
+    <div class="logo-circle">
+        <img src="ctbase.png" alt="Continent Base Logo">
+        
+    </div>
+    <h2 class="company-name">CONTINENT BASE</h2>
+   
+</section>
+
         <div class="hero-content">
             <h1>We Create the Base for Your Startup Ideas</h1>
             <p>And Scale Them Online</p>
@@ -830,18 +911,18 @@
                         <p>Follow us on Instagram</p>
                     </div>
                 </a>
-                <a href="https://wa.me/919876543210?text=Hi, I want to know more about your services" target="_blank" class="contact-method">
+                <a href="https://wa.me/919307426215?text=Hi, I want to know more about your services" target="_blank" class="contact-method">
                     <div class="contact-icon">💬</div>
                     <div class="contact-info">
                         <h4>WhatsApp</h4>
                         <p>Chat with us directly</p>
                     </div>
                 </a>
-                <a href="tel:+919876543210" class="contact-method">
+                <a href="tel:+919307426215" class="contact-method">
                     <div class="contact-icon">📞</div>
                     <div class="contact-info">
                         <h4>Call Us</h4>
-                        <p>+91 98765 43210</p>
+                        <p>+91 9307426215</p>
                     </div>
                 </a>
                 <a href="https://www.linkedin.com/company/continentbase" target="_blank" class="contact-method">
@@ -985,7 +1066,7 @@
             const message = document.getElementById('message').value;
             
             const whatsappMessage = `Hi, I am ${name}. I am interested in ${service}. ${message}`;
-            const whatsappURL = `https://wa.me/919876543210?text=${encodeURIComponent(whatsappMessage)}`;
+            const whatsappURL = `https://wa.me/919307426215?text=${encodeURIComponent(whatsappMessage)}`;
             
             window.open(whatsappURL, '_blank');
         });
@@ -1069,4 +1150,3 @@
     </script>
 </body>
 </html>
-
