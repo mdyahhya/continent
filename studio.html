@@ -51,6 +51,26 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px rgba(10, 31, 68, 0.8));
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .logo-text {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
             font-weight: 900;
@@ -60,7 +80,7 @@
             background: linear-gradient(135deg, #FFFFFF, #0A1F44);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            cursor: pointer;
+            background-clip: text;
         }
 
         .nav-links {
@@ -89,6 +109,10 @@
             height: 2px;
             background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-light));
             transition: width var(--transition-speed);
+        }
+
+        .nav-links li a:hover {
+            color: var(--accent-blue-light);
         }
 
         .nav-links li a:hover::after {
@@ -142,6 +166,7 @@
             background: linear-gradient(135deg, #FFFFFF 0%, #0A1F44 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             animation: glow 3s ease-in-out infinite;
         }
 
@@ -206,10 +231,20 @@
             height: 100%;
             object-fit: cover;
             transition: all var(--transition-speed);
+            display: block;
         }
 
         .project-card:hover .project-thumbnail img {
             transform: scale(1.1);
+        }
+
+        .project-emoji {
+            font-size: 4rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
         }
 
         .project-overlay {
@@ -225,6 +260,7 @@
             opacity: 0;
             transition: all var(--transition-speed);
             padding: 2rem;
+            z-index: 2;
         }
 
         .project-card:hover .project-overlay {
@@ -235,6 +271,7 @@
             font-size: 1.1rem;
             text-align: center;
             line-height: 1.6;
+            color: var(--primary-text);
         }
 
         .project-info {
@@ -288,6 +325,7 @@
                 align-items: center;
                 gap: 3rem;
                 transition: right var(--transition-speed);
+                backdrop-filter: blur(20px);
             }
 
             .nav-links.active {
@@ -298,7 +336,12 @@
                 display: flex;
             }
 
-            .logo {
+            .logo-image {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo-text {
                 font-size: 1.4rem;
             }
 
@@ -318,23 +361,26 @@
             .project-thumbnail {
                 height: 250px;
             }
+
+            .project-emoji {
+                font-size: 3rem;
+            }
         }
-        
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
-       <nav id="navbar">
-       <div class="logo" onclick="window.location.href='index.html'">
-    <img src="ctbase.png" alt="Continent Base Logo" class="logo-image">
-    <span class="logo-text">CONTINENT BASE</span>
+        <div class="logo" onclick="window.location.href='index.html'">
+            <img src="ctbase.png" alt="Continent Base Logo" class="logo-image">
+            <span class="logo-text">CONTINENT BASE</span>
+        </div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
-            <li><a href="startups.html">For Startups</a></li>
             <li><a href="studio.html">Continent Studio</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="hosting.html">Domain Hosting</a></li>
+            <li><a href="startups.html">For Startups</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="founder.html">Founder</a></li>
         </ul>
@@ -354,24 +400,28 @@
     <!-- Projects Section -->
     <section class="projects-section">
         <div class="projects-grid">
+            <!-- Project 1 - Galaxy Explorer -->
             <div class="project-card" onclick="window.location.href='studio/blackhole.html'">
-    <div class="project-thumbnail">
-        <!-- <img src="galaxy-project.jpg" alt="Galaxy Explorer" class="project-image"> -->
-        <img src="galaxy-project.gif" alt="Galaxy Explorer" class="project-gif">
-        <div class="project-overlay">
-            
-        </div>
-    </div>
-    <div class="project-info">
-        <h3>Galaxy Explorer</h3>
-        <p>Immersive Blackhole exploration experience with stunning 3D graphics and interactive elements.</p>
-    </div>
-</div>
+                <div class="project-thumbnail">
+                    <!-- <img src="galaxy-project.jpg" alt="Galaxy Explorer" class="project-media"> -->
+                    <img src="studio/blackhole.gif" alt="Galaxy Explorer" class="project-media project-gif">
+                    <span class="project-emoji"></span>
+                    <div class="project-overlay">
+                        </div>
+                </div>
+                <div class="project-info">
+                    <h3>BlackHole 3D</h3>
+                    <p>One of the most advanced and futuristic Design that we have, 3D black hole simulations made purely with HTML, CSS, and JS.<br>
+You can zoom out and move around to explore the mesmerizing depths of this pure CSS creation.</p>
+                </div>
+            </div>
 
-
+            <!-- Project 2 - E-Commerce -->
             <div class="project-card" onclick="window.location.href='ecommerce.html'">
                 <div class="project-thumbnail">
-                    🛍️
+                    <!-- <img src="ecommerce-project.jpg" alt="E-Commerce Platform" class="project-media"> -->
+                    <img src="ecommerce-project.gif" alt="E-Commerce Platform" class="project-media project-gif">
+                    <span class="project-emoji">🛍️</span>
                     <div class="project-overlay">
                         <p>Modern e-commerce platform with seamless checkout and inventory management.</p>
                     </div>
@@ -382,9 +432,12 @@
                 </div>
             </div>
 
+            <!-- Project 3 - Healthcare -->
             <div class="project-card" onclick="window.location.href='healthcare.html'">
                 <div class="project-thumbnail">
-                    🏥
+                    <!-- <img src="healthcare-project.jpg" alt="Healthcare Portal" class="project-media"> -->
+                    <img src="healthcare-project.gif" alt="Healthcare Portal" class="project-media project-gif">
+                    <span class="project-emoji">🏥</span>
                     <div class="project-overlay">
                         <p>Comprehensive healthcare management system for hospitals and clinics.</p>
                     </div>
@@ -395,9 +448,12 @@
                 </div>
             </div>
 
+            <!-- Project 4 - FinTech -->
             <div class="project-card" onclick="window.location.href='fintech.html'">
                 <div class="project-thumbnail">
-                    💰
+                    <!-- <img src="fintech-project.jpg" alt="FinTech Dashboard" class="project-media"> -->
+                    <img src="fintech-project.gif" alt="FinTech Dashboard" class="project-media project-gif">
+                    <span class="project-emoji">💰</span>
                     <div class="project-overlay">
                         <p>Secure financial technology platform with real-time analytics.</p>
                     </div>
@@ -408,9 +464,12 @@
                 </div>
             </div>
 
+            <!-- Project 5 - Education -->
             <div class="project-card" onclick="window.location.href='education.html'">
                 <div class="project-thumbnail">
-                    📚
+                    <!-- <img src="education-project.jpg" alt="Education Platform" class="project-media"> -->
+                    <img src="education-project.gif" alt="Education Platform" class="project-media project-gif">
+                    <span class="project-emoji">📚</span>
                     <div class="project-overlay">
                         <p>Interactive learning platform with live classes and assessments.</p>
                     </div>
@@ -421,9 +480,12 @@
                 </div>
             </div>
 
+            <!-- Project 6 - Social Network -->
             <div class="project-card" onclick="window.location.href='social.html'">
                 <div class="project-thumbnail">
-                    👥
+                    <!-- <img src="social-project.jpg" alt="Social Network" class="project-media"> -->
+                    <img src="social-project.gif" alt="Social Network" class="project-media project-gif">
+                    <span class="project-emoji">👥</span>
                     <div class="project-overlay">
                         <p>Next-generation social networking platform with real-time connections.</p>
                     </div>
@@ -434,9 +496,12 @@
                 </div>
             </div>
 
+            <!-- Project 7 - Travel -->
             <div class="project-card" onclick="window.location.href='travel.html'">
                 <div class="project-thumbnail">
-                    ✈️
+                    <!-- <img src="travel-project.jpg" alt="Travel Booking App" class="project-media"> -->
+                    <img src="travel-project.gif" alt="Travel Booking App" class="project-media project-gif">
+                    <span class="project-emoji">✈️</span>
                     <div class="project-overlay">
                         <p>Complete travel booking system with itinerary planning.</p>
                     </div>
@@ -447,9 +512,12 @@
                 </div>
             </div>
 
+            <!-- Project 8 - Fitness -->
             <div class="project-card" onclick="window.location.href='fitness.html'">
                 <div class="project-thumbnail">
-                    💪
+                    <!-- <img src="fitness-project.jpg" alt="Fitness Tracker" class="project-media"> -->
+                    <img src="fitness-project.gif" alt="Fitness Tracker" class="project-media project-gif">
+                    <span class="project-emoji">💪</span>
                     <div class="project-overlay">
                         <p>Personalized fitness tracking and workout planning application.</p>
                     </div>
@@ -460,9 +528,12 @@
                 </div>
             </div>
 
+            <!-- Project 9 - Real Estate -->
             <div class="project-card" onclick="window.location.href='realestate.html'">
                 <div class="project-thumbnail">
-                    🏠
+                    <!-- <img src="realestate-project.jpg" alt="Real Estate Portal" class="project-media"> -->
+                    <img src="realestate-project.gif" alt="Real Estate Portal" class="project-media project-gif">
+                    <span class="project-emoji">🏠</span>
                     <div class="project-overlay">
                         <p>Property listing and management platform with virtual tours.</p>
                     </div>
@@ -494,6 +565,69 @@
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
+            });
+        });
+
+        // GIF Restart Functionality
+        function restartGif(gifElement) {
+            if (gifElement && gifElement.src && gifElement.src.includes('.gif')) {
+                const originalSrc = gifElement.src;
+                gifElement.src = '';
+                // Small delay to ensure browser recognizes the change
+                setTimeout(() => {
+                    gifElement.src = originalSrc;
+                }, 10);
+            }
+        }
+
+        // Restart all GIFs on page load
+        window.addEventListener('load', () => {
+            const allGifs = document.querySelectorAll('.project-gif');
+            allGifs.forEach(gif => {
+                restartGif(gif);
+            });
+        });
+
+        // Intersection Observer for GIF restart on scroll into view
+        const observerOptions = {
+            root: null,
+            threshold: 0.3,
+            rootMargin: '0px'
+        };
+
+        const gifObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const gif = entry.target.querySelector('.project-gif');
+                    if (gif) {
+                        restartGif(gif);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all project cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                gifObserver.observe(card);
+            });
+        });
+
+        // Hide emoji when image/gif loads successfully
+        document.querySelectorAll('.project-media').forEach(media => {
+            media.addEventListener('load', function() {
+                const emoji = this.parentElement.querySelector('.project-emoji');
+                if (emoji) {
+                    emoji.style.display = 'none';
+                }
+            });
+
+            media.addEventListener('error', function() {
+                const emoji = this.parentElement.querySelector('.project-emoji');
+                if (emoji) {
+                    emoji.style.display = 'block';
+                }
             });
         });
     </script>
