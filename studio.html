@@ -319,12 +319,29 @@
                 height: 250px;
             }
         }
+
+        .project-image,
+.project-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all var(--transition-speed);
+}
+
+.project-card:hover .project-image,
+.project-card:hover .project-gif {
+    transform: scale(1.1);
+}
+
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo" onclick="window.location.href='index.html'">CONTINENT BASE</div>
+       <nav id="navbar">
+       <div class="logo" onclick="window.location.href='index.html'">
+    <img src="ctbase.png" alt="Continent Base Logo" class="logo-image">
+    <span class="logo-text">CONTINENT BASE</span>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="startups.html">For Startups</a></li>
@@ -350,18 +367,20 @@
     <!-- Projects Section -->
     <section class="projects-section">
         <div class="projects-grid">
-            <div class="project-card" onclick="window.location.href='galaxy.html'">
-                <div class="project-thumbnail">
-                    🌌
-                    <div class="project-overlay">
-                        <p>Immersive galaxy exploration experience with stunning 3D graphics and interactive elements.</p>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h3>Galaxy Explorer</h3>
-                    <p>An interactive space exploration platform with real-time rendering.</p>
-                </div>
-            </div>
+            <div class="project-card" onclick="window.location.href='studio/blackhole.html'">
+    <div class="project-thumbnail">
+        <!-- <img src="galaxy-project.jpg" alt="Galaxy Explorer" class="project-image"> -->
+        <img src="galaxy-project.gif" alt="Galaxy Explorer" class="project-gif">
+        <div class="project-overlay">
+            
+        </div>
+    </div>
+    <div class="project-info">
+        <h3>Galaxy Explorer</h3>
+        <p>Immersive Blackhole exploration experience with stunning 3D graphics and interactive elements.</p>
+    </div>
+</div>
+
 
             <div class="project-card" onclick="window.location.href='ecommerce.html'">
                 <div class="project-thumbnail">
@@ -475,6 +494,48 @@
     </footer>
 
     <script>
+
+        // GIF Restart on Scroll - Intersection Observer
+const observerOptions = {
+    root: null,
+    threshold: 0.3, // Trigger when 30% of the element is visible
+    rootMargin: '0px'
+};
+
+const gifObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // When project card comes into view, restart the GIF
+            const gif = entry.target.querySelector('.project-gif');
+            if (gif) {
+                const src = gif.src;
+                gif.src = '';
+                gif.src = src; // Reassign to restart the GIF
+            }
+        }
+    });
+}, observerOptions);
+
+// Observe all project cards with GIFs
+document.addEventListener('DOMContentLoaded', () => {
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        if (card.querySelector('.project-gif')) {
+            gifObserver.observe(card);
+        }
+    });
+});
+
+// Also restart GIFs on page load
+window.addEventListener('load', () => {
+    const allGifs = document.querySelectorAll('.project-gif');
+    allGifs.forEach(gif => {
+        const src = gif.src;
+        gif.src = '';
+        gif.src = src;
+    });
+});
+
         // Hamburger Menu Toggle
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
@@ -493,4 +554,3 @@
     </script>
 </body>
 </html>
-
