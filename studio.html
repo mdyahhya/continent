@@ -319,20 +319,7 @@
                 height: 250px;
             }
         }
-
-        .project-image,
-.project-gif {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all var(--transition-speed);
-}
-
-.project-card:hover .project-image,
-.project-card:hover .project-gif {
-    transform: scale(1.1);
-}
-
+        
     </style>
 </head>
 <body>
@@ -494,48 +481,6 @@
     </footer>
 
     <script>
-
-        // GIF Restart on Scroll - Intersection Observer
-const observerOptions = {
-    root: null,
-    threshold: 0.3, // Trigger when 30% of the element is visible
-    rootMargin: '0px'
-};
-
-const gifObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // When project card comes into view, restart the GIF
-            const gif = entry.target.querySelector('.project-gif');
-            if (gif) {
-                const src = gif.src;
-                gif.src = '';
-                gif.src = src; // Reassign to restart the GIF
-            }
-        }
-    });
-}, observerOptions);
-
-// Observe all project cards with GIFs
-document.addEventListener('DOMContentLoaded', () => {
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        if (card.querySelector('.project-gif')) {
-            gifObserver.observe(card);
-        }
-    });
-});
-
-// Also restart GIFs on page load
-window.addEventListener('load', () => {
-    const allGifs = document.querySelectorAll('.project-gif');
-    allGifs.forEach(gif => {
-        const src = gif.src;
-        gif.src = '';
-        gif.src = src;
-    });
-});
-
         // Hamburger Menu Toggle
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
