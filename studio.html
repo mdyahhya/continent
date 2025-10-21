@@ -208,11 +208,11 @@
             position: relative;
         }
 
-        .project-card:hover {
+        /* .project-card:hover {
             transform: translateY(-15px) scale(1.03);
             box-shadow: 0 20px 60px rgba(10, 31, 68, 0.6);
             border-color: var(--accent-blue-light);
-        }
+        } */
 
         .project-thumbnail {
             width: 100%;
@@ -238,10 +238,10 @@
         .project-thumbnail img.loaded {
             opacity: 1;
         }
-
+/* 
         .project-card:hover .project-thumbnail img {
             transform: scale(1.1);
-        }
+        } */
 
         .project-emoji {
             font-size: 4rem;
@@ -268,10 +268,10 @@
             padding: 2rem;
             z-index: 2;
         }
-
+/* 
         .project-card:hover .project-overlay {
             opacity: 1;
-        }
+        } */
 
         .project-overlay p {
             font-size: 1.1rem;
@@ -429,8 +429,8 @@
             <div class="project-card" onclick="window.location.href='studio/blackhole.html'">
                 <div class="project-thumbnail">
                     <div class="loading-spinner"></div>
-                    <img src="" data-supabase-url="https://nsnacwwcrszpjmanskti.supabase.co/storage/v1/object/public/Continent%20studio/blackhole.gif" alt="Galaxy Explorer" class="project-media project-gif">
-                    <span class="project-emoji">Blackhole 3D</span>
+                    <img data-supabase-url="https://nsnacwwcrszpjmanskti.supabase.co/storage/v1/object/public/Continent%20studio/blackhole.gif" alt="Galaxy Explorer" class="project-media project-gif">
+                    
                     <div class="project-overlay">
                         </div>
                 </div>
@@ -444,7 +444,7 @@ You can zoom out and move around to explore the mesmerizing depths of this pure 
             <!-- Project 2 - E-Commerce -->
             <div class="project-card" onclick="window.location.href='ecommerce.html'">
                 <div class="project-thumbnail">
-                    <div class="loading-spinner"></div>
+                    <!-- <div class="loading-spinner"></div> -->
                     <img src="" data-supabase-url="https://your-project.supabase.co/storage/v1/object/public/projects/ecommerce.gif" alt="E-Commerce Platform" class="project-media project-gif">
                     <span class="project-emoji">🛍️</span>
                     <div class="project-overlay">
@@ -578,303 +578,113 @@ You can zoom out and move around to explore the mesmerizing depths of this pure 
 
     <script>
         // Supabase Configuration (Optional - only needed for private buckets)
-const SUPABASE_URL = 'https://your-project.supabase.co'; 
-const SUPABASE_ANON_KEY = 'your-anon-key-here';
+        const SUPABASE_URL = 'https://your-project.supabase.co'; 
+        const SUPABASE_ANON_KEY = 'your-anon-key-here';
 
-// Hamburger Menu Toggle
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
-});
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
 
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-    });
-});
-
-// Preload all images/GIFs before displaying
-async function preloadSupabaseMedia() {
-    const mediaElements = document.querySelectorAll('.project-media');
-    const preloadPromises = [];
-    
-    mediaElements.forEach((media) => {
-        const supabaseUrl = media.getAttribute('data-supabase-url');
-        
-        if (supabaseUrl) {
-            // Create a promise for each image preload
-            const preloadPromise = new Promise((resolve, reject) => {
-                const img = new Image();
-                
-                img.onload = () => {
-                    resolve({ media, url: supabaseUrl, success: true });
-                };
-                
-                img.onerror = () => {
-                    resolve({ media, url: supabaseUrl, success: false });
-                };
-                
-                // Start preloading
-                img.src = supabaseUrl;
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
             });
-            
-            preloadPromises.push(preloadPromise);
-        }
-    });
-    
-    // Wait for all images to preload
-    const results = await Promise.all(preloadPromises);
-    
-    // Now display the preloaded images
-    results.forEach(result => {
-        const { media, url, success } = result;
-        const emoji = media.parentElement.querySelector('.project-emoji');
-        const spinner = media.parentElement.querySelector('.loading-spinner');
-        
-        if (success) {
-            // Set the preloaded image
-            media.src = url;
-            media.classList.add('loaded');
-            
-            // Hide emoji and spinner
-            if (emoji) emoji.style.opacity = '0';
-            if (spinner) spinner.style.display = 'none';
-            
-            // Restart GIF if applicable
-            if (media.classList.contains('project-gif')) {
-                setTimeout(() => restartGif(media), 100);
-            }
-        } else {
-            // Show fallback emoji on error
-            console.error('Failed to preload media:', url);
-            media.style.display = 'none';
-            if (emoji) {
-                emoji.style.opacity = '1';
-                emoji.style.display = 'block';
-            }
-            if (spinner) spinner.style.display = 'none';
-        }
-    });
-}
+        });
 
-// Alternative: Preload with progress tracking
-async function preloadSupabaseMediaWithProgress() {
-    const mediaElements = document.querySelectorAll('.project-media');
-    let loadedCount = 0;
-    const totalCount = mediaElements.length;
-    
-    console.log(`Preloading ${totalCount} media files...`);
-    
-    const preloadPromises = Array.from(mediaElements).map((media, index) => {
-        const supabaseUrl = media.getAttribute('data-supabase-url');
-        
-        if (supabaseUrl) {
-            return new Promise((resolve) => {
-                const img = new Image();
+        // Function to load images/gifs from Supabase
+        async function loadSupabaseMedia() {
+            const mediaElements = document.querySelectorAll('.project-media');
+            
+            mediaElements.forEach(async (media) => {
+                const supabaseUrl = media.getAttribute('data-supabase-url');
+                const emoji = media.parentElement.querySelector('.project-emoji');
+                const spinner = media.parentElement.querySelector('.loading-spinner');
                 
-                img.onload = () => {
-                    loadedCount++;
-                    console.log(`Loaded ${loadedCount}/${totalCount}: ${supabaseUrl}`);
-                    resolve({ media, url: supabaseUrl, success: true });
-                };
-                
-                img.onerror = () => {
-                    loadedCount++;
-                    console.error(`Failed ${loadedCount}/${totalCount}: ${supabaseUrl}`);
-                    resolve({ media, url: supabaseUrl, success: false });
-                };
-                
-                img.src = supabaseUrl;
+                if (supabaseUrl) {
+                    try {
+                        // Show spinner
+                        if (spinner) spinner.style.display = 'block';
+                        
+                        // Set the image source directly
+                        media.src = supabaseUrl;
+                        
+                        // Handle successful load
+                        media.onload = function() {
+                            media.classList.add('loaded');
+                            if (emoji) emoji.style.opacity = '0';
+                            if (spinner) spinner.style.display = 'none';
+                            
+                            // If it's a GIF, restart it
+                            if (media.classList.contains('project-gif')) {
+                                setTimeout(() => restartGif(media), 100);
+                            }
+                        };
+                        
+                        // Handle error
+                        media.onerror = function() {
+                            console.error('Failed to load media:', supabaseUrl);
+                            media.style.display = 'none';
+                            if (emoji) {
+                                emoji.style.opacity = '1';
+                                emoji.style.display = 'block';
+                            }
+                            if (spinner) spinner.style.display = 'none';
+                        };
+                        
+                    } catch (error) {
+                        console.error('Error loading Supabase media:', error);
+                        if (emoji) emoji.style.display = 'block';
+                        if (spinner) spinner.style.display = 'none';
+                    }
+                }
             });
         }
-        
-        return Promise.resolve({ media, url: null, success: false });
-    });
-    
-    const results = await Promise.all(preloadPromises);
-    
-    // Display all preloaded images at once
-    results.forEach(result => {
-        const { media, url, success } = result;
-        const emoji = media.parentElement.querySelector('.project-emoji');
-        const spinner = media.parentElement.querySelector('.loading-spinner');
-        
-        if (success && url) {
-            media.src = url;
-            media.classList.add('loaded');
-            
-            if (emoji) emoji.style.opacity = '0';
-            if (spinner) spinner.style.display = 'none';
-            
-            if (media.classList.contains('project-gif')) {
-                setTimeout(() => restartGif(media), 100);
-            }
-        } else {
-            media.style.display = 'none';
-            if (emoji) {
-                emoji.style.opacity = '1';
-                emoji.style.display = 'block';
-            }
-            if (spinner) spinner.style.display = 'none';
-        }
-    });
-    
-    console.log('All media preloaded!');
-}
 
-// GIF Restart Functionality with Cache Busting
-function restartGif(gifElement) {
-    if (gifElement && gifElement.src && gifElement.src.includes('.gif')) {
-        const originalSrc = gifElement.src.split('?')[0];
-        const cacheBuster = '?t=' + new Date().getTime();
-        gifElement.src = originalSrc + cacheBuster;
-    }
-}
-
-// Simple GIF Restart without Cache Busting (faster)
-function simpleRestartGif(gifElement) {
-    if (gifElement && gifElement.src && gifElement.src.includes('.gif')) {
-        const src = gifElement.src;
-        gifElement.src = '';
-        setTimeout(() => {
-            gifElement.src = src;
-        }, 10);
-    }
-}
-
-// Initialize preloading on page load
-window.addEventListener('load', () => {
-    // Use either function - second one has progress tracking
-    preloadSupabaseMediaWithProgress();
-    // OR use: preloadSupabaseMedia();
-});
-
-// Intersection Observer for GIF restart on scroll into view
-const observerOptions = {
-    root: null,
-    threshold: 0.3,
-    rootMargin: '0px'
-};
-
-const gifObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const gif = entry.target.querySelector('.project-gif');
-            if (gif && gif.src && gif.classList.contains('loaded')) {
-                simpleRestartGif(gif);
+        // GIF Restart Functionality
+        function restartGif(gifElement) {
+            if (gifElement && gifElement.src && gifElement.src.includes('.gif')) {
+                const originalSrc = gifElement.src;
+                const cacheBuster = '?t=' + new Date().getTime();
+                gifElement.src = originalSrc.split('?')[0] + cacheBuster;
             }
         }
-    });
-}, observerOptions);
 
-// Observe all project cards
-document.addEventListener('DOMContentLoaded', () => {
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        gifObserver.observe(card);
-    });
-});
+        // Load all Supabase media on page load
+        window.addEventListener('load', () => {
+            loadSupabaseMedia();
+        });
 
-// Optional: Add a global preload status indicator
-function showPreloadStatus() {
-    const statusDiv = document.createElement('div');
-    statusDiv.id = 'preload-status';
-    statusDiv.style.cssText = `
-        position: fixed;
-        top: 80px;
-        right: 20px;
-        background: rgba(10, 31, 68, 0.9);
-        color: white;
-        padding: 15px 25px;
-        border-radius: 10px;
-        z-index: 9999;
-        font-family: 'Orbitron', sans-serif;
-        font-size: 14px;
-        display: none;
-    `;
-    document.body.appendChild(statusDiv);
-    return statusDiv;
-}
+        // Intersection Observer for GIF restart on scroll into view
+        const observerOptions = {
+            root: null,
+            threshold: 0.3,
+            rootMargin: '0px'
+        };
 
-// Enhanced preload with status display
-async function preloadWithStatusDisplay() {
-    const statusDiv = showPreloadStatus();
-    statusDiv.style.display = 'block';
-    statusDiv.textContent = 'Loading media...';
-    
-    const mediaElements = document.querySelectorAll('.project-media');
-    let loadedCount = 0;
-    const totalCount = mediaElements.length;
-    
-    const preloadPromises = Array.from(mediaElements).map((media) => {
-        const supabaseUrl = media.getAttribute('data-supabase-url');
-        
-        if (supabaseUrl) {
-            return new Promise((resolve) => {
-                const img = new Image();
-                
-                img.onload = () => {
-                    loadedCount++;
-                    statusDiv.textContent = `Loading ${loadedCount}/${totalCount}...`;
-                    resolve({ media, url: supabaseUrl, success: true });
-                };
-                
-                img.onerror = () => {
-                    loadedCount++;
-                    statusDiv.textContent = `Loading ${loadedCount}/${totalCount}...`;
-                    resolve({ media, url: supabaseUrl, success: false });
-                };
-                
-                img.src = supabaseUrl;
+        const gifObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const gif = entry.target.querySelector('.project-gif');
+                    if (gif && gif.src && gif.classList.contains('loaded')) {
+                        restartGif(gif);
+                    }
+                }
             });
-        }
-        
-        return Promise.resolve({ media, url: null, success: false });
-    });
-    
-    const results = await Promise.all(preloadPromises);
-    
-    // Display all preloaded images
-    results.forEach(result => {
-        const { media, url, success } = result;
-        const emoji = media.parentElement.querySelector('.project-emoji');
-        const spinner = media.parentElement.querySelector('.loading-spinner');
-        
-        if (success && url) {
-            media.src = url;
-            media.classList.add('loaded');
-            
-            if (emoji) emoji.style.opacity = '0';
-            if (spinner) spinner.style.display = 'none';
-            
-            if (media.classList.contains('project-gif')) {
-                setTimeout(() => simpleRestartGif(media), 100);
-            }
-        } else {
-            media.style.display = 'none';
-            if (emoji) {
-                emoji.style.opacity = '1';
-                emoji.style.display = 'block';
-            }
-            if (spinner) spinner.style.display = 'none';
-        }
-    });
-    
-    // Hide status after completion
-    statusDiv.textContent = 'All media loaded!';
-    setTimeout(() => {
-        statusDiv.style.display = 'none';
-    }, 2000);
-}
+        }, observerOptions);
 
-// Uncomment this to use the version with status display
-// window.addEventListener('load', () => {
-//     preloadWithStatusDisplay();
-// });
+        // Observe all project cards after media loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                gifObserver.observe(card);
+            });
+        });
     </script>
 </body>
 </html>
