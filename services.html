@@ -323,15 +323,43 @@
                 height: 250px;
             }
         }
+        .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.logo-image {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #FFFFFF, #0A1F44);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
     </style>
 </head>
 <body>
-    <nav>
+    
        <nav id="navbar">
        <div class="logo" onclick="window.location.href='index.html'">
     <img src="ctbase.png" alt="Continent Base Logo" class="logo-image">
     <span class="logo-text">Dominal Group</span>
-        <ul class="nav-links" id="navLinks">
+</div>
+<ul class="nav-links" id="navLinks">
+
             <li><a href="index.html">Home</a></li>
             <li><a href="startups.html">For Startups</a></li>
             <li><a href="studio.html">Dominal Studio</a></li>
