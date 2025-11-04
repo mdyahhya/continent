@@ -837,13 +837,13 @@
     <nav id="navbar">
        <div class="logo" onclick="window.location.href='index.html'">
     <img src="ctbase.png" alt="Continent Base Logo" class="logo-image">
-    <span class="logo-text">CONTINENT BASE</span>
+    <span class="logo-text">Dominal Group</span>
 </div>
 
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="startups.html">For Startups</a></li>
-            <li><a href="studio.html">Continent Studio</a></li>
+            <li><a href="studio.html">Dominal Studio</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="hosting.html">Domain Hosting</a></li>
             <li><a href="about.html">About Us</a></li>
@@ -872,7 +872,7 @@
             <h1>We Create the Base for Your Startup Ideas</h1>
             <p>And Scale Them Online</p>
             <div class="hero-description">
-                Continent Base helps startups implement any complex idea into websites, applications, and online technologies. Our services include mobile/web development, PWA, AI integration, AI chatbots, and more. We help grow businesses and startups from scratch, providing cutting-edge solutions for the digital age.
+                Platinal helps startups implement any complex idea into websites, applications, and online technologies. Our services include mobile/web development, PWA, AI integration, AI chatbots, and more. We help grow businesses and startups from scratch, providing cutting-edge solutions for the digital age.
             </div>
             <a href="#services" class="cta-button">Explore Our Services</a>
         </div>
@@ -915,7 +915,7 @@
         <h2 class="section-title">Get In Touch</h2>
         <div class="contact-container">
             <div class="contact-methods fade-in">
-                <a href="https://www.instagram.com/continentbase" target="_blank" class="contact-method">
+                <a href="https://www.instagram.com/dominal.in" target="_blank" class="contact-method">
                     <div class="contact-icon">📷</div>
                     <div class="contact-info">
                         <h4>Instagram</h4>
@@ -977,13 +977,13 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Continent Base Pvt Ltd. All Rights Reserved. | Innovating the Future</p>
+        <p>&copy; 2025 Platinal Pvt Ltd. All Rights Reserved. | Innovating the Future</p>
     </footer>
 
     <!-- PWA Install Prompt -->
     <div class="pwa-install-prompt" id="pwaPrompt">
         <div class="pwa-prompt-content">
-            <div class="pwa-prompt-text">Install Continent Base App for Quick Access!</div>
+            <div class="pwa-prompt-text">Install Dominal App for Quick Access!</div>
             <div class="pwa-prompt-buttons">
                 <button class="pwa-btn pwa-btn-install" id="installBtn">Install</button>
                 <button class="pwa-btn pwa-btn-later" id="laterBtn">Later</button>
@@ -1136,7 +1136,7 @@
             localStorage.removeItem('pwaPromptDismissCount');
         });
 
-        // Later button click
+        
         laterBtn.addEventListener('click', () => {
             pwaPrompt.classList.remove('show');
             localStorage.setItem('pwaPromptDismissed', Date.now().toString());
@@ -1145,7 +1145,7 @@
             localStorage.setItem('pwaPromptDismissCount', (currentCount + 1).toString());
         });
 
-        // Check for installed PWA
+        
         window.addEventListener('appinstalled', () => {
             console.log('PWA was installed');
             localStorage.removeItem('pwaPromptDismissed');
