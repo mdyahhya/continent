@@ -398,11 +398,11 @@
     <nav>
         <div class="logo" onclick="window.location.href='index.html'">
             <img src="ctbase.png" alt="Continent Base Logo" class="logo-image">
-            <span class="logo-text">CONTINENT BASE</span>
+            <span class="logo-text">Dominal Group</span>
         </div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
-            <li><a href="studio.html">Continent Studio</a></li>
+            <li><a href="studio.html">Dominal Studio</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="hosting.html">Domain Hosting</a></li>
             <li><a href="startups.html">For Startups</a></li>
@@ -458,18 +458,15 @@ You can zoom out and move around to explore the mesmerizing depths of this pure 
             </div>
 
             <!-- Project 4 - FinTech -->
-            <div class="project-card" onclick="window.location.href='fintech.html'">
+            <div class="project-card" onclick="window.location.href='studio/parallax.html'">
                 <div class="project-thumbnail">
                     <div class="loading-spinner"></div>
                     <img src="" data-supabase-url="https://your-project.supabase.co/storage/v1/object/public/projects/fintech.gif" alt="FinTech Dashboard" class="project-media project-gif">
-                    <span class="project-emoji">💰</span>
-                    <div class="project-overlay">
-                        <p>Secure financial technology platform with real-time analytics.</p>
-                    </div>
+                    
                 </div>
                 <div class="project-info">
-                    <h3>FinTech Dashboard</h3>
-                    <p>Advanced financial tracking and investment management.</p>
+                    <h3>Parallax Scroll Website</h3>
+                    <p>Amazing Parallax Animation made with Pure HTML,CSS, JS</p>
                 </div>
             </div>
 
@@ -557,7 +554,7 @@ You can zoom out and move around to explore the mesmerizing depths of this pure 
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Continent Base Pvt Ltd. All Rights Reserved.</p>
+        <p>&copy; 2025 Dominal Group Pvt Ltd. All Rights Reserved.</p>
     </footer>
 
     <script>
@@ -639,12 +636,12 @@ You can zoom out and move around to explore the mesmerizing depths of this pure 
             }
         }
 
-        // Load all Supabase media on page load
+        
         window.addEventListener('load', () => {
             loadSupabaseMedia();
         });
 
-        // Intersection Observer for GIF restart on scroll into view
+        
         const observerOptions = {
             root: null,
             threshold: 0.3,
@@ -662,7 +659,7 @@ You can zoom out and move around to explore the mesmerizing depths of this pure 
             });
         }, observerOptions);
 
-        // Observe all project cards after media loads
+        
         document.addEventListener('DOMContentLoaded', () => {
             const projectCards = document.querySelectorAll('.project-card');
             projectCards.forEach(card => {
