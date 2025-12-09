@@ -1157,43 +1157,49 @@
         <div class="hero-content">
             <h1>We Create the Base for Your Startup Ideas</h1>
             <p>And Scale Them Online</p>
-            <div class="hero-chat-wrapper">
-  <div class="hero-chat-card" id="heroChatTrigger" role="button" tabindex="0" aria-label="Open Dominal AI Assistant chat">
-    <div class="hero-chat-avatar" aria-hidden="true">
-      <!-- Robot / Assistant SVG -->
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-        <rect x="3" y="7" width="18" height="12" rx="3" fill="currentColor" opacity="0.12"></rect>
-        <path d="M7 10.5A1 1 0 1 0 7 8.5a1 1 0 0 0 0 2z" fill="white"></path>
-        <path d="M17 10.5A1 1 0 1 0 17 8.5a1 1 0 0 0 0 2z" fill="white"></path>
-        <path d="M8 14.5c.8.6 2.4 1 4 1s3.2-.4 4-1" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
-        <rect x="8.25" y="3.75" width="7.5" height="3.5" rx="1.25" fill="currentColor"></rect>
-      </svg>
-    </div>
+           <!-- Hero Chatbot Launcher (HTML Only with mic before send) -->
+<div class="hero-chat-wrapper">
+  <div class="hero-chat-card" id="heroChatTrigger">
 
-    <div class="hero-chat-input" aria-hidden="true">
+    <div class="hero-chat-input">
       <span id="heroChatTyping">Click to chat with Dominal AI Assistant</span>
-      <span class="hero-chat-caret" aria-hidden="true"></span>
+      <span class="hero-chat-caret"></span>
     </div>
 
-    <button class="hero-chat-send" aria-label="Send message" title="Send">
-      <!-- Paper plane / send SVG -->
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-        <path d="M3 11.5L21 3l-7.5 18L11 13l-8-1.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" fill="none"></path>
+    <!-- Mic Icon FIRST -->
+    <button class="hero-chat-mic" aria-label="Voice">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"/>
+        <path d="M19 11a7 7 0 0 1-14 0"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"/>
+        <path d="M12 19v3"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"/>
       </svg>
     </button>
 
-    <button class="hero-chat-mic" aria-label="Start voice chat" title="Voice">
-      <!-- Microphone SVG -->
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-        <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
-        <path d="M19 11a7 7 0 0 1-14 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
-        <path d="M12 19v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+    <!-- Send Icon SECOND -->
+    <button class="hero-chat-send" aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M3 11.5L21 3l-7.5 18L11 13l-8-1.5z"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
       </svg>
     </button>
+
   </div>
 
-  <div class="hero-chat-hint" role="note">Click to chat with Dominal AI Assistant</div>
+  <div class="hero-chat-hint">Click to chat with Dominal AI Assistant</div>
 </div>
+
             <div class="hero-description">
                 Dominal helps startups implement any complex idea into websites, applications, and online technologies. Our services include mobile/web development, PWA, AI integration, AI chatbots, and more. We help grow businesses and startups from scratch, providing cutting-edge solutions for the digital age.
             </div>
@@ -1586,5 +1592,6 @@ if (chatOverlay) {
     </script>
 </body>
 </html>
+
 
 
