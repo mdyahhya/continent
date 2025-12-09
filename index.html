@@ -980,72 +980,54 @@
 }
 
 .chat-overlay.active {
-  display: flex;
+  display: block;
   opacity: 1;
-  align-items: center;
-  justify-content: center;
 }
 
-.chat-overlay-inner {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  background: var(--primary-bg);
-}
-
-.chat-overlay-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 2rem;
-  background: linear-gradient(135deg, rgba(10, 31, 68, 0.3), rgba(10, 31, 68, 0.1));
-  border-bottom: 1px solid rgba(10, 31, 68, 0.5);
-}
-
-.chat-overlay-title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--primary-text);
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.chat-overlay-subtitle {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
-}
-
+/* Floating Close Button (on overlay) */
 .chat-overlay-close {
-  width: 45px;
-  height: 45px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: none;
-  background: rgba(239, 68, 68, 0.2);
-  color: #ef4444;
-  font-size: 1.5rem;
+  background: rgba(239, 68, 68, 0.9);
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
   cursor: pointer;
+  z-index: 10001;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.5);
+  transition: all 0.3s ease;
 }
 
 .chat-overlay-close:hover {
-  background: #ef4444;
-  color: white;
+  background: #dc2626;
   transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 12px 35px rgba(239, 68, 68, 0.7);
 }
 
 #chatOverlayFrame {
-  flex: 1;
   width: 100%;
+  height: 100%;
   border: none;
   background: var(--primary-bg);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .chat-overlay-close {
+    top: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+  }
 }
 
 /* Mobile Responsive */
@@ -1091,23 +1073,7 @@
     font-size: 0.9rem;
   }
 
-  .chat-overlay-header {
-    padding: 1rem 1.5rem;
-  }
-
-  .chat-overlay-title {
-    font-size: 1.1rem;
-  }
-
-  .chat-overlay-subtitle {
-    font-size: 0.75rem;
-  }
-
-  .chat-overlay-close {
-    width: 38px;
-    height: 38px;
-    font-size: 1.3rem;
-  }
+  
 }
 
 
@@ -1325,11 +1291,12 @@
 <div class="chat-overlay" id="chatOverlay">
   <div class="chat-overlay-inner">
     <div class="chat-overlay-header">
-      <div class="chat-overlay-title">
+      <!-- <div class="chat-overlay-title">
         Dominal AI v2.5 Assistant
         <span class="chat-overlay-subtitle">Ask about services, projects, or anything technical</span>
-      </div>
+      </div> -->
       <button class="chat-overlay-close" id="chatOverlayClose">✕</button>
+        
     </div>
 
     <!-- Here you can embed your existing Dominal AI chat UI -->
@@ -1592,6 +1559,7 @@ if (chatOverlay) {
     </script>
 </body>
 </html>
+
 
 
 
