@@ -715,6 +715,32 @@ body {
   font-size: 18px;
 }
 
+
+  .chat-close-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(239, 68, 68, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+
+@media (max-width: 768px) {
+  .chat-close-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 1.2rem;
+  }
+}                            
 </style>
 </head>
 <body>
@@ -743,7 +769,8 @@ body {
   <div class="main-content">
     <div class="top-bar">
       <button class="menu-btn" id="menuBtn">☰</button>
-      <div class="top-bar-title">Dominal AI by Yahya</div>
+      <div class="top-bar-title">Dominal AI Assistant</div>
+      <button class="chat-close-btn" id="chatCloseBtn">✕</button>
       <div style="width: 32px;"></div>
     </div>
     
@@ -1391,6 +1418,39 @@ if (conversations.length === 0) {
 
 chatInput.focus();
 
+
+  // Ensure back button from chat.html goes to index.html
+window.addEventListener('load', () => {
+  // Push a state so back always leaves this page
+  history.pushState({ fromChat: true }, '', window.location.href);
+});
+
+window.addEventListener('popstate', (event) => {
+  // When user presses back, redirect to main page
+  window.location.href = 'index.html';
+});
+
+
+  function goBackToMain() {
+  if (window.parent && window.parent !== window) {
+    // Inside iframe on index.html – ask parent to close overlay
+    window.parent.postMessage('closeChat', '*');
+  } else {
+    // Opened directly – go to main page
+    window.location.href = 'index.html';
+  }
+}
+
+document.getElementById('chatCloseBtn')?.addEventListener('click', goBackToMain);
+
+// Optional: handle mobile back when chat.html opened directly
+window.addEventListener('load', () => {
+  history.pushState({ fromChat: true }, '', window.location.href);
+});
+
+window.addEventListener('popstate', () => {
+  window.location.href = 'index.html';
+});
 </script>
 
 
