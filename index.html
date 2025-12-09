@@ -1156,6 +1156,7 @@
         <div class="hero-content">
             <h1>We Create the Base for Your Startup Ideas</h1>
             <p>And Scale Them Online</p>
+            
            <!-- Hero Chatbot Launcher (HTML Only with mic before send) -->
 <div class="hero-chat-wrapper">
   <div class="hero-chat-card" id="heroChatTrigger">
@@ -1321,27 +1322,6 @@
     </div>
 
     <!-- Fullscreen Chatbot Overlay -->
-<div class="chat-overlay" id="chatOverlay">
-  <div class="chat-overlay-inner">
-    <div class="chat-overlay-header">
-      <!-- <div class="chat-overlay-title">
-        Dominal AI v2.5 Assistant
-        <span class="chat-overlay-subtitle">Ask about services, projects, or anything technical</span>
-      </div> -->
-      <button class="chat-overlay-close" id="chatOverlayClose">✕</button>
-        
-    </div>
-
-    <!-- Here you can embed your existing Dominal AI chat UI -->
-    <iframe 
-      id="chatOverlayFrame" 
-      src="chat.html" 
-      title="Dominal AI Chat" 
-      loading="lazy"
-      referrerpolicy="no-referrer"
-    ></iframe>
-  </div>
-</div>
 
 
     <script>
@@ -1589,9 +1569,33 @@ if (chatOverlay) {
   });
 }
 
+
+        // Make hero chat box open chat.html directly
+document.addEventListener('DOMContentLoaded', () => {
+  const heroChatTrigger = document.getElementById('heroChatTrigger');
+  if (!heroChatTrigger) return;
+
+  // Whole card clickable → go to chat.html
+  heroChatTrigger.addEventListener('click', () => {
+    window.location.href = 'chat.html';
+  });
+
+  // Prevent inner buttons from doing anything different
+  const heroMic = heroChatTrigger.querySelector('.hero-chat-mic');
+  const heroSend = heroChatTrigger.querySelector('.hero-chat-send');
+
+  [heroMic, heroSend].forEach(btn => {
+    if (!btn) return;
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();      // don't double-trigger
+      window.location.href = 'chat.html';
+    });
+  });
+});
     </script>
 </body>
 </html>
+
 
 
 
