@@ -827,6 +827,291 @@
 }
 
 
+
+
+
+
+    /* Hero Chat Launcher */
+.hero-chat-wrapper {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-chat-card {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 18px 60px rgba(10, 31, 68, 0.8);
+  backdrop-filter: blur(18px);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  max-width: 520px;
+  width: 100%;
+}
+
+.hero-chat-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: var(--accent-blue-light);
+  box-shadow: 0 22px 70px rgba(10, 31, 68, 1);
+}
+
+.hero-chat-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 30% 0%, #4fd1c5, #0A1F44);
+  font-size: 1.4rem;
+}
+
+.hero-chat-input {
+  flex: 1;
+  min-width: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.hero-chat-input span {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.hero-chat-caret {
+  width: 8px;
+  height: 1.1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 2px;
+  animation: caretBlink 1s steps(2, start) infinite;
+}
+
+@keyframes caretBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.hero-chat-send,
+.hero-chat-mic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a73e8, #0A1F44);
+  color: #fff;
+  font-size: 1.1rem;
+  box-shadow: 0 10px 25px rgba(26, 115, 232, 0.6);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-chat-send:hover,
+.hero-chat-mic:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 35px rgba(26, 115, 232, 0.8);
+}
+
+.hero-chat-hint {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+/* Last Exchange Display */
+.hero-chat-last {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  max-width: 600px;
+  width: 100%;
+  backdrop-filter: blur(12px);
+  display: none;
+}
+
+.hero-chat-last.active {
+  display: block;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.hero-last-user {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+.hero-last-bot {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent-blue-light);
+}
+
+/* Fullscreen Chat Overlay */
+.chat-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.97);
+  backdrop-filter: blur(20px);
+  z-index: 9999;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.chat-overlay.active {
+  display: flex;
+  opacity: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-overlay-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--primary-bg);
+}
+
+.chat-overlay-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, rgba(10, 31, 68, 0.3), rgba(10, 31, 68, 0.1));
+  border-bottom: 1px solid rgba(10, 31, 68, 0.5);
+}
+
+.chat-overlay-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-text);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.chat-overlay-subtitle {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.chat-overlay-close {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.chat-overlay-close:hover {
+  background: #ef4444;
+  color: white;
+  transform: rotate(90deg) scale(1.1);
+}
+
+#chatOverlayFrame {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: var(--primary-bg);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .hero-chat-card {
+    max-width: 90%;
+    padding: 0.7rem 1rem;
+    gap: 0.6rem;
+  }
+
+  .hero-chat-avatar {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+
+  .hero-chat-input {
+    font-size: 0.85rem;
+  }
+
+  .hero-chat-send,
+  .hero-chat-mic {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .hero-chat-hint {
+    font-size: 0.75rem;
+  }
+
+  .hero-chat-last {
+    max-width: 90%;
+    padding: 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-last-user {
+    font-size: 0.85rem;
+  }
+
+  .hero-last-bot {
+    font-size: 0.9rem;
+  }
+
+  .chat-overlay-header {
+    padding: 1rem 1.5rem;
+  }
+
+  .chat-overlay-title {
+    font-size: 1.1rem;
+  }
+
+  .chat-overlay-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .chat-overlay-close {
+    width: 38px;
+    height: 38px;
+    font-size: 1.3rem;
+  }
+}
+
+
+
         
     </style>
 </head>
@@ -872,10 +1157,48 @@
         <div class="hero-content">
             <h1>We Create the Base for Your Startup Ideas</h1>
             <p>And Scale Them Online</p>
+            <div class="hero-chat-wrapper">
+  <div class="hero-chat-card" id="heroChatTrigger" role="button" tabindex="0" aria-label="Open Dominal AI Assistant chat">
+    <div class="hero-chat-avatar" aria-hidden="true">
+      <!-- Robot / Assistant SVG -->
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <rect x="3" y="7" width="18" height="12" rx="3" fill="currentColor" opacity="0.12"></rect>
+        <path d="M7 10.5A1 1 0 1 0 7 8.5a1 1 0 0 0 0 2z" fill="white"></path>
+        <path d="M17 10.5A1 1 0 1 0 17 8.5a1 1 0 0 0 0 2z" fill="white"></path>
+        <path d="M8 14.5c.8.6 2.4 1 4 1s3.2-.4 4-1" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+        <rect x="8.25" y="3.75" width="7.5" height="3.5" rx="1.25" fill="currentColor"></rect>
+      </svg>
+    </div>
+
+    <div class="hero-chat-input" aria-hidden="true">
+      <span id="heroChatTyping">Click to chat with Dominal AI Assistant</span>
+      <span class="hero-chat-caret" aria-hidden="true"></span>
+    </div>
+
+    <button class="hero-chat-send" aria-label="Send message" title="Send">
+      <!-- Paper plane / send SVG -->
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <path d="M3 11.5L21 3l-7.5 18L11 13l-8-1.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" fill="none"></path>
+      </svg>
+    </button>
+
+    <button class="hero-chat-mic" aria-label="Start voice chat" title="Voice">
+      <!-- Microphone SVG -->
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+        <path d="M19 11a7 7 0 0 1-14 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+        <path d="M12 19v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div class="hero-chat-hint" role="note">Click to chat with Dominal AI Assistant</div>
+</div>
             <div class="hero-description">
-                Platinal helps startups implement any complex idea into websites, applications, and online technologies. Our services include mobile/web development, PWA, AI integration, AI chatbots, and more. We help grow businesses and startups from scratch, providing cutting-edge solutions for the digital age.
+                Dominal helps startups implement any complex idea into websites, applications, and online technologies. Our services include mobile/web development, PWA, AI integration, AI chatbots, and more. We help grow businesses and startups from scratch, providing cutting-edge solutions for the digital age.
             </div>
             <a href="#services" class="cta-button">Explore Our Services</a>
+            
         </div>
     </section>
 
@@ -978,7 +1301,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Platinal Pvt Ltd. All Rights Reserved. | Innovating the Future</p>
+        <p>&copy; 2025 Dominal Pvt Ltd. All Rights Reserved.</p>
     </footer>
 
     <!-- PWA Install Prompt -->
@@ -991,6 +1314,29 @@
             </div>
         </div>
     </div>
+
+    <!-- Fullscreen Chatbot Overlay -->
+<div class="chat-overlay" id="chatOverlay">
+  <div class="chat-overlay-inner">
+    <div class="chat-overlay-header">
+      <div class="chat-overlay-title">
+        Dominal AI v2.5 Assistant
+        <span class="chat-overlay-subtitle">Ask about services, projects, or anything technical</span>
+      </div>
+      <button class="chat-overlay-close" id="chatOverlayClose">✕</button>
+    </div>
+
+    <!-- Here you can embed your existing Dominal AI chat UI -->
+    <iframe 
+      id="chatOverlayFrame" 
+      src="chat.html" 
+      title="Dominal AI Chat" 
+      loading="lazy"
+      referrerpolicy="no-referrer"
+    ></iframe>
+  </div>
+</div>
+
 
     <script>
         // Service Worker Registration
@@ -1159,7 +1505,86 @@
                 navigator.serviceWorker.controller.postMessage({ type: 'CHECK_UPDATE' });
             }
         }, 5 * 60 * 1000); // Check every 5 minutes
+
+
+
+
+
+        // ==========================================
+// Hero Chatbot Functionality
+// ==========================================
+
+// Typing animation phrases
+const typingPhrases = [
+  "Ask me anything...",
+  "Ask about our services...",
+  "About Dominal Tech..."
+];
+
+let currentPhraseIndex = 0;
+let currentCharIndex = 0;
+let isDeleting = false;
+
+function typeEffect() {
+  const typingElement = document.getElementById('heroChatTyping');
+  if (!typingElement) return;
+
+  const currentPhrase = typingPhrases[currentPhraseIndex];
+
+  if (isDeleting) {
+    typingElement.textContent = currentPhrase.substring(0, currentCharIndex - 1);
+    currentCharIndex--;
+  } else {
+    typingElement.textContent = currentPhrase.substring(0, currentCharIndex + 1);
+    currentCharIndex++;
+  }
+
+  if (!isDeleting && currentCharIndex === currentPhrase.length) {
+    isDeleting = true;
+    setTimeout(typeEffect, 2000); // Pause before deleting
+  } else if (isDeleting && currentCharIndex === 0) {
+    isDeleting = false;
+    currentPhraseIndex = (currentPhraseIndex + 1) % typingPhrases.length;
+    setTimeout(typeEffect, 500); // Pause before next phrase
+  } else {
+    setTimeout(typeEffect, isDeleting ? 50 : 100);
+  }
+}
+
+// Start typing animation when page loads
+document.addEventListener('DOMContentLoaded', () => {
+  typeEffect();
+});
+
+// Open chat overlay when hero chat card is clicked
+const heroChatTrigger = document.getElementById('heroChatTrigger');
+const chatOverlay = document.getElementById('chatOverlay');
+const chatOverlayClose = document.getElementById('chatOverlayClose');
+
+if (heroChatTrigger && chatOverlay) {
+  heroChatTrigger.addEventListener('click', () => {
+    chatOverlay.classList.add('active');
+  });
+}
+
+// Close chat overlay
+if (chatOverlayClose && chatOverlay) {
+  chatOverlayClose.addEventListener('click', () => {
+    chatOverlay.classList.remove('active');
+  });
+}
+
+// Close overlay when clicking outside (optional)
+if (chatOverlay) {
+  chatOverlay.addEventListener('click', (e) => {
+    if (e.target === chatOverlay) {
+      chatOverlay.classList.remove('active');
+    }
+  });
+}
+
     </script>
 </body>
 </html>
+
 
