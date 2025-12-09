@@ -1068,9 +1068,9 @@
 
   .hero-chat-send,
   .hero-chat-mic {
-    width: 35px;
-    height: 35px;
-    font-size: 1rem;
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
   }
 
   .hero-chat-hint {
@@ -1542,32 +1542,8 @@ document.addEventListener('DOMContentLoaded', () => {
   typeEffect();
 });
 
-// Open chat overlay when hero chat card is clicked
-const heroChatTrigger = document.getElementById('heroChatTrigger');
-const chatOverlay = document.getElementById('chatOverlay');
-const chatOverlayClose = document.getElementById('chatOverlayClose');
 
-if (heroChatTrigger && chatOverlay) {
-  heroChatTrigger.addEventListener('click', () => {
-    chatOverlay.classList.add('active');
-  });
-}
 
-// Close chat overlay
-if (chatOverlayClose && chatOverlay) {
-  chatOverlayClose.addEventListener('click', () => {
-    chatOverlay.classList.remove('active');
-  });
-}
-
-// Close overlay when clicking outside (optional)
-if (chatOverlay) {
-  chatOverlay.addEventListener('click', (e) => {
-    if (e.target === chatOverlay) {
-      chatOverlay.classList.remove('active');
-    }
-  });
-}
 
 
         // Make hero chat box open chat.html directly
@@ -1595,6 +1571,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </script>
 </body>
 </html>
+
 
 
 
