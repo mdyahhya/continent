@@ -980,54 +980,72 @@
 }
 
 .chat-overlay.active {
-  display: block;
-  opacity: 1;
-}
-
-/* Floating Close Button (on overlay) */
-.chat-overlay-close {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(239, 68, 68, 0.9);
-  color: white;
-  font-size: 1.8rem;
-  font-weight: 700;
-  cursor: pointer;
-  z-index: 10001;
   display: flex;
+  opacity: 1;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.5);
-  transition: all 0.3s ease;
 }
 
-.chat-overlay-close:hover {
-  background: #dc2626;
-  transform: rotate(90deg) scale(1.1);
-  box-shadow: 0 12px 35px rgba(239, 68, 68, 0.7);
-}
-
-#chatOverlayFrame {
+.chat-overlay-inner {
   width: 100%;
   height: 100%;
-  border: none;
+  display: flex;
+  flex-direction: column;
   background: var(--primary-bg);
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .chat-overlay-close {
-    top: 15px;
-    right: 15px;
-    width: 45px;
-    height: 45px;
-    font-size: 1.5rem;
-  }
+.chat-overlay-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, rgba(10, 31, 68, 0.3), rgba(10, 31, 68, 0.1));
+  border-bottom: 1px solid rgba(10, 31, 68, 0.5);
+}
+
+.chat-overlay-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-text);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.chat-overlay-subtitle {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.chat-overlay-close {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.chat-overlay-close:hover {
+  background: #ef4444;
+  color: white;
+  transform: rotate(90deg) scale(1.1);
+}
+
+#chatOverlayFrame {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: var(--primary-bg);
 }
 
 /* Mobile Responsive */
@@ -1050,9 +1068,9 @@
 
   .hero-chat-send,
   .hero-chat-mic {
-    width: 25px;
-    height: 25px;
-    font-size: 0.7rem;
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
   }
 
   .hero-chat-hint {
@@ -1073,7 +1091,7 @@
     font-size: 0.9rem;
   }
 
-    .chat-overlay-header {
+  .chat-overlay-header {
     padding: 1rem 1.5rem;
   }
 
@@ -1090,9 +1108,7 @@
     height: 38px;
     font-size: 1.3rem;
   }
-  
 }
-
 
 
         
@@ -1576,6 +1592,7 @@ if (chatOverlay) {
     </script>
 </body>
 </html>
+
 
 
 
