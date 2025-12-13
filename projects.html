@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects - Dominal Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #000000;
+            --primary-text: #FFFFFF;
+            --accent-blue: #0A1F44;
+            --accent-blue-light: #1a3a6b;
+            --transition-speed: 0.4s;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(10, 31, 68, 0.3);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px rgba(10, 31, 68, 0.8));
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #FFFFFF, #0A1F44);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links li a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all var(--transition-speed);
+            text-transform: uppercase;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-light));
+            transition: width var(--transition-speed);
+        }
+
+        .nav-links li a:hover {
+            color: var(--accent-blue-light);
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: var(--primary-text);
+            margin: 4px 0;
+            transition: all var(--transition-speed);
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        /* Hero Section */
+        .projects-hero {
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 150px 5% 80px;
+            background: radial-gradient(circle at center, rgba(10, 31, 68, 0.3) 0%, transparent 70%);
+        }
+
+        .projects-hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFFFFF, #0A1F44);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .projects-hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 80px 5% 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #FFFFFF, #0A1F44);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .projects-grid {
+            display: grid;
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(10, 31, 68, 0.2), rgba(10, 31, 68, 0.05));
+            border-radius: 20px;
+            border: 1px solid rgba(10, 31, 68, 0.3);
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 2rem;
+            align-items: flex-start;
+            transition: all var(--transition-speed);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(10, 31, 68, 0.6);
+            border-color: var(--accent-blue-light);
+        }
+
+        .project-image-container {
+            width: 100%;
+            max-width: 260px;
+            height: 220px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(10, 31, 68, 0.4);
+            background: rgba(0, 0, 0, 0.4);
+            flex-shrink: 0;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform var(--transition-speed);
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            flex: 1;
+        }
+
+        .project-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .project-title-row h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.7rem;
+        }
+
+        .visit-btn {
+            background: transparent;
+            color: var(--primary-text);
+            padding: 0.7rem 1.6rem;
+            border-radius: 999px;
+            text-decoration: none;
+            border: 1px solid rgba(10, 31, 68, 0.6);
+            cursor: pointer;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: all var(--transition-speed);
+        }
+
+        .visit-btn:hover {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light));
+            border-color: transparent;
+            transform: translateX(3px);
+        }
+
+        .project-description {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 31, 68, 0.2);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(10, 31, 68, 0.3);
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .project-card {
+                grid-template-columns: 1fr;
+            }
+            .project-image-container {
+                max-width: 100%;
+                height: 230px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 3rem;
+                transition: right var(--transition-speed);
+                backdrop-filter: blur(20px);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .logo-image {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo-text {
+                font-size: 1.4rem;
+            }
+
+            .projects-hero {
+                padding: 120px 5% 60px;
+            }
+
+            .projects-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .projects-hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo" onclick="window.location.href='index.html'">
+            <img src="ctbase.png" alt="Dominal Logo" class="logo-image">
+            <span class="logo-text">Dominal Group</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="startups.html">For Startups</a></li>
+            <li><a href="studio.html">Dominal Studio</a></li>
+            <li><a href="projects.html">Our Projects</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="hosting.html">Domain Hosting</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="founder.html">Founder</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="projects-hero">
+        <h1>Our Projects</h1>
+        <p>Real products shipped for colleges, startups, and businesses — from AI agents and PWAs to Android apps and full SaaS platforms.</p>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects-section">
+        <h2 class="section-title">Featured Work</h2>
+        <div class="projects-grid">
+
+            <!-- Dominal AI v2.5 -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="https://xopymfulxtphdthvfssh.supabase.co/storage/v1/object/sign/portfolio-images/1765018670251%20(1).jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8wY2VkYTZmYi0xODk0LTQxZjEtYTBlZC04ZjlhOTYzZDYyMDAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0Zm9saW8taW1hZ2VzLzE3NjUwMTg2NzAyNTEgKDEpLmpwZyIsImlhdCI6MTc2NTAxOTA2NywiZXhwIjoxNzk2NTU1MDY3fQ.0XTSR97-Rzr4m8_wHakASNr4jbetjEnnDgKiS33cLvU" alt="Dominal AI v2.5" class="project-image">
+                </div>
+                <div class="project-content">
+                    <div class="project-title-row">
+                        <h3>Dominal AI v2.5 – Custom AI Model</h3>
+                        <a href="https://dominalai.netlify.app" target="_blank" class="visit-btn">Visit Site →</a>
+                    </div>
+                    <p class="project-description">
+                        Custom AI model with a dedicated knowledge base that answers domain-specific questions conversationally, using advanced NLP to provide context-aware replies from a curated data source.
+                    </p>
+                </div>
+            </div>
+
+            <!-- AI PPT Maker -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="https://xopymfulxtphdthvfssh.supabase.co/storage/v1/object/sign/portfolio-images/images%20(5).jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8wY2VkYTZmYi0xODk0LTQxZjEtYTBlZC04ZjlhOTYzZDYyMDAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0Zm9saW8taW1hZ2VzL2ltYWdlcyAoNSkuanBlZyIsImlhdCI6MTc2NTAyMjI0OCwiZXhwIjoxNzk2NTU4MjQ4fQ.d_dIkOb0-IfjOoCUREUFES_pdA6Y_n2yPF_UfqKbbuw" alt="AI PPT Maker" class="project-image">
+                </div>
+                <div class="project-content">
+                    <div class="project-title-row">
+                        <h3>AI Agent – PPT Maker</h3>
+                        <a href="https://dominalai.netlify.app/ppt" target="_blank" class="visit-btn">Visit Site →</a>
+                    </div>
+                    <p class="project-description">
+                        AI agent that generates complete presentations from a chat-style flow: topic, tone, pages, and user details, then outputs slide content and downloadable PDFs automatically.
+                    </p>
+                </div>
+            </div>
+
+            <!-- pydefine -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="https://xopymfulxtphdthvfssh.supabase.co/storage/v1/object/sign/portfolio-images/1764074691044.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8wY2VkYTZmYi0xODk0LTQxZjEtYTBlZC04ZjlhOTYzZDYyMDAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0Zm9saW8taW1hZ2VzLzE3NjQwNzQ2OTEwNDQuanBnIiwiaWF0IjoxNzY1MDE5MzAzLCJleHAiOjE3OTY1NTUzMDN9.E18D-VScqgCMbbL7Vg5q0g5AWSFpnxknXIfIDhIp-aI" alt="pydefine" class="project-image">
+                </div>
+                <div class="project-content">
+                    <div class="project-title-row">
+                        <h3>pydefine – Python Library</h3>
+                        <a href="https://pypi.org/project/pydefine" target="_blank" class="visit-btn">Visit Site →</a>
+                    </div>
+                    <p class="project-description">
+                        Python package that converts raw Python errors into human-readable explanations with hints and solutions, making debugging easier for beginners and faster for experienced developers.
+                    </p>
+                </div>
+            </div>
+
+            <!-- AI Chatbot for College -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="https://xopymfulxtphdthvfssh.supabase.co/storage/v1/object/sign/portfolio-images/vvplogo.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8wY2VkYTZmYi0xODk0LTQxZjEtYTBlZC04ZjlhOTYzZDYyMDAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0Zm9saW8taW1hZ2VzL3Z2cGxvZ28uanBlZyIsImlhdCI6MTc2NTAyMTUxMCwiZXhwIjoxNzk2NTU3NTEwfQ.eB7a8tcRYEfdVvjnzqXYaYZPzjqrVhTfmur0osFWHkg" alt="AI Chatbot" class="project-image">
+                </div>
+                <div class="project-content">
+                    <div class="project-title-row">
+                        <h3>AI Chatbot – College Website</h3>
+                        <a href="https://vvpengineering.org" target="_blank" class="visit-btn">Visit Site →</a>
+                    </div>
+                    <p class="project-description">
+                        Multilingual AI chatbot (English, Hindi, Marathi) embedded on a college website, answering queries about placements, fees, branches, and faculty via a ChatGPT-style interface.
+                    </p>
+                </div>
+            </div>
+
+            <!-- PythonBuddy IDE -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="https://xopymfulxtphdthvfssh.supabase.co/storage/v1/object/sign/portfolio-images/unnamed%20(3).png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8wY2VkYTZmYi0xODk0LTQxZjEtYTBlZC04ZjlhOTYzZDYyMDAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0Zm9saW8taW1hZ2VzL3VubmFtZWQgKDMpLnBuZyIsImlhdCI6MTc2NTAyMjYxMCwiZXhwIjoxNzk2NTU4NjEwfQ.Ri2MmOi3LLeS9PRLOc5mJCCrvxUrhMogLGk7SIjXM_w" alt="Python IDE" class="project-image">
+                </div>
+                <div class="project-content">
+                    <div class="project-title-row">
+                        <h3>PythonBuddy – Online Python IDE</h3>
+                        <a href="https://pythonbuddy.netlify.app" target="_blank" class="visit-btn">Visit Site →</a>
+                    </div>
+                    <p class="project-description">
+                        Browser-based Python IDE that supports 200+ libraries like NumPy, Pandas, Matplotlib, SciPy, and scikit-learn for data science and ML experiments without local setup.
+                    </p>
+                </div>
+            </div>
+
+            <!-- YouBuddy AI -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="https://xopymfulxtphdthvfssh.supabase.co/storage/v1/object/sign/portfolio-images/YBlogo.jpg?token=eyJraWQiOiJzdG9yZWQtdXJsLXNpZ25pbmcta2V5XzBjZWRhNmZiLTE4OTQtNDFmMS1hMGVkLThmOWE5NjNkNjIwMCIsImFsZyI6IkhTMjU2In0.eyJ1cmwiOiJwb3J0Zm9saW8taW1hZ2VzL1lCbG9nby5qcGciLCJpYXQiOjE3NjUwMjE1NzAsImV4cCI6MTc5NjU1NzU3MH0.nDb0Q9uPx6Fh6pjr1xY71tqvJx6Jb1XgAHRVXcDMB-4" alt="YouBuddy" class="project-image">
+                </div>
+                <div class="project-content">
+                    <div class="project-title-row">
+                        <h3>YouBuddy AI – Engineering Super App</h3>
+                        <a href="#" target="_blank" class="visit-btn">APK Only</a>
+                    </div>
+                    <p class="project-description">
+                        All‑in‑one Android app for engineering students: notes, feed, AI doubt solver, mini games, and coding tutorials integrated into a single platform.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Dominal Browser -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="https://xopymfulxtphdthvfssh.supabase.co/storage/v1/object/sign/portfolio-images/Picsart_25-12-06_17-35-07-982.jpg?token=eyJraWQiOiJzdG9yZWQtdXJsLXNpZ25pbmcta2V5XzBjZWRhNmZiLTE4OTQtNDFmMS1hMGVkLThmOWE5NjNkNjIwMCIsImFsZyI6IkhTMjU2In0.eyJ1cmwiOiJwb3J0Zm9saW8taW1hZ2VzL1BpY3NhcnRfMjUtMTItMDZfMTctMzUtMDctOTgyLmpwZyIsImlhdCI6MTc2NTAyMjgyOSwiZXhwIjoxNzk2NTU4ODI5fQ.JRFPOLjSN9Dho6vy4HWPCBMonP11Q6GOZpugZQkUgwc" alt="Dominal Browser" class="project-image">
+                </div>
+                <div class="project-content">
+                    <div class="project-title-row">
+                        <h3>Dominal Browser – Privacy‑First</h3>
+                        <a href="#" target="_blank" class="visit-btn">App Only</a>
+                    </div>
+                    <p class="project-description">
+                        Secure Android browser focused on zero-history, no tracking, and blocking harmful external sites for high‑privacy browsing.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Turf Booking -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="https://xopymfulxtphdthvfssh.supabase.co/storage/v1/object/sign/portfolio-images/turf.png?token=eyJraWQiOiJzdG9yZWQtdXJsLXNpZ25pbmcta2V5XzBjZWRhNmZiLTE4OTQtNDFmMS1hMGVkLThmOWE5NjNkNjIwMCIsImFsZyI6IkhTMjU2In0.eyJ1cmwiOiJwb3J0Zm9saW8taW1hZ2VzL3R1cmYucG5nIiwiaWF0IjoxNzY1MDIxNDczLCJleHAiOjE3OTY1NTc0NzN9.Idi9l4Ka9iHchrpSw_DvHODfSjDVSQIcGECLBdjQn-4" alt="Turf Booking" class="project-image">
+                </div>
+                <div class="project-content">
+                    <div class="project-title-row">
+                        <h3>Online Turf Booking System</h3>
+                        <a href="https://solapurturfs.netlify.app" target="_blank" class="visit-btn">Visit Site →</a>
+                    </div>
+                    <p class="project-description">
+                        Web app plus two Android apps (user & turf admin) with live availability, booking, and instant notifications to turf owners using a real‑time backend.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Chat App -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="https://xopymfulxtphdthvfssh.supabase.co/storage/v1/object/sign/portfolio-images/chaticon192.png?token=eyJraWQiOiJzdG9yZWQtdXJsLXNpZ25pbmcta2V5XzBjZWRhNmZiLTE4OTQtNDFmMS1hMGVkLThmOWE5NjNkNjIwMCIsImFsZyI6IkhTMjU2In0.eyJ1cmwiOiJwb3J0Zm9saW8taW1hZ2VzL2NoYXRpY29uMTkyLnBuZyIsImlhdCI6MTc2NTAxODgxOSwiZXhwIjoxNzk2NTU0ODE5fQ.PvJLdwH4WcWvPvbQ6bAdHmZtZv3jEcy1I6XNev53rzQ" alt="Chat App" class="project-image">
+                </div>
+                <div class="project-content">
+                    <div class="project-title-row">
+                        <h3>SafeChats – WhatsApp‑Style Web Chat</h3>
+                        <a href="https://safechats.netlify.app" target="_blank" class="visit-btn">Visit Site →</a>
+                    </div>
+                    <p class="project-description">
+                        Real‑time web messaging with live delivery and offline notifications, providing a WhatsApp‑like experience directly in the browser.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FaceAttend AI -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="https://xopymfulxtphdthvfssh.supabase.co/storage/v1/object/sign/portfolio-images/facecam.jpeg?token=eyJraWQiOiJzdG9yZWQtdXJsLXNpZ25pbmcta2V5XzBjZWRhNmZiLTE4OTQtNDFmMS1hMGVkLThmOWE5NjNkNjIwMCIsImFsZyI6IkhTMjU2In0.eyJ1cmwiOiJwb3J0Zm9saW8taW1hZ2VzL2ZhY2VjYW0uanBlZyIsImlhdCI6MTc2NTAyMzM3NywiZXhwIjoxNzk2NTU5Mzc3fQ.dPbh--xSpngBEFlQOM-sCdzuHvKzNmEEBxQfAHxUhcw" alt="FaceAttend" class="project-image">
+                </div>
+                <div class="project-content">
+                    <div class="project-title-row">
+                        <h3>FaceAttend AI – Attendance</h3>
+                        <a href="https://facetech.netlify.app" target="_blank" class="visit-btn">Visit Site →</a>
+                    </div>
+                    <p class="project-description">
+                        Facial recognition–based attendance solution that stores student face data and marks attendance automatically from camera input using AI models.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Heart AI -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="https://xopymfulxtphdthvfssh.supabase.co/storage/v1/object/sign/portfolio-images/doctor-holding-heart-hand-red-heartbeat-with-life-line-cardiology-concept-health-protection-symbol-healthcare-vector-illustration-flat-minimal-design-isolated-white-background_153097-1973%20(1).png?token=eyJraWQiOiJzdG9yZWQtdXJsLXNpZ25pbmcta2V5XzBjZWRhNmZiLTE4OTQtNDFmMS1hMGVkLThmOWE5NjNkNjIwMCIsImFsZyI6IkhTMjU2In0.eyJ1cmwiOiJwb3J0Zm9saW8taW1hZ2VzL2RvY3Rvci1ob2xkaW5nLWhlYXJ0LWhhbmQtcmVkLWhlYXJ0YmVhdC13aXRoLWxpZmUtbGluZS1jYXJkaW9sb2d5LWNvbmNlcHQtaGVhbHRoLXByb3RlY3Rpb24tc3ltYm9sLWhlYWx0aGNhcmUtdmVjdG9yLWlsbHVzdHJhdGlvbi1mbGF0LW1pbmltYWwtZGVzaWduLWlzb2xhdGVkLXdoaXRlLWJhY2tncm91bmRfMTUzMDk3LTE5NzMgKDEpLnBuZyIsImlhdCI6MTc2NTAyMjg4OCwiZXhwIjoxNzk2NTU4ODg4fQ.-XhYysTfu_XXR0pNs7ZWq_ZsM8mSQdnlCBlNwZU7GLw" alt="Heart AI" class="project-image">
+                </div>
+                <div class="project-content">
+                    <div class="project-title-row">
+                        <h3>Heart AI – Disease Prediction</h3>
+                        <a href="https://heartai.netlify.app" target="_blank" class="visit-btn">Visit Site →</a>
+                    </div>
+                    <p class="project-description">
+                        Health app for heart‑disease awareness and symptom‑based prediction, plus tips and doctor listings with location and contact details.
+                    </p>
+                </div>
+            </div>
+
+            <!-- SmileUp -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="https://xopymfulxtphdthvfssh.supabase.co/storage/v1/object/sign/portfolio-images/Picsart_25-12-06_17-39-19-695.jpg?token=eyJraWQiOiJzdG9yZWQtdXJsLXNpZ25pbmcta2V5XzBjZWRhNmZiLTE4OTQtNDFmMS1hMGVkLThmOWE5NjNkNjIwMCIsImFsZyI6IkhTMjU2In0.eyJ1cmwiOiJwb3J0Zm9saW8taW1hZ2VzL1BpY3NhcnRfMjUtMTItMDZfMTctMzktMTktNjk1LmpwZyIsImlhdCI6MTc2NTAyMzAyMCwiZXhwIjoxNzk2NTU5MDIwfQ.lI45EmxoXRZDnFyEqK9ZBB9JQe8-5W0gZwvUMHwkj50" alt="SmileUp" class="project-image">
+                </div>
+                <div class="project-content">
+                    <div class="project-title-row">
+                        <h3>SmileUp – Smile Reward App</h3>
+                        <a href="#" target="_blank" class="visit-btn">App Only</a>
+                    </div>
+                    <p class="project-description">
+                        Gamified app that rewards users for positive actions and engagement, designed to encourage daily happiness and habit building.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Dominal Group Pvt Ltd. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
