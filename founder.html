@@ -161,7 +161,7 @@
             }
         }
 
-        /* Founders Images Section */
+        /* Founders Images Section - ALWAYS SIDE BY SIDE */
         .founders-images {
             padding: 0 5% 60px;
             max-width: 1200px;
@@ -170,16 +170,16 @@
 
         .images-grid {
             display: flex;
+            flex-direction: row;
             justify-content: center;
             align-items: flex-start;
-            gap: 5rem;
-            flex-wrap: wrap;
+            gap: 3rem;
+            flex-wrap: nowrap;
         }
 
         .founder-image-card {
             text-align: center;
             flex: 0 1 auto;
-            min-width: 280px;
         }
 
         .founder-circle-image {
@@ -573,22 +573,39 @@
                 font-size: 2.5rem;
             }
 
+            /* Keep founders side by side on mobile */
             .images-grid {
-                flex-direction: column;
-                align-items: center;
-                gap: 3rem;
+                gap: 2rem;
+            }
+
+            .founder-circle-image {
+                width: 150px;
+                height: 150px;
+                font-size: 4rem;
+            }
+
+            .founder-name {
+                font-size: 1.4rem;
+            }
+
+            .founder-role {
+                font-size: 0.95rem;
+            }
+
+            .icon-link {
+                width: 35px;
+                height: 35px;
+            }
+
+            .icon-link svg {
+                width: 18px;
+                height: 18px;
             }
 
             .tweets-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 3rem;
-            }
-
-            .founder-circle-image {
-                width: 200px;
-                height: 200px;
-                font-size: 5rem;
             }
 
             .section-heading {
@@ -598,15 +615,61 @@
             .contact-card {
                 padding: 2rem;
             }
+
+            .tweet-heading {
+                font-size: 1.8rem;
+            }
         }
 
-        /* Desktop media query to ensure side-by-side on larger screens */
-        @media (min-width: 769px) {
+        @media (max-width: 480px) {
+            /* Even smaller screens - still side by side */
             .images-grid {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                gap: 5rem;
+                gap: 1.5rem;
+            }
+
+            .founder-circle-image {
+                width: 130px;
+                height: 130px;
+                font-size: 3.5rem;
+            }
+
+            .founder-name {
+                font-size: 1.2rem;
+            }
+
+            .founder-role {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            /* Very small screens - still side by side but smaller */
+            .images-grid {
+                gap: 1rem;
+            }
+
+            .founder-circle-image {
+                width: 110px;
+                height: 110px;
+                font-size: 3rem;
+            }
+
+            .founder-name {
+                font-size: 1rem;
+            }
+
+            .founder-role {
+                font-size: 0.75rem;
+            }
+
+            .icon-link {
+                width: 30px;
+                height: 30px;
+            }
+
+            .icon-link svg {
+                width: 16px;
+                height: 16px;
             }
         }
     </style>
@@ -698,13 +761,13 @@
                     </div>
                     <div class="tweet-user-info">
                         <div class="tweet-display-name">Yahya Mundewadi</div>
-                        <div class="tweet-username">Co-Founder &amp; CEO</div>
+                        <div class="tweet-username">Co-Founder &amp; CEO · @yahyabuilds</div>
                     </div>
                 </div>
                 <div class="tweet-content">
                     Building the future of technology, one startup at a time. At Dominal Group, we don't just create applications—we build dreams into reality. Every line of code is a step toward innovation.
                 </div>
-                
+                <div class="tweet-timestamp">Co-Founder &amp; CEO • Dominal Group</div>
             </div>
 
             <!-- Amir's Tweet -->
@@ -715,13 +778,13 @@
                     </div>
                     <div class="tweet-user-info">
                         <div class="tweet-display-name">Amir Rangrez</div>
-                        <div class="tweet-username">Co-Founder &amp; CTO</div>
+                        <div class="tweet-username">Co-Founder &amp; CTO · @amirrangrez</div>
                     </div>
                 </div>
                 <div class="tweet-content">
                     Technology is not just about code—it's about creating solutions that make a real difference. Our mission is to architect systems that scale, innovate, and transform businesses.
                 </div>
-                
+                <div class="tweet-timestamp">Co-Founder &amp; CTO • Dominal Group</div>
             </div>
         </div>
     </section>
