@@ -164,19 +164,22 @@
         /* Founders Images Section */
         .founders-images {
             padding: 0 5% 60px;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .images-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 4rem;
-            justify-items: center;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 5rem;
+            flex-wrap: wrap;
         }
 
         .founder-image-card {
             text-align: center;
+            flex: 0 1 auto;
+            min-width: 280px;
         }
 
         .founder-circle-image {
@@ -570,7 +573,12 @@
                 font-size: 2.5rem;
             }
 
-            .images-grid,
+            .images-grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 3rem;
+            }
+
             .tweets-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
@@ -589,6 +597,16 @@
 
             .contact-card {
                 padding: 2rem;
+            }
+        }
+
+        /* Desktop media query to ensure side-by-side on larger screens */
+        @media (min-width: 769px) {
+            .images-grid {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 5rem;
             }
         }
     </style>
@@ -680,13 +698,13 @@
                     </div>
                     <div class="tweet-user-info">
                         <div class="tweet-display-name">Yahya Mundewadi</div>
-                        <div class="tweet-username">Co-Founder &amp; CEO · @yahyabuilds</div>
+                        <div class="tweet-username">Co-Founder &amp; CEO</div>
                     </div>
                 </div>
                 <div class="tweet-content">
                     Building the future of technology, one startup at a time. At Dominal Group, we don't just create applications—we build dreams into reality. Every line of code is a step toward innovation.
                 </div>
-                <div class="tweet-timestamp">Co-Founder &amp; CEO • Dominal Group</div>
+                
             </div>
 
             <!-- Amir's Tweet -->
@@ -697,13 +715,13 @@
                     </div>
                     <div class="tweet-user-info">
                         <div class="tweet-display-name">Amir Rangrez</div>
-                        <div class="tweet-username">Co-Founder &amp; CTO · @amirrangrez</div>
+                        <div class="tweet-username">Co-Founder &amp; CTO</div>
                     </div>
                 </div>
                 <div class="tweet-content">
                     Technology is not just about code—it's about creating solutions that make a real difference. Our mission is to architect systems that scale, innovate, and transform businesses.
                 </div>
-                <div class="tweet-timestamp">Co-Founder &amp; CTO • Dominal Group</div>
+                
             </div>
         </div>
     </section>
