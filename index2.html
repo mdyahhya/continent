@@ -79,37 +79,25 @@ html {
     width: 100%;
     height: 100%;
     z-index: -2;
-    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    background: url('/mnt/user-data/uploads/website-background.png') center center / cover no-repeat;
+    opacity: 0.15;
+    animation: backgroundPulse 15s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.25; }
+}
+
+.floating-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
     overflow: hidden;
-}
-
-.grid-background::before {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent 30%,
-        rgba(138, 43, 226, 0.3) 50%,
-        transparent 70%
-    ),
-    linear-gradient(
-        -45deg,
-        transparent 30%,
-        rgba(0, 191, 255, 0.3) 50%,
-        transparent 70%
-    );
-    animation: waveAnimation 15s ease-in-out infinite;
-}
-
-@keyframes waveAnimation {
-    0%, 100% {
-        transform: translate(-25%, -25%) rotate(0deg);
-    }
-    50% {
-        transform: translate(-50%, -50%) rotate(180deg);
-    }
+    pointer-events: none;
 }
 
 /* ==========================================
@@ -243,10 +231,8 @@ html {
 
 /* Company Logo */
 .company-logo-wrapper {
-    position: relative;
-    width: 250px;
-    height: 250px;
-    margin: 0 auto 0.5rem;
+    text-align: center;
+    background: none;
 }
 
 .logo-orbit {
@@ -258,12 +244,17 @@ html {
 }
 
 .logo-circle {
-    position: relative;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    margin-top: 0;
+   
     overflow: hidden;
-    margin: 5px auto;
 }
 
 .center-logo {
@@ -271,6 +262,7 @@ html {
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 50%;
 }
 
 /* Hero Content */
@@ -292,6 +284,11 @@ html {
     color: var(--pure-white);
     letter-spacing: 2px;
 }
+ .hero-title svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+        }
 
 .title-word {
     display: inline-block;
@@ -894,14 +891,13 @@ html {
     }
 
     .company-logo-wrapper {
-        width: 200px;
-        height: 200px;
-        margin-bottom: 0.5rem;
+        padding-top: 10px;      /* Reduce top gap */
+        padding-bottom: 5px;   /* Reduce bottom gap */
     }
 
     .logo-circle {
-        width: 200px;
-        height: 200px;
+        width: 350px;
+        height: 350px;
     }
 
     .hero-title {
@@ -1083,11 +1079,7 @@ html {
         <div class="hero-container">
             <!-- Company Logo Circle -->
             <div class="company-logo-wrapper">
-                <div class="logo-orbit">
-                    <div class="orbit-ring"></div>
-                    <div class="orbit-ring"></div>
-                    <div class="orbit-ring"></div>
-                </div>
+                
                 <div class="logo-circle">
                     <img src="ctbasefull3.jpg" alt="Dominal Tech Logo" class="center-logo">
                 </div>
