@@ -72,7 +72,7 @@ html {
 /* ==========================================
    ANIMATED NETWORK BACKGROUND
    ========================================== */
-.grid-background {
+/* .grid-background {
     position: fixed;
     top: 0;
     left: 0;
@@ -87,8 +87,8 @@ html {
 @keyframes backgroundPulse {
     0%, 100% { opacity: 0.15; }
     50% { opacity: 0.25; }
-}
-
+} */
+/* 
 .floating-particles {
     position: fixed;
     top: 0;
@@ -98,7 +98,7 @@ html {
     z-index: -1;
     overflow: hidden;
     pointer-events: none;
-}
+} */
 
 /* ==========================================
    NAVIGATION
@@ -244,7 +244,7 @@ html {
 }
 
 .logo-circle {
-    width: 200px;
+    width: 400px;
     height: 200px;
     border-radius: 50%;
     
@@ -1007,7 +1007,7 @@ html {
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 1rem;
+        font-size: 0.8rem;
         
     }
 
@@ -1489,52 +1489,52 @@ window.addEventListener('scroll', () => {
 // ==========================================
 // FLOATING PARTICLES
 // ==========================================
-function createParticles() {
-    const particlesContainer = document.querySelector('.floating-particles');
-    const particleCount = 30;
+// function createParticles() {
+//     const particlesContainer = document.querySelector('.floating-particles');
+//     const particleCount = 30;
 
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.style.position = 'absolute';
-        particle.style.width = Math.random() * 3 + 1 + 'px';
-        particle.style.height = particle.style.width;
-        particle.style.background = 'rgba(255, 255, 255, 0.3)';
-        particle.style.borderRadius = '50%';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.pointerEvents = 'none';
+//     for (let i = 0; i < particleCount; i++) {
+//         const particle = document.createElement('div');
+//         particle.style.position = 'absolute';
+//         particle.style.width = Math.random() * 3 + 1 + 'px';
+//         particle.style.height = particle.style.width;
+//         particle.style.background = 'rgba(255, 255, 255, 0.3)';
+//         particle.style.borderRadius = '50%';
+//         particle.style.left = Math.random() * 100 + '%';
+//         particle.style.top = Math.random() * 100 + '%';
+//         particle.style.pointerEvents = 'none';
         
-        const duration = Math.random() * 20 + 15;
-        const delay = Math.random() * 5;
+//         const duration = Math.random() * 20 + 15;
+//         const delay = Math.random() * 5;
         
-        particle.style.animation = `floatParticle ${duration}s ${delay}s infinite ease-in-out`;
+//         particle.style.animation = `floatParticle ${duration}s ${delay}s infinite ease-in-out`;
         
-        particlesContainer.appendChild(particle);
-    }
-}
+//         particlesContainer.appendChild(particle);
+//     }
+// }
 
 // Add particle animation to CSS
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes floatParticle {
-        0%, 100% {
-            transform: translate(0, 0);
-            opacity: 0;
-        }
-        10% {
-            opacity: 0.3;
-        }
-        90% {
-            opacity: 0.3;
-        }
-        100% {
-            transform: translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px);
-        }
-    }
-`;
-document.head.appendChild(style);
+// const style = document.createElement('style');
+// style.textContent = `
+//     @keyframes floatParticle {
+//         0%, 100% {
+//             transform: translate(0, 0);
+//             opacity: 0;
+//         }
+//         10% {
+//             opacity: 0.3;
+//         }
+//         90% {
+//             opacity: 0.3;
+//         }
+//         100% {
+//             transform: translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px);
+//         }
+//     }
+// `;
+// document.head.appendChild(style);
 
-createParticles();
+// createParticles();
 
 // ==========================================
 // HERO CHAT TYPING ANIMATION
