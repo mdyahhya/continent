@@ -1095,7 +1095,7 @@ function addMessageToDisplay(role, content, animate = true) {
     avatar.appendChild(logoImg);
   } else {
     // Display standard User Profile SVG icon instead of text 'Y'
-    avatar.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
+    avatar.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:50%;height:50%;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
   }
   
   const messageContent = document.createElement('div');
@@ -1318,13 +1318,12 @@ async function sendMessage() {
   let systemPrompt = `You are Dominal AI — the friendly assistant for Dominal Tech, founded by Yahya Mundewadi.
   
 🚨 CRITICAL INTRO RULE (for Hi/Greetings):
-- Say "How can I help you today?"
-- List our core expertise in ONE very short bulleted block:
-  • Websites & Apps
-  • AI Solutions & Automation
-  • CRMs & Software
-  • Google SEO & Growth
-- DO NOT give lengthy explanations here. Keep it very short.
+- Keep it ultra-brief: "How can I help you? We specialize in:"
+- Shortest list possible:
+  • Websites & Mobile Apps
+  • AI & Automation
+  • CRM Software
+  • SEO & Growth
 
 🚨 STRICT FORMATTING RULES:
 - NEVER EVER use block paragraphs.
