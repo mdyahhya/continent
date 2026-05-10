@@ -132,5 +132,15 @@ const CUSTOM_DATA = {
       category: "Development Tool",
       tags: ["python", "ide", "data-science", "ml"]
     }
+  ],
+  
+  clients: [
+    { name: "Indian Govt. - Central Railway", details: "Internal systems integration", link: null },
+    { name: "5 Star Hotel", details: "CRM Software Development", link: null },
+    { name: "Furniture and Steel Factory", details: "450+ Products Inventory CRM", link: null },
+    { name: "Walltone Decors", details: "E-commerce & Brand site", link: "walltone.in" },
+    { name: "HCC High School Solapur", details: "Academic portal", link: "hccsolapur.in" },
+    { name: "Libas Collection Solapur", details: "Retail presence", link: "libassolapur.in" },
+    { name: "Lokpradhan News Channel", details: "Digital news integration", link: "lokpradhan.in" }
   ]
 };
