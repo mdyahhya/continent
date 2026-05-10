@@ -1545,6 +1545,295 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ==========================================
+   CLIENTS SECTION
+   ========================================== */
+        .clients-section {
+            padding: 60px 5% 80px;
+            background: var(--pure-black);
+            text-align: center;
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+
+        .client-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--gray-200);
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .client-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: var(--pure-white);
+            transform: translateY(-3px);
+        }
+
+        .client-logo-box {
+            width: 60px;
+            height: 60px;
+            background: #FFFFFF;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .client-logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .client-logo-box svg {
+            width: 75%;
+            height: 75%;
+            stroke: #000000;
+            fill: none;
+        }
+
+        .client-info-group {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .client-main-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 900;
+            color: var(--pure-white);
+            margin-bottom: 0.2rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .client-sub-desc {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+                /* Keep 2 columns as requested */
+                gap: 0.8rem;
+            }
+
+            .client-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.8rem;
+                padding: 1rem 0.5rem;
+            }
+
+            .client-info-group {
+                width: 100%;
+            }
+
+            .client-main-name {
+                white-space: normal;
+                font-size: 0.9rem;
+            }
+        }
+
+        .clients-nda-note {
+            margin-top: 2.5rem;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Speed Badge Animations */
+        .speed-badge-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 1.2rem 0 0.8rem;
+        }
+
+        .speed-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 10px 22px;
+            border-radius: 40px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: speedFloat 4s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .speed-badge:hover {
+            border-color: var(--pure-white);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .speed-badge-icon {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .speed-gauge {
+            width: 100%;
+            height: 100%;
+            color: var(--pure-white);
+        }
+
+        .speed-gauge .gauge-needle {
+            transform-origin: 12px 12px;
+            animation: gaugeRev 2.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+        }
+
+        .speed-badge-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--pure-white);
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes gaugeRev {
+            0% {
+                transform: rotate(-80deg);
+            }
+
+            40% {
+                transform: rotate(60deg);
+            }
+
+            60% {
+                transform: rotate(50deg);
+            }
+
+            100% {
+                transform: rotate(-80deg);
+            }
+        }
+
+        @keyframes speedFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .speed-badge-text {
+                font-size: 0.8rem;
+            }
+
+            .speed-badge {
+                padding: 8px 16px;
+                gap: 8px;
+            }
+        }
+
+        /* NDA Footer Badge Animations */
+        .nda-badge-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 3.5rem 0 1rem;
+        }
+
+        .nda-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 12px 26px;
+            border-radius: 50px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: ndaFloat 6s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .nda-badge:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: scale(1.03);
+        }
+
+        .nda-badge-icon {
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .nda-icon-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .nda-badge-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--pure-white);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+
+        @keyframes ndaFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-7px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nda-badge {
+                padding: 10px 18px;
+                gap: 10px;
+            }
+            .nda-badge-text {
+                font-size: 0.7rem;
+                letter-spacing: 0.8px;
+            }
+        }
     </style>
 </head>
 
@@ -1682,22 +1971,34 @@
                     <!-- SLIDE 4: We handle the Tech -->
                     <div class="ad-slide" id="adSlide4">
                         <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
-                            <p style="font-family:'Orbitron',sans-serif;font-size:clamp(1rem,3.5vw,1.6rem);font-weight:900;letter-spacing:3px;text-align:center;line-height:1.6;color:#fff;text-transform:uppercase;">We handle the Tech</p>
-                            <p style="font-family:'Rajdhani',sans-serif;font-size:clamp(0.85rem,2.5vw,1.15rem);font-weight:600;letter-spacing:2px;text-align:center;color:rgba(255,255,255,0.55);text-transform:uppercase;">You manage Business Operations</p>
+                            <p
+                                style="font-family:'Orbitron',sans-serif;font-size:clamp(1rem,3.5vw,1.6rem);font-weight:900;letter-spacing:3px;text-align:center;line-height:1.6;color:#fff;text-transform:uppercase;">
+                                We handle the Tech</p>
+                            <p
+                                style="font-family:'Rajdhani',sans-serif;font-size:clamp(0.85rem,2.5vw,1.15rem);font-weight:600;letter-spacing:2px;text-align:center;color:rgba(255,255,255,0.55);text-transform:uppercase;">
+                                You manage Business Operations</p>
                             <!-- Animated grow chart -->
                             <svg viewBox="0 0 220 52" width="220" style="max-width:70vw;">
-                                <line x1="0" y1="46" x2="220" y2="46" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
-                                <line x1="0" y1="31" x2="220" y2="31" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
-                                <line x1="0" y1="16" x2="220" y2="16" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+                                <line x1="0" y1="46" x2="220" y2="46" stroke="rgba(255,255,255,0.07)"
+                                    stroke-width="1" />
+                                <line x1="0" y1="31" x2="220" y2="31" stroke="rgba(255,255,255,0.07)"
+                                    stroke-width="1" />
+                                <line x1="0" y1="16" x2="220" y2="16" stroke="rgba(255,255,255,0.07)"
+                                    stroke-width="1" />
                                 <defs>
                                     <linearGradient id="growFill4" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="0%" stop-color="#22c55e" stop-opacity="0.22"/>
-                                        <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+                                        <stop offset="0%" stop-color="#22c55e" stop-opacity="0.22" />
+                                        <stop offset="100%" stop-color="#22c55e" stop-opacity="0" />
                                     </linearGradient>
                                 </defs>
-                                <path d="M10 46 L45 39 L80 33 L110 25 L145 16 L175 9 L210 3 L210 46 Z" fill="url(#growFill4)"/>
-                                <polyline id="growLine4" points="10,46 45,39 80,33 110,25 145,16 175,9 210,3" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="420" stroke-dashoffset="420" style="transition:stroke-dashoffset 1.8s cubic-bezier(0.4,0,0.2,1);"/>
-                                <circle cx="210" cy="3" r="4" fill="#22c55e" id="growDot4" opacity="0" style="transition:opacity 0.4s ease 1.8s;"/>
+                                <path d="M10 46 L45 39 L80 33 L110 25 L145 16 L175 9 L210 3 L210 46 Z"
+                                    fill="url(#growFill4)" />
+                                <polyline id="growLine4" points="10,46 45,39 80,33 110,25 145,16 175,9 210,3"
+                                    fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-dasharray="420" stroke-dashoffset="420"
+                                    style="transition:stroke-dashoffset 1.8s cubic-bezier(0.4,0,0.2,1);" />
+                                <circle cx="210" cy="3" r="4" fill="#22c55e" id="growDot4" opacity="0"
+                                    style="transition:opacity 0.4s ease 1.8s;" />
                             </svg>
                         </div>
                     </div>
@@ -1731,7 +2032,8 @@
                     <span class="tagline-break"></span>
                     <span class="svg-wrap">
                         your growth
-                        <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:1.6rem;height:1.6rem;stroke:#22c55e;">
+                        <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            style="width:1.6rem;height:1.6rem;stroke:#22c55e;">
                             <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
                             <polyline points="17 6 23 6 23 12"></polyline>
                         </svg>
@@ -1776,11 +2078,28 @@
                     </svg>
                 </a>
 
+                <div class="speed-badge-container">
+                    <div class="speed-badge">
+                        <div class="speed-badge-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="speed-gauge">
+                                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+                                    opacity="0.2" />
+                                <path d="M3.6 9h16.8M12 2v3M2 12h3M19 12h3" opacity="0.4" />
+                                <path d="M12 2a10 10 0 0 1 10 10" stroke-dasharray="4 4" />
+                                <line x1="12" y1="12" x2="18" y2="8" class="gauge-needle" />
+                                <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                            </svg>
+                        </div>
+                        <div class="speed-badge-text">
+                            We make Apps faster than Zomato delivers food 😉
+                        </div>
+                    </div>
+                </div>
+
                 <div class="hero-description">
-                    Dominal helps startups implement any complex idea into websites, applications, and online
-                    technologies. Our services include mobile/web development, PWA, AI integration, AI chatbots, and
-                    more. We help grow businesses and startups from scratch, providing cutting-edge solutions for the
-                    digital age.
+                    Dominal doesn't just build fast—we build smart. We specialize in custom Mobile & Web Apps, smart AI
+                    integration, business automation, and scalable cloud systems designed to help you grow effortlessly.
                 </div>
             </div>
         </div>
@@ -1790,6 +2109,116 @@
             <div class="shape shape-1"></div>
             <div class="shape shape-2"></div>
             <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- Our Top Clients Section -->
+    <section class="clients-section reveal">
+        <div class="section-header" style="margin-bottom:0;">
+            <h2 class="section-title">OUR TOP CLIENTS</h2>
+            <div class="title-underline"></div>
+        </div>
+
+        <div class="clients-grid">
+            <!-- 1) Indian Govt. - Central Railway -->
+            <div class="client-card">
+                <div class="client-logo-box">
+                    <img src="indianrailways.png" alt="Central Railway">
+                </div>
+                <div class="client-info-group">
+                    <div class="client-main-name">Central Railway</div>
+                    <div class="client-sub-desc">Indian Government</div>
+                </div>
+            </div>
+
+            <!-- 2) 5 Star Hotel CRM Software (SVG) -->
+            <div class="client-card">
+                <div class="client-logo-box">
+                    <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 22v-6.5m4 6.5v-6.5" />
+                        <path d="M6 22V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v17M2 22h20" />
+                        <path d="M10 6h4M10 10h4M10 14h4" />
+                    </svg>
+                </div>
+                <div class="client-info-group">
+                    <div class="client-main-name">5 Star Hotel</div>
+                    <div class="client-sub-desc">CRM Software</div>
+                </div>
+            </div>
+
+            <!-- 3) Furniture Factory - CRM (SVG) -->
+            <div class="client-card">
+                <div class="client-logo-box">
+                    <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 9V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2" />
+                        <rect x="2" y="9" width="20" height="8" rx="2" />
+                        <path d="M4 17v2M20 17v2" />
+                    </svg>
+                </div>
+                <div class="client-info-group">
+                    <div class="client-main-name">Furniture and Steel Factory</div>
+                    <div class="client-sub-desc">450+ Products CRM</div>
+                </div>
+            </div>
+
+            <!-- 4) Walltone Decors -->
+            <div class="client-card">
+                <div class="client-logo-box">
+                    <img src="walltone.png" alt="Walltone Decors">
+                </div>
+                <div class="client-info-group">
+                    <div class="client-main-name">Walltone Decors</div>
+                    <div class="client-sub-desc">walltone.in</div>
+                </div>
+            </div>
+
+            <!-- 5) HCC High School Solapur -->
+            <div class="client-card">
+                <div class="client-logo-box">
+                    <img src="hccsolapur.jpg" alt="HCC High School">
+                </div>
+                <div class="client-info-group">
+                    <div class="client-main-name">HCC High School</div>
+                    <div class="client-sub-desc">hccsolapur.in</div>
+                </div>
+            </div>
+
+            <!-- 6) Libas Collection Solapur -->
+            <div class="client-card">
+                <div class="client-logo-box">
+                    <img src="libas.jpg" alt="Libas Collection">
+                </div>
+                <div class="client-info-group">
+                    <div class="client-main-name">Libas Collection</div>
+                    <div class="client-sub-desc">libassolapur.in</div>
+                </div>
+            </div>
+
+            <!-- 7) Lokpradhan News Channel -->
+            <div class="client-card" style="grid-column: span 1;">
+                <div class="client-logo-box">
+                    <img src="lokpradhan.jpeg" alt="Lokpradhan">
+                </div>
+                <div class="client-info-group">
+                    <div class="client-main-name">Lokpradhan News Channel</div>
+                    <div class="client-sub-desc">lokpradhan.in</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nda-badge-container">
+            <div class="nda-badge">
+                <div class="nda-badge-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="nda-icon-svg">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                </div>
+                <div class="nda-badge-text">
+                    ...and much more, we can't reveal some names due to NDA (Non Disclosure Agreement)
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1915,6 +2344,57 @@
                 <h3>DOMAIN & HOSTING</h3>
                 <p>Secure your digital presence with reliable domain registration and high-performance hosting solutions
                     tailored to your needs.</p>
+                <div class="card-corner corner-tl"></div>
+                <div class="card-corner corner-tr"></div>
+                <div class="card-corner corner-bl"></div>
+                <div class="card-corner corner-br"></div>
+            </div>
+
+            <!-- Google SEO -->
+            <div class="service-card">
+                <div class="card-border"></div>
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <path d="M11 8v6M8 11h6"></path>
+                    </svg>
+                </div>
+                <h3>GOOGLE SEO</h3>
+                <p>Rank #1 on Google. We handle full on-page optimizations, local visibility, and robust indexing so your ideal customers find you first, without ad spend.</p>
+                <div class="card-corner corner-tl"></div>
+                <div class="card-corner corner-tr"></div>
+                <div class="card-corner corner-bl"></div>
+                <div class="card-corner corner-br"></div>
+            </div>
+
+            <!-- AI SEO -->
+            <div class="service-card">
+                <div class="card-border"></div>
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                    </svg>
+                </div>
+                <h3>AI SEO</h3>
+                <p>Scale ranking faster with artificial intelligence. Automatic metadata generation, real-time keyword forecasting, and self-optimizing content hubs built for maximum scale.</p>
+                <div class="card-corner corner-tl"></div>
+                <div class="card-corner corner-tr"></div>
+                <div class="card-corner corner-bl"></div>
+                <div class="card-corner corner-br"></div>
+            </div>
+
+            <!-- Company Building & Growth Consulting -->
+            <div class="service-card">
+                <div class="card-border"></div>
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                        <polyline points="17 6 23 6 23 12"></polyline>
+                    </svg>
+                </div>
+                <h3>COMPANY BUILDING & GROWTH CONSULTING</h3>
+                <p>From idea to launch — we help you plan, build, and grow your startup. Get expert advice on tech roadmaps, go-to-market strategy, and scaling your business fast.</p>
                 <div class="card-corner corner-tl"></div>
                 <div class="card-corner corner-tr"></div>
                 <div class="card-corner corner-bl"></div>
