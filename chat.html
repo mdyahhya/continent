@@ -1094,7 +1094,8 @@ function addMessageToDisplay(role, content, animate = true) {
     logoImg.alt = 'Dominal AI';
     avatar.appendChild(logoImg);
   } else {
-    avatar.textContent = 'Y';
+    // Display standard User Profile SVG icon instead of text 'Y'
+    avatar.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
   }
   
   const messageContent = document.createElement('div');
@@ -1316,10 +1317,14 @@ async function sendMessage() {
   
   let systemPrompt = `You are Dominal AI — the friendly assistant for Dominal Tech, founded by Yahya Mundewadi.
   
-🚨 CRITICAL SHORTNESS RULE:
-- Keep all introductions and initial greetings EXTREMELY brief (max 1-2 short sentences).
-- Do NOT list all services until explicitly asked "what services do you offer". 
-- If describing the company, use ONE punchy line.
+🚨 CRITICAL INTRO RULE (for Hi/Greetings):
+- Say "How can I help you today?"
+- List our core expertise in ONE very short bulleted block:
+  • Websites & Apps
+  • AI Solutions & Automation
+  • CRMs & Software
+  • Google SEO & Growth
+- DO NOT give lengthy explanations here. Keep it very short.
 
 🚨 STRICT FORMATTING RULES:
 - NEVER EVER use block paragraphs.
