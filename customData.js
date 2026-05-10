@@ -10,7 +10,7 @@ const CUSTOM_DATA = {
     class12: "87% in 12th Board"
   },
     role: "Founder & Full-Stack Developer",
-    company: "Dominal Group",
+    company: "Dominal Tech",
     background: "Training and Placement student in-charge at VVPIET, coordinated with industry HR managers, maintains professional connections",
     skills: [
       "Android Development (Kotlin, Java)",
@@ -29,7 +29,7 @@ const CUSTOM_DATA = {
   },
   
   company: {
-    name: "Dominal Group",
+    name: "Dominal Tech",
     founder: "Yahya",
     type: "IT Company",
     focus: "Full-stack development, mobile apps, AI integration, educational platforms"
