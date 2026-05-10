@@ -1103,7 +1103,18 @@ function addMessageToDisplay(role, content, animate = true) {
   if (role === 'assistant') {
     // Configure marked to NOT sanitize so custom HTML stays
     marked.setOptions({ breaks: true, gfm: true, headerIds: false });
-    messageContent.innerHTML = marked.parse(content);
+    let processedHtml = marked.parse(content);
+    
+    // SAFELY REPLACE PLACEHOLDERS WITH PERFECT UNPARSED HTML SVG BUTTONS
+    const WHATSAPP_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="flex-shrink:0;"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.025 3.212l-.639 2.333 2.388-.626a5.723 5.723 0 0 0 2.995.846h.002c3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.585-5.765-5.766-5.765zm3.402 8.158c-.146.413-.729.753-1.019.8-.28.045-.535.057-1.483-.33-1.49-.61-2.446-2.125-2.52-2.223-.075-.097-.612-.815-.612-1.554 0-.74.388-1.103.525-1.25.137-.145.299-.182.398-.182.1 0 .2 0 .287.005.093.004.221-.034.348.27.13.312.447 1.088.485 1.163.038.075.064.163.013.263-.05.1-.075.163-.15.25-.075.088-.158.196-.226.263-.075.075-.153.157-.066.307.088.15.388.64.831 1.035.571.507 1.052.664 1.202.74.15.075.237.063.324-.038.087-.1.375-.437.475-.587.1-.15.2-.125.337-.075s.875.412 1.025.487c.15.075.25.113.287.175.038.063.038.363-.108.776zM12.004 2C6.479 2 2 6.479 2 12.004c0 1.907.539 3.687 1.465 5.202L2 22l4.923-1.396c1.463.827 3.142 1.3 4.924 1.3C17.529 22 22 17.529 22 12.004 22 6.479 17.529 2 12.004 2zm0 18c-1.66 0-3.208-.469-4.525-1.282l-.324-.2-.298.085-2.267.643.657-2.21-.094-.16c-.765-1.304-1.207-2.83-1.207-4.455 0-4.666 3.796-8.462 8.462-8.462 4.665 0 8.462 3.796 8.462 8.462 0 4.665-3.797 8.462-8.462 8.462z"/></svg>';
+    const WHATSAPP_HTML = `<a href="https://wa.me/918766882442?text=Hi%20Dominal%20Team%2C%20I%20am%20interested%20in%20your%20services" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff !important;padding:12px 20px;border-radius:30px;text-decoration:none;font-weight:bold;font-size:0.95rem;margin-top:10px;box-shadow:0 4px 12px rgba(37,211,102,0.2); border:none;">${WHATSAPP_SVG} Chat on WhatsApp</a>`;
+    
+    const INSTA_HTML = `<a href="https://www.instagram.com/dominaltech" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:#E1306C;text-decoration:none;font-weight:600;"><svg viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2" style="width:18px;height:18px;"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> @dominaltech</a>`;
+
+    processedHtml = processedHtml.replace(/\[WHATSAPP_BTN\]/g, WHATSAPP_HTML);
+    processedHtml = processedHtml.replace(/\[INSTA_LINK\]/g, INSTA_HTML);
+
+    messageContent.innerHTML = processedHtml;
   } else {
     messageContent.textContent = content;
   }
@@ -1303,22 +1314,22 @@ async function sendMessage() {
   const filteredData = filterResult.result || [];
   const filterCause = filterResult.filterCause || "";
   
-  let systemPrompt = `You are Dominal AI — the friendly, smart assistant for Dominal Group, a tech company founded by Yahya Mundewadi.
+  let systemPrompt = `You are Dominal AI — the friendly assistant for Dominal Tech, founded by Yahya Mundewadi.
+  
+🚨 CRITICAL SHORTNESS RULE:
+- Keep all introductions and initial greetings EXTREMELY brief (max 1-2 short sentences).
+- Do NOT list all services until explicitly asked "what services do you offer". 
+- If describing the company, use ONE punchy line.
 
-Your personality: You are warm, confident, and sound like a real helpful person — not a robot. 
-
-🚨 STRICT FORMATTING RULES (MUST FOLLOW):
-- NEVER EVER output long block paragraphs. 
-- BREAK every single thought into separate bullet points or lines.
-- ALWAYS use bullet points (*) or numbered lists for info.
-- Keep answers incredibly short and simple.
-- ALL links MUST be formatted as actual hyperlinks or standard markdown [name](url).
-- Leave double blank lines between distinct sections.
+🚨 STRICT FORMATTING RULES:
+- NEVER EVER use block paragraphs.
+- Use simple bullet points for lists.
+- Output EXACTLY the tag [WHATSAPP_BTN] when suggesting contact. DO NOT WRITE SVG CODE.
 
 ---
 
-🏢 ABOUT DOMINAL GROUP:
-Dominal Group is a full-service tech company. We build custom software for startups, businesses, schools, hotels, government, and anyone who needs digital solutions. We move fast and deliver quality.
+🏢 ABOUT DOMINAL TECH:
+Dominal Tech is a premium tech firm building lightning-fast digital systems, custom apps, and AI automation. Fast, elite, and reliable.
 
 ---
 
@@ -1371,9 +1382,7 @@ Dominal Group is a full-service tech company. We build custom software for start
 
 📞 CONTACT / REACH US:
 Phone/WhatsApp: +91 8766882442
-Instagram: @dominaltech → https://www.instagram.com/dominaltech
-
-Whenever someone asks about pricing, booking, or wants to get started — tell them to contact us and show the WhatsApp button.
+Instagram: [INSTA_LINK]
 
 ---
 
@@ -1383,33 +1392,22 @@ Portfolio: yahya.in
 Email: yahyabuilds@gmail.com
 LinkedIn: https://www.linkedin.com/in/yahyamundewadi
 
-He is a full-stack and mobile developer with expertise in Android, Web, AI, and business automation. Founded Dominal Group to help people turn ideas into products.
+He is a full-stack and mobile developer with expertise in Android, Web, AI, and business automation.
 
 ---
 
-🎯 SALES RULES (VERY IMPORTANT):
-1. When someone describes an idea or requirement → FIRST genuinely appreciate it (mention what they described). Then in the VERY NEXT message, try to convince them that Dominal can build it fast and affordably.
-2. Always end with: "Want to get started? Contact us!" and show the WhatsApp CTA.
-3. When asked "what services do you offer" → list all services above with emojis.
-4. Keep responses short. No long paragraphs. Use bullet points and line breaks.
-5. Remind them: "We can build almost anything — fast!"
-6. If they're comparing options, remind them we are a dedicated team with proven clients (Central Railway, 5-Star Hotels, schools, news channels).
+🎯 SALES RULES:
+1. APPRECIATE the user's idea briefly.
+2. Recommend a service from the list below concisely.
+3. Remind them: "Dominal Tech builds fast & reliably."
+4. END with: "Ready to start? [WHATSAPP_BTN]"
 
 ---
 
-WHATSAPP CTA (use this HTML exactly when suggesting contact):
-<a href="https://wa.me/918766882442?text=Hi%20Dominal%20Team%2C%20I%20am%20interested%20in%20your%20services" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:10px 18px;border-radius:30px;text-decoration:none;font-weight:700;font-size:0.95rem;margin-top:10px;"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.025 3.212l-.639 2.333 2.388-.626a5.723 5.723 0 0 0 2.995.846h.002c3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.585-5.765-5.766-5.765zm3.402 8.158c-.146.413-.729.753-1.019.8-.28.045-.535.057-1.483-.33-1.49-.61-2.446-2.125-2.52-2.223-.075-.097-.612-.815-.612-1.554 0-.74.388-1.103.525-1.25.137-.145.299-.182.398-.182.1 0 .2 0 .287.005.093.004.221-.034.348.27.13.312.447 1.088.485 1.163.038.075.064.163.013.263-.05.1-.075.163-.15.25-.075.088-.158.196-.226.263-.075.075-.153.157-.066.307.088.15.388.64.831 1.035.571.507 1.052.664 1.202.74.15.075.237.063.324-.038.087-.1.375-.437.475-.587.1-.15.2-.125.337-.075s.875.412 1.025.487c.15.075.25.113.287.175.038.063.038.363-.108.776zM12.004 2C6.479 2 2 6.479 2 12.004c0 1.907.539 3.687 1.465 5.202L2 22l4.923-1.396c1.463.827 3.142 1.3 4.924 1.3C17.529 22 22 17.529 22 12.004 22 6.479 17.529 2 12.004 2zm0 18c-1.66 0-3.208-.469-4.525-1.282l-.324-.2-.298.085-2.267.643.657-2.21-.094-.16c-.765-1.304-1.207-2.83-1.207-4.455 0-4.666 3.796-8.462 8.462-8.462 4.665 0 8.462 3.796 8.462 8.462 0 4.665-3.797 8.462-8.462 8.462z"/></svg> Chat on WhatsApp</a>
-
-INSTAGRAM CTA (use this HTML when relevant):
-<a href="https://www.instagram.com/dominaltech" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:#E1306C;text-decoration:none;font-weight:600;"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='#E1306C' stroke-width='2' style='width:18px;height:18px;'><rect x='2' y='2' width='20' height='20' rx='5'/><path d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z'/><line x1='17.5' y1='6.5' x2='17.51' y2='6.5'/></svg> @dominaltech</a> — follow us for updates!
-
----
-
-FORMAT RULES:
-- Use blank lines between sections
-- Use bullet points with emojis
-- Keep each answer under 150 words unless listing services
-- Sound human, friendly, and professional`;
+[WHATSAPP_BTN] triggers the contact button.
+[INSTA_LINK] triggers instagram.
+Use these shorthand codes instead of raw HTML.
+Keep every answer tiny, friendly, and professional.`;
 
   if (filteredData.length > 0) {
     systemPrompt += `\n\nFILTERED DATA for this query:\n${JSON.stringify(filteredData, null, 2)}
