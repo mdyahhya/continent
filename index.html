@@ -223,7 +223,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 150px 5% 100px;
+            padding: 100px 5% 60px;
             position: relative;
         }
 
@@ -253,8 +253,8 @@
         .ad-stage {
             width: 100%;
             max-width: 860px;
-            margin: 1.5rem auto 2.5rem;
-            height: 270px;
+            margin: 0.2rem auto 1.5rem;
+            height: 220px;
             position: relative;
             display: flex;
             justify-content: center;
@@ -269,7 +269,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 14px;
+            gap: 10px;
             opacity: 0;
             transform: translateY(18px);
             transition: opacity 0.7s ease, transform 0.7s ease;
@@ -285,7 +285,7 @@
         /* Shared label */
         .ad-slide-label {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 900;
             letter-spacing: 5px;
             text-transform: uppercase;
@@ -294,7 +294,7 @@
 
         /* ---- SLIDE 1: Browser Mockup ---- */
         .browser-mock {
-            width: min(380px, 90vw);
+            width: min(320px, 85vw);
             border-radius: 8px;
             overflow: hidden;
             border: 1.5px solid rgba(59, 130, 246, 0.6);
@@ -414,7 +414,7 @@
 
         /* ---- SLIDE 2: AI Chat Mockup ---- */
         .chat-mock {
-            width: min(300px, 82vw);
+            width: min(260px, 78vw);
             border-radius: 12px;
             overflow: hidden;
             border: 1.5px solid rgba(168, 85, 247, 0.5);
@@ -568,8 +568,8 @@
 
         /* ---- SLIDE 3: Mobile Phone Mockup ---- */
         .phone-mock {
-            width: min(140px, 36vw);
-            height: 220px;
+            width: min(120px, 32vw);
+            height: 190px;
             border-radius: 20px;
             border: 2.5px solid rgba(244, 63, 94, 0.7);
             overflow: hidden;
@@ -738,7 +738,7 @@
 
         .hero-tagline {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(0.9rem, 2.8vw, 1.45rem);
+            font-size: clamp(0.8rem, 2.4vw, 1.3rem);
             font-weight: 900;
             letter-spacing: 3px;
             color: var(--pure-white);
@@ -773,7 +773,7 @@
 
         /* AI Chat Interface */
         .hero-chat-wrapper {
-            margin: 1.5rem 0 3rem;
+            margin: 1rem 0 1.5rem;
         }
 
         .chat-interface {
@@ -897,7 +897,7 @@
             letter-spacing: 2px;
             border-radius: 50px;
             transition: all var(--transition);
-            margin: 2rem 0;
+            margin: 1rem 0;
             border: 2px solid var(--pure-white);
         }
 
@@ -921,11 +921,11 @@
         }
 
         .hero-description {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             line-height: 1.8;
             color: rgba(255, 255, 255, 0.8);
             max-width: 800px;
-            margin: 2rem auto 0;
+            margin: 1rem auto 0;
         }
 
         /* Geometric Decorations */
@@ -1360,36 +1360,34 @@
 
             /* Hero Section */
             .hero-section {
-                padding: 120px 5% 80px;
+                padding: 90px 5% 50px;
             }
 
             .company-logo-wrapper {
-                padding-top: 10px;
-                /* Reduce top gap */
-                padding-bottom: 5px;
-                /* Reduce bottom gap */
+                padding-top: 0;
+                padding-bottom: 0;
             }
 
             .ad-stage {
-                height: 250px;
-                margin: 1rem auto 2rem;
+                height: 180px;
+                margin: 0.2rem auto 1rem;
             }
 
             .browser-mock {
-                width: min(300px, 88vw);
+                width: min(240px, 80vw);
             }
 
             .chat-mock {
-                width: min(250px, 80vw);
+                width: min(210px, 75vw);
             }
 
             .phone-mock {
-                width: min(125px, 32vw);
-                height: 200px;
+                width: min(100px, 28vw);
+                height: 160px;
             }
 
             .ad-slide-label {
-                font-size: 1rem;
+                font-size: 0.85rem;
                 letter-spacing: 3px;
             }
 
@@ -1440,7 +1438,7 @@
             }
 
             .hero-description {
-                font-size: 1rem;
+                font-size: 0.9rem;
             }
 
             /* Services Section */
@@ -1505,7 +1503,7 @@
             }
 
             .hero-chat-wrapper {
-                margin: 1rem 0 2rem;
+                margin: 0.5rem 0 1.2rem;
             }
 
             .section-title {
@@ -2241,7 +2239,7 @@
         function startSvgSwitcher() {
             const slides = ['adSlide1', 'adSlide2', 'adSlide3', 'adSlide4'];
             let current = 0;
-            const DURATION = 4500;
+            const DURATION = 3500;
 
             function goTo(idx) {
                 document.getElementById(slides[current]).classList.remove('is-active');
@@ -2275,9 +2273,9 @@
                     e.style.opacity = '0';
                     e.style.transform = e === cards ? 'translateY(6px)' : 'scaleX(0)';
                 });
-                setTimeout(() => { nav.style.opacity = '1'; nav.style.transform = 'scaleX(1)'; }, 300);
-                setTimeout(() => { hero.style.opacity = '1'; hero.style.transform = 'scaleX(1)'; }, 700);
-                setTimeout(() => { cards.style.opacity = '1'; cards.style.transform = 'translateY(0)'; }, 1100);
+                setTimeout(() => { nav.style.opacity = '1'; nav.style.transform = 'scaleX(1)'; }, 200);
+                setTimeout(() => { hero.style.opacity = '1'; hero.style.transform = 'scaleX(1)'; }, 450);
+                setTimeout(() => { cards.style.opacity = '1'; cards.style.transform = 'translateY(0)'; }, 700);
             }
 
             // ---- Chat animation ----
@@ -2289,8 +2287,8 @@
                     e.style.opacity = '0';
                     e.style.transform = 'translateY(4px)';
                 });
-                const delays = [300, 900, 1800, 2600, 3200, 4000];
-                const hideTyping = { cmTyping: 1700, cmTyping2: 3900 };
+                const delays = [200, 500, 1100, 1700, 2200, 2700];
+                const hideTyping = { cmTyping: 1000, cmTyping2: 2600 };
                 els.forEach((id, i) => {
                     setTimeout(() => {
                         const e = document.getElementById(id);
@@ -2329,12 +2327,12 @@
                 });
 
                 // Animate login in
-                setTimeout(() => { login.style.opacity = '1'; }, 300);
+                setTimeout(() => { login.style.opacity = '1'; }, 200);
                 loginEls.forEach((id, i) => {
                     setTimeout(() => {
                         const e = document.getElementById(id);
                         if (e) { e.style.opacity = '1'; e.style.transform = 'translateX(0)'; }
-                    }, 600 + i * 280);
+                    }, 400 + i * 180);
                 });
 
                 // Transition to signup
@@ -2350,10 +2348,10 @@
                             setTimeout(() => {
                                 const e = document.getElementById(id);
                                 if (e) { e.style.opacity = '1'; e.style.transform = 'translateX(0)'; }
-                            }, 200 + i * 250);
+                            }, 100 + i * 150);
                         });
-                    }, 400);
-                }, 3000);
+                    }, 300);
+                }, 1800);
             }
 
             animateBrowser();
