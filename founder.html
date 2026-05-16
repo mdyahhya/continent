@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Founders - Dominal Tech Pvt Ltd</title>
     <link rel="manifest" href="manifest.json">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -153,9 +156,12 @@
         }
 
         @keyframes glow {
-            0%, 100% {
+
+            0%,
+            100% {
                 filter: drop-shadow(0 0 20px rgba(10, 31, 68, 0.5));
             }
+
             50% {
                 filter: drop-shadow(0 0 40px rgba(10, 31, 68, 0.8));
             }
@@ -200,7 +206,8 @@
             flex: 0 0 auto;
         }
 
-        .founder-circle-image, .mentor-circle-image {
+        .founder-circle-image,
+        .mentor-circle-image {
             width: 250px;
             height: 250px;
             border-radius: 50%;
@@ -217,18 +224,21 @@
             margin-bottom: 1.5rem;
         }
 
-        .founder-circle-image img, .mentor-circle-image img {
+        .founder-circle-image img,
+        .mentor-circle-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .founder-circle-image:hover, .mentor-circle-image:hover {
+        .founder-circle-image:hover,
+        .mentor-circle-image:hover {
             transform: scale(1.05);
             box-shadow: 0 15px 50px rgba(10, 31, 68, 0.8);
         }
 
-        .founder-name, .mentor-name {
+        .founder-name,
+        .mentor-name {
             font-family: 'Orbitron', sans-serif;
             font-size: 2rem;
             font-weight: 900;
@@ -239,12 +249,74 @@
             background-clip: text;
         }
 
-        .founder-role, .mentor-role {
+        .founder-role,
+        .mentor-role {
             font-size: 1.2rem;
             color: white;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
             font-weight: 600;
             letter-spacing: 1px;
+        }
+
+        .founder-details-text {
+            display: none;
+            /* Deprecated */
+        }
+
+        .founder-btn-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+            margin-top: 0.4rem;
+        }
+
+        .founder-inline-row {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .founder-pill-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            border: 1.5px solid #FFFFFF;
+            border-radius: 30px;
+            color: #FFFFFF;
+            background: transparent;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .founder-pill-btn:hover {
+            background: #FFFFFF;
+            color: #000000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .founder-pill-btn svg,
+        .founder-pill-btn span {
+            flex-shrink: 0;
+        }
+
+        .founder-pill-btn:hover svg {
+            stroke: #000000;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            border-radius: 50%;
         }
 
         .image-contact-icons {
@@ -471,6 +543,7 @@
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -487,6 +560,7 @@
             from {
                 transform: scale(0.5);
             }
+
             to {
                 transform: scale(1);
             }
@@ -599,18 +673,27 @@
                 gap: 2rem;
             }
 
-            .founder-circle-image, .mentor-circle-image {
+            .founder-circle-image,
+            .mentor-circle-image {
                 width: 150px;
                 height: 150px;
                 font-size: 4rem;
             }
 
-            .founder-name, .mentor-name {
+            .founder-name,
+            .mentor-name {
                 font-size: 1.4rem;
             }
 
-            .founder-role, .mentor-role {
+            .founder-role,
+            .mentor-role {
                 font-size: 0.95rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .founder-details-text {
+                font-size: 0.8rem;
+                margin-bottom: 0.8rem;
             }
 
             .icon-link {
@@ -647,29 +730,33 @@
                 gap: 1.5rem;
             }
 
-            .founder-circle-image, .mentor-circle-image {
+            .founder-circle-image,
+            .mentor-circle-image {
                 width: 130px;
                 height: 130px;
                 font-size: 3.5rem;
             }
 
-            .founder-name, .mentor-name {
+            .founder-name,
+            .mentor-name {
                 font-size: 1.2rem;
             }
 
-            .founder-role, .mentor-role {
+            .founder-role,
+            .mentor-role {
                 font-size: 0.85rem;
             }
+
             .page-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 0.3rem;
-            background: linear-gradient(135deg, #FFFFFF, #0A1F44);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: glow 3s ease-in-out infinite;
+                font-family: 'Orbitron', sans-serif;
+                font-size: 2.5rem;
+                font-weight: 900;
+                margin-bottom: 0.3rem;
+                background: linear-gradient(135deg, #FFFFFF, #0A1F44);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                animation: glow 3s ease-in-out infinite;
             }
         }
 
@@ -678,17 +765,20 @@
                 gap: 1rem;
             }
 
-            .founder-circle-image, .mentor-circle-image {
+            .founder-circle-image,
+            .mentor-circle-image {
                 width: 110px;
                 height: 110px;
                 font-size: 3rem;
             }
 
-            .founder-name, .mentor-name {
+            .founder-name,
+            .mentor-name {
                 font-size: 1rem;
             }
 
-            .founder-role, .mentor-role {
+            .founder-role,
+            .mentor-role {
                 font-size: 0.75rem;
             }
 
@@ -704,6 +794,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav>
         <div class="logo" onclick="window.location.href='index.html'">
@@ -752,13 +843,41 @@
                     </div>
                     <h2 class="founder-name">Yahya Mundewadi</h2>
                     <p class="founder-role">Co-Founder & CEO</p>
-                    <div class="image-contact-icons">
-                        <a href="mailto:yahyabuilds@gmail.com" class="icon-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                        </a>
-                        <a href="https://www.linkedin.com/in/yahya-m-05b3191b9" target="_blank" class="icon-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                        </a>
+
+                    <div class="founder-btn-group">
+                        <div class="founder-inline-row">
+                            <a href="https://yahya.in" target="_blank" class="founder-pill-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" style="width:18px;height:18px;">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="2" y1="12" x2="22" y2="12" />
+                                    <path
+                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                                </svg>
+                                yahya.in
+                            </a>
+                            <a href="mailto:yahyabuilds@gmail.com" class="founder-pill-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" style="width:18px;height:18px;">
+                                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                </svg>
+                                yahyabuilds@gmail.com
+                            </a>
+                            <a href="https://www.linkedin.com/in/yahyamundewadi" target="_blank"
+                                class="founder-pill-btn icon-btn" title="LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" style="width:18px;height:18px;">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                    <rect width="4" height="12" x="2" y="9" />
+                                    <circle cx="4" cy="4" r="2" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -769,12 +888,78 @@
                     </div>
                     <h2 class="founder-name">Amir Rangrez</h2>
                     <p class="founder-role">Co-Founder & CTO</p>
+                    <div class="founder-btn-group">
+                        <div class="founder-inline-row">
+                            <a href="https://amirrangrez.netlify.app" target="_blank" class="founder-pill-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" style="width:18px;height:18px;">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="2" y1="12" x2="22" y2="12" />
+                                    <path
+                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                                </svg>
+                                amirrangrez.netlify.app
+                            </a>
+                            <a href="mailto:your-email@dominalgroup.com" class="founder-pill-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" style="width:18px;height:18px;">
+                                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                </svg>
+                                Email
+                            </a>
+                            <a href="https://www.linkedin.com/in/amir-rangrez-170909289" target="_blank"
+                                class="founder-pill-btn icon-btn" title="LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" style="width:18px;height:18px;">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                    <rect width="4" height="12" x="2" y="9" />
+                                    <circle cx="4" cy="4" r="2" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Management Row: Nauman & Adil -->
+            <div class="founders-row">
+                <!-- Nauman Khairdi -->
+                <div class="founder-image-card">
+                    <div class="founder-circle-image" onclick="openImageModal('nauman.jpeg')">
+                        <img src="nauman.jpeg" alt="Nauman Khairdi">
+                    </div>
+                    <h2 class="founder-name">Nauman Khairdi</h2>
+                    <p class="founder-role">Business and Client Management</p>
                     <div class="image-contact-icons">
-                        <a href="mailto:your-email@dominalgroup.com" class="icon-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <a href="mailto:nauman@dominalgroup.com" class="icon-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="16" x="2" y="4" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg>
                         </a>
-                        <a href="https://www.linkedin.com/in/amir-rangrez-170909289" target="_blank" class="icon-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    </div>
+                </div>
+
+                <!-- Adil Mahagami -->
+                <div class="founder-image-card">
+                    <div class="founder-circle-image" onclick="openImageModal('adil.jpeg')">
+                        <img src="adil.jpeg" alt="Adil Mahagami">
+                    </div>
+                    <h2 class="founder-name">Adil Mahagami</h2>
+                    <p class="founder-role">Technical Manager</p>
+                    <div class="image-contact-icons">
+                        <a href="mailto:adil@dominalgroup.com" class="icon-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="16" x="2" y="4" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg>
                         </a>
                     </div>
                 </div>
@@ -787,7 +972,7 @@
                         <img src="mp.jpg" alt="Mohseen Pajnighar">
                     </div>
                     <h2 class="mentor-name">Mohseen Pajnighar</h2>
-                    <p class="mentor-role">Mentor & Sales Expert (15+ Yrs Exp)</p>
+                    <p class="mentor-role">Mentor & Sales Advisor (15+ Yrs Exp)</p>
                     <div class="image-contact-icons">
                         <!-- Add mentor contact links here when available -->
                     </div>
@@ -812,9 +997,10 @@
                     </div>
                 </div>
                 <div class="tweet-content">
-                    Building the future of technology, one startup at a time. At Dominal Group, we don't just create applications—we build dreams into reality. Every line of code is a step toward innovation.
+                    Building the future of technology, one startup at a time. At Dominal Group, we don't just create
+                    applications—we build dreams into reality. Every line of code is a step toward innovation.
                 </div>
-             <!--   <div class="tweet-timestamp">Co-Founder & CEO • Dominal Group</div> -->
+                <!--   <div class="tweet-timestamp">Co-Founder & CEO • Dominal Group</div> -->
             </div>
 
             <!-- Amir's Tweet -->
@@ -829,9 +1015,10 @@
                     </div>
                 </div>
                 <div class="tweet-content">
-                    Technology is not just about code—it's about creating solutions that make a real difference. Our mission is to architect systems that scale, innovate, and transform businesses.
+                    Technology is not just about code—it's about creating solutions that make a real difference. Our
+                    mission is to architect systems that scale, innovate, and transform businesses.
                 </div>
-               <!-- <div class="tweet-timestamp">Co-Founder & CTO • Dominal Group</div> -->
+                <!-- <div class="tweet-timestamp">Co-Founder & CTO • Dominal Group</div> -->
             </div>
         </div>
     </section>
@@ -845,12 +1032,31 @@
                 <h3>Yahya Mundewadi</h3>
                 <p class="role">Co-Founder & CEO</p>
                 <div class="contact-links">
+                    <a href="https://yahya.in" target="_blank" class="contact-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg>
+                        yahya.in
+                    </a>
                     <a href="mailto:yahyabuilds@gmail.com" class="contact-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg>
                         yahyabuilds@gmail.com
                     </a>
-                    <a href="https://www.linkedin.com/in/yahya-m-05b3191b9" target="_blank" class="contact-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    <a href="https://www.linkedin.com/in/yahyamundewadi" target="_blank" class="contact-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect width="4" height="12" x="2" y="9" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
                         LinkedIn Profile
                     </a>
                 </div>
@@ -862,11 +1068,20 @@
                 <p class="role">Co-Founder & CTO</p>
                 <div class="contact-links">
                     <a href="mailto:your-email@dominalgroup.com" class="contact-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg>
                         your-email@dominalgroup.com
                     </a>
                     <a href="https://www.linkedin.com/in/amir-rangrez-170909289" target="_blank" class="contact-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect width="4" height="12" x="2" y="9" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
                         LinkedIn Profile
                     </a>
                 </div>
@@ -917,4 +1132,5 @@
         });
     </script>
 </body>
+
 </html>
