@@ -187,7 +187,7 @@
             justify-content: center;
             align-items: flex-start;
             gap: 4rem;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
         }
 
         .mentor-row {
@@ -294,6 +294,8 @@
             font-size: 0.9rem;
             font-weight: 600;
             transition: all 0.3s ease;
+            max-width: 100%;
+            word-break: break-all;
         }
 
         .founder-pill-btn:hover {
@@ -508,6 +510,7 @@
             display: flex;
             align-items: center;
             gap: 0.8rem;
+            word-break: break-all;
         }
 
         .contact-link svg {
@@ -666,7 +669,9 @@
             }
 
             .founders-row {
-                gap: 2rem;
+                flex-direction: column;
+                align-items: center;
+                gap: 3rem;
             }
 
             .images-container {
@@ -791,6 +796,14 @@
                 width: 16px;
                 height: 16px;
             }
+
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .logo-text {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -839,7 +852,7 @@
                 <!-- Yahya Mundewadi (left) -->
                 <div class="founder-image-card">
                     <div class="founder-circle-image" onclick="openImageModal('Yahya_Mundewadi1.jpg')">
-                        <img src="developer_photo.jpg" alt="Yahya Mundewadi">
+                        <img src="Yahya_Mundewadi.jpeg" alt="Yahya Mundewadi">
                     </div>
                     <h2 class="founder-name">Yahya Mundewadi</h2>
                     <p class="founder-role">Co-Founder & CEO</p>
@@ -900,15 +913,6 @@
                                         d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                                 </svg>
                                 amirrangrez.netlify.app
-                            </a>
-                            <a href="mailto:your-email@dominalgroup.com" class="founder-pill-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" style="width:18px;height:18px;">
-                                    <rect width="20" height="16" x="2" y="4" rx="2" />
-                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                                </svg>
-                                Email
                             </a>
                             <a href="https://www.linkedin.com/in/amir-rangrez-170909289" target="_blank"
                                 class="founder-pill-btn icon-btn" title="LinkedIn">
@@ -989,7 +993,7 @@
             <div class="tweet-box">
                 <div class="tweet-header">
                     <div class="tweet-avatar">
-                        <img src="developer_photo.jpg" alt="Yahya Mundewadi">
+                        <img src="Yahya_Mundewadi.jpeg" alt="Yahya Mundewadi">
                     </div>
                     <div class="tweet-user-info">
                         <div class="tweet-display-name">Yahya Mundewadi</div>
@@ -1067,13 +1071,15 @@
                 <h3>Amir Rangrez</h3>
                 <p class="role">Co-Founder & CTO</p>
                 <div class="contact-links">
-                    <a href="mailto:your-email@dominalgroup.com" class="contact-link">
+                    <a href="https://amirrangrez.netlify.app" target="_blank" class="contact-link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect width="20" height="16" x="2" y="4" rx="2" />
-                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                         </svg>
-                        your-email@dominalgroup.com
+                        amirrangrez.netlify.app
                     </a>
                     <a href="https://www.linkedin.com/in/amir-rangrez-170909289" target="_blank" class="contact-link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
