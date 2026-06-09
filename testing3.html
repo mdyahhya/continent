@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominal Tech — Create the Tech Base for Your Business</title>
+    <meta name="description" content="We create the base for your startup ideas and scale them online with mobile apps, web development, PWA, AI solutions, and chatbots.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ef4d23', // Orange
+                        darkCta: '#0b0f1a', // Dark CTA
+                    },
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        serif: ['"Instrument Serif"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Stylesheet -->
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .font-serif {
+            font-family: 'Instrument Serif', serif !important;
+        }
+
+        /* Overlay blur */
+        .hero-overlay {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Toggle pill states */
+        .toggle-btn.active {
+            background-color: #ffffff;
+            color: #0b0f1a;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-white overflow-x-hidden min-h-screen">
+
+    <!-- Outer Wrapper (White Background and padding) -->
+    <div class="min-h-screen w-full bg-white p-3 sm:p-4 flex flex-col justify-center">
+        
+        <!-- Hero Container (Clips everything inside) -->
+        <div class="relative w-full h-[calc(100vh-24px)] sm:h-[calc(100vh-32px)] overflow-hidden bg-[#d9d9d9] rounded-2xl sm:rounded-3xl flex flex-col justify-between border border-neutral-200/30 shadow-inner">
+            
+            <!-- Background Video -->
+            <video class="absolute inset-0 w-full h-full object-cover pointer-events-none z-0" autoplay loop muted playsinline preload="auto" disableRemotePlayback webkit-playsinline="true" x5-playsinline="true" poster="https://images.unsplash.com/photo-1557683316-973673baf926?w=1600&q=60">
+                <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260424_064411_9e9d7f84-9277-41f4-ab10-59172d89e6be.mp4" type="video/mp4">
+            </video>
+            
+            <!-- Video Overlay -->
+            <div class="absolute inset-0 hero-overlay z-10 pointer-events-none"></div>
+            
+            <!-- Foreground Content Wrapper -->
+            <div class="relative z-25 flex flex-col justify-between h-full w-full overflow-y-auto">
+                
+                <!-- NAVBAR (Floating pill, responsive with hamburger dropdown) -->
+                <div class="flex justify-center pt-4 sm:pt-6 px-3 sm:px-4 w-full select-none">
+                    <div class="bg-white rounded-full shadow-sm border border-neutral-200 pl-2 pr-2 py-2 w-full max-w-[760px] relative flex items-center justify-between z-30">
+                        
+                        <!-- Logo (Orange 8-petal Flower SVG) -->
+                        <a href="index.html" class="flex items-center gap-2 pl-2">
+                            <svg viewBox="0 0 32 32" class="w-7 h-7 sm:w-8 sm:h-8 fill-[#ef4d23] flex-shrink-0">
+                                <circle cx="16" cy="16" r="3.5" />
+                                <circle cx="26" cy="16" r="3.5" />
+                                <circle cx="23.07" cy="23.07" r="3.5" />
+                                <circle cx="16" cy="26" r="3.5" />
+                                <circle cx="8.93" cy="23.07" r="3.5" />
+                                <circle cx="6" cy="16" r="3.5" />
+                                <circle cx="8.93" cy="8.93" r="3.5" />
+                                <circle cx="16" cy="6" r="3.5" />
+                                <circle cx="23.07" cy="8.93" r="3.5" />
+                            </svg>
+                            <span class="font-bold text-neutral-800 tracking-tight text-base sm:text-lg">dominal</span>
+                        </a>
+                        
+                        <!-- Desktop Navigation Links (hidden under md) -->
+                        <nav class="hidden md:flex items-center gap-6 text-[14px]">
+                            <a href="index.html" class="relative flex items-center gap-1.5 font-medium text-neutral-800">
+                                <span>Home</span>
+                                <span class="w-[4px] h-[4px] bg-black rounded-full mt-0.5"></span>
+                            </a>
+                            <a href="chat.html" class="font-medium text-neutral-500 hover:text-neutral-800 transition-colors duration-300">AI Chat</a>
+                            <a href="tel:+918766882442" class="font-medium text-neutral-500 hover:text-neutral-800 transition-colors duration-300">Call Us</a>
+                            <a href="https://wa.me/918766882442" target="_blank" class="font-medium text-[#ef4d23] hover:text-orange-600 transition-colors duration-300 flex items-center gap-1">
+                                <span>Enquiry</span>
+                                <i data-lucide="chevron-down" class="w-3.5 h-3.5 mt-0.5"></i>
+                            </a>
+                        </nav>
+                        
+                        <!-- Right cluster -->
+                        <div class="flex items-center gap-2.5">
+                            <!-- Shopping Cart Icon (hidden on mobile) -->
+                            <a href="chat.html" class="hidden sm:flex w-9 h-9 rounded-full bg-neutral-50 hover:bg-neutral-100 items-center justify-center text-neutral-600 transition-colors duration-300" aria-label="Chatbot">
+                                <i data-lucide="message-square" class="w-4 h-4"></i>
+                            </a>
+                            
+                            <!-- Get Early Access Button -->
+                            <a href="tel:+918766882442" class="bg-[#ef4d23] text-white rounded-full pl-4 pr-1.5 py-1.5 sm:pl-5 sm:pr-2 sm:py-2 flex items-center gap-2 text-xs sm:text-sm font-semibold tracking-wide hover:bg-orange-600 transition-colors duration-300 shadow-sm">
+                                <span class="hidden sm:inline">Connect Now</span>
+                                <span class="sm:hidden">Connect</span>
+                                <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/20 flex items-center justify-center text-white">
+                                    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                                </span>
+                            </a>
+                            
+                            <!-- Hamburger Menu button (md:hidden) -->
+                            <button id="hamburgerBtn" class="md:hidden flex w-9 h-9 rounded-full bg-neutral-50 hover:bg-neutral-100 items-center justify-center text-neutral-600 cursor-pointer transition-colors duration-300" aria-label="Toggle Menu">
+                                <i data-lucide="menu" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Mobile Dropdown Panel -->
+                        <div id="mobileDropdown" class="hidden absolute top-full left-2 right-2 mt-2 bg-white rounded-2xl shadow-lg border border-neutral-200 p-3 z-30 flex flex-col gap-2">
+                            <a href="index.html" class="px-4 py-2.5 text-sm font-medium text-neutral-800 bg-neutral-50 rounded-xl flex items-center justify-between">
+                                <span>Home</span>
+                                <span class="w-2 h-2 bg-[#ef4d23] rounded-full"></span>
+                            </a>
+                            <a href="chat.html" class="px-4 py-2.5 text-sm font-medium text-neutral-600 hover:bg-neutral-50 hover:text-neutral-800 rounded-xl transition-all duration-300">AI Chat</a>
+                            <a href="tel:+918766882442" class="px-4 py-2.5 text-sm font-medium text-neutral-600 hover:bg-neutral-50 hover:text-neutral-800 rounded-xl transition-all duration-300">Call Us</a>
+                            <a href="https://wa.me/918766882442" target="_blank" class="px-4 py-2.5 text-sm font-medium text-[#ef4d23] hover:bg-neutral-50 rounded-xl transition-all duration-300 flex items-center justify-between">
+                                <span>Enquiry</span>
+                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <!-- HERO CONTENT (Centered) -->
+                <main class="flex flex-col items-center px-4 pt-8 sm:pt-14 pb-8 sm:pb-10 text-center select-none w-full max-w-5xl mx-auto">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2 bg-white rounded-full px-4 py-1.5 shadow-sm text-xs sm:text-[13px] font-semibold text-neutral-800">
+                        <span class="w-2.5 h-2.5 bg-[#ef4d23] rounded-full"></span>
+                        <span>Dominal Technology</span>
+                    </div>
+                    
+                    <!-- Headline H1 with clamped sizing -->
+                    <h1 class="mt-5 sm:mt-6 max-w-4xl tracking-[-0.02em] text-[#0b0f1a]" style="font-size: clamp(36px, 8vw, 72px); line-height: 1.05; font-weight: 500;">
+                        Shaping <span class="font-serif italic font-normal text-neutral-800">software</span> <br>
+                        of tomorrow
+                    </h1>
+                    
+                    <!-- Subtitle -->
+                    <p class="mt-4 sm:mt-6 text-neutral-700 px-2 font-medium tracking-wide" style="font-size: clamp(13px, 3.5vw, 16px);">
+                        The All-In-One Tech Partner Powering the Future of Your Startup
+                    </p>
+                    
+                    <!-- CTA Button -->
+                    <a href="chat.html" class="mt-6 sm:mt-8 inline-flex items-center gap-3 bg-[#0b0f1a] text-white rounded-full pl-6 sm:pl-7 pr-2 py-2 sm:py-2.5 text-sm font-semibold tracking-wide hover:bg-[#1a2236] transition-colors duration-300 shadow">
+                        <span>Get Started</span>
+                        <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/15 flex items-center justify-center text-white">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </span>
+                    </a>
+                </main>
+                
+                <!-- DASHBOARD PREVIEW PANEL (Sitting at bottom and bleeding off bottom edge) -->
+                <div class="px-3 sm:px-4 w-full mt-auto flex justify-center translate-y-8 sm:translate-y-12">
+                    <div class="bg-[#f5f2ee] rounded-t-3xl p-4 sm:p-6 w-full max-w-[880px] border-t border-x border-neutral-200/50 shadow-2xl flex flex-col gap-4">
+                        
+                        <!-- Dashboard Grid Layout -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 items-stretch">
+                            
+                            <!-- Card 1 — Clicks (App Speed) -->
+                            <div class="bg-white rounded-2xl p-5 border border-neutral-100 flex flex-col justify-between shadow-sm">
+                                <div>
+                                    <!-- Header -->
+                                    <div class="flex justify-between items-center text-[13px] mb-3">
+                                        <span class="font-bold text-[#ef4d23] uppercase tracking-wider">App Speed</span>
+                                        <span class="text-neutral-500 font-medium">This Month</span>
+                                    </div>
+                                    
+                                    <!-- Big number + Trending pill -->
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <span class="text-[28px] font-bold text-[#0b0f1a]">98%</span>
+                                        <span class="inline-flex items-center gap-0.5 bg-green-50 text-green-600 rounded-full px-2 py-0.5 text-[11px] font-semibold">
+                                            <i data-lucide="trending-up" class="w-3.5 h-3.5"></i>
+                                            <span>+12% (Fast)</span>
+                                        </span>
+                                    </div>
+                                    <p class="text-[11px] text-neutral-400 font-medium mb-4">Compared to industry standard</p>
+                                    
+                                    <!-- Month target heading -->
+                                    <h5 class="text-[10px] text-neutral-400 font-bold uppercase tracking-wider text-center mb-1">We make Apps faster than Zomato delivers food 😉</h5>
+                                    
+                                    <!-- Target Gauge -->
+                                    <div id="clicksGauge" class="w-full"></div>
+                                </div>
+                                
+                                <!-- Impressions/Clicks Toggle Pill -->
+                                <div class="bg-neutral-100 rounded-full p-1 flex justify-between gap-1 w-full text-[11px] font-bold select-none cursor-pointer mt-4" id="clicksToggle">
+                                    <span class="toggle-btn flex-1 py-1.5 rounded-full text-center active transition-all duration-200">App Speed</span>
+                                    <span class="toggle-btn flex-1 py-1.5 rounded-full text-center transition-all duration-200 text-neutral-500">Load Time</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 2 — Form (Project Builder) -->
+                            <form id="projectTargetForm" onsubmit="handleFormSubmit(event)" class="bg-white rounded-2xl p-5 border border-neutral-100 flex flex-col gap-3.5 shadow-sm text-left">
+                                <!-- Group 1 dropdown -->
+                                <div class="flex flex-col gap-1.5">
+                                    <label class="text-[11px] font-bold tracking-wider text-neutral-500 uppercase">Select Platform</label>
+                                    <select id="formPlatform" class="flex items-center justify-between border border-neutral-200 rounded-xl px-3.5 py-2.5 text-xs text-neutral-800 font-medium bg-neutral-50 hover:bg-neutral-100 transition-colors w-full focus:outline-none">
+                                        <option value="Mobile App">Mobile App</option>
+                                        <option value="Web Portal">Web Portal</option>
+                                        <option value="AI Solution">AI Chatbot Solution</option>
+                                    </select>
+                                </div>
+
+                                <!-- Group 2 dropdown -->
+                                <div class="flex flex-col gap-1.5">
+                                    <label class="text-[11px] font-bold tracking-wider text-neutral-500 uppercase">Delivery Speed</label>
+                                    <select id="formSpeed" class="flex items-center justify-between border border-neutral-200 rounded-xl px-3.5 py-2.5 text-xs text-neutral-800 font-medium bg-neutral-50 hover:bg-neutral-100 transition-colors w-full focus:outline-none">
+                                        <option value="Express (30 Days)">Express (30 Days)</option>
+                                        <option value="Standard (60 Days)">Standard (60 Days)</option>
+                                    </select>
+                                </div>
+
+                                <!-- Target Input Month -->
+                                <div class="flex flex-col gap-1.5">
+                                    <label class="text-[11px] font-bold tracking-wider text-neutral-500 uppercase">Budget Target (INR)</label>
+                                    <div class="relative flex items-center">
+                                        <span class="absolute left-3.5 text-neutral-400 font-semibold text-xs">₹</span>
+                                        <input type="number" id="formBudget" value="50000" class="pl-8 pr-3.5 py-2.5 border border-neutral-200 rounded-xl text-xs font-semibold text-neutral-800 bg-neutral-50 focus:outline-none focus:border-primary w-full">
+                                    </div>
+                                </div>
+
+                                <!-- Target Input Year -->
+                                <div class="flex flex-col gap-1.5">
+                                    <label class="text-[11px] font-bold tracking-wider text-neutral-500 uppercase">Custom Features Count</label>
+                                    <div class="relative flex items-center">
+                                        <span class="absolute left-3.5 text-neutral-400 font-semibold text-xs">#</span>
+                                        <input type="number" id="formFeatures" value="5" class="pl-8 pr-3.5 py-2.5 border border-neutral-200 rounded-xl text-xs font-semibold text-neutral-800 bg-neutral-50 focus:outline-none focus:border-primary w-full">
+                                    </div>
+                                </div>
+                                
+                                <!-- Card Footer Actions -->
+                                <div class="flex items-center gap-3 mt-4 pt-1">
+                                    <button type="submit" class="bg-[#ef4d23] text-white rounded-xl px-5 py-2 text-xs font-bold hover:bg-orange-600 transition-colors">Save</button>
+                                    <button type="button" onclick="document.getElementById('projectTargetForm').reset()" class="text-xs font-semibold text-neutral-500 hover:text-neutral-800 underline">Cancel</button>
+                                    <button type="button" onclick="document.getElementById('projectTargetForm').reset()" class="ml-auto text-neutral-400 hover:text-neutral-800" aria-label="Close">
+                                        <i data-lucide="x" class="w-4.5 h-4.5"></i>
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            <!-- Card 3 — Video Starts (AI Conversations) -->
+                            <div class="bg-white rounded-2xl p-5 border border-neutral-100 flex flex-col justify-between shadow-sm">
+                                <div>
+                                    <!-- Header -->
+                                    <div class="flex justify-between items-center text-[13px] mb-3">
+                                        <span class="font-bold text-[#ef4d23] uppercase tracking-wider">AI Chats</span>
+                                        <span class="text-neutral-500 font-medium">Today</span>
+                                    </div>
+                                    
+                                    <!-- Big number + Trending pill -->
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <span class="text-[28px] font-bold text-[#0b0f1a]">1,248</span>
+                                        <span class="inline-flex items-center gap-0.5 bg-green-50 text-green-600 rounded-full px-2 py-0.5 text-[11px] font-semibold">
+                                            <i data-lucide="trending-up" class="w-3.5 h-3.5 text-green-400"></i>
+                                            <span>Active</span>
+                                        </span>
+                                    </div>
+                                    <p class="text-[11px] text-neutral-400 font-medium mb-4">Compared to yesterday</p>
+                                    
+                                    <!-- Gauge -->
+                                    <div id="videoStartsGauge" class="w-full"></div>
+                                </div>
+                                
+                                <!-- Video Clicks/Starts Toggle Pill -->
+                                <div class="bg-neutral-100 rounded-full p-1 flex justify-between gap-1 w-full text-[11px] font-bold select-none cursor-pointer mt-4" id="videoToggle">
+                                    <span class="toggle-btn flex-1 py-1.5 rounded-full text-center active transition-all duration-200">Conversations</span>
+                                    <span class="toggle-btn flex-1 py-1.5 rounded-full text-center transition-all duration-200 text-neutral-500">Total Chats</span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Start Lucide
+        lucide.createIcons();
+
+        // Mobile dropdown toggler
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileDropdown = document.getElementById('mobileDropdown');
+        if (hamburgerBtn && mobileDropdown) {
+            hamburgerBtn.addEventListener('click', () => {
+                mobileDropdown.classList.toggle('hidden');
+            });
+            
+            // Close menu on navigation click
+            document.querySelectorAll('#mobileDropdown a').forEach(a => {
+                a.addEventListener('click', () => {
+                    mobileDropdown.classList.add('hidden');
+                });
+            });
+        }
+
+        // Reusable Gauge Component Renderer in pure JS
+        function renderGauge(containerId, value, color = "#ef4d23", showLabels = false, min = "", max = "") {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            let ticksHTML = '';
+            const activeCount = Math.round((value / 100) * 40);
+            
+            for (let i = 0; i < 40; i++) {
+                // Sweep from 180deg (left) to 360deg (right) over 39 segments
+                const angle_deg = 180 + i * (180 / 39);
+                const angle_rad = angle_deg * (Math.PI / 180);
+                
+                const r_out = 80;
+                const r_in = 70;
+                
+                const x1 = 100 + r_in * Math.cos(angle_rad);
+                const y1 = 100 + r_in * Math.sin(angle_rad);
+                const x2 = 100 + r_out * Math.cos(angle_rad);
+                const y2 = 100 + r_out * Math.sin(angle_rad);
+                
+                const isActive = i < activeCount;
+                const tickColor = isActive ? color : '#d4d4d8';
+                
+                ticksHTML += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${tickColor}" stroke-width="2.5" stroke-linecap="round" />`;
+            }
+            
+            let labelsHTML = '';
+            if (showLabels) {
+                labelsHTML = `
+                    <div class="flex justify-between items-center w-full px-5 mt-1.5 text-[11px] text-neutral-500 font-semibold select-none">
+                        <span>${min}</span>
+                        <span>${max}</span>
+                    </div>
+                `;
+            }
+            
+            container.innerHTML = `
+                <div class="flex flex-col items-center w-full max-w-[210px] mx-auto">
+                    <svg viewBox="0 0 200 120" class="w-full h-auto">
+                        ${ticksHTML}
+                        <text x="100" y="105" text-anchor="middle" font-size="22" font-weight="600" fill="#0b0f1a" font-family="Inter, sans-serif">${value}%</text>
+                    </svg>
+                    ${labelsHTML}
+                </div>
+            `;
+        }
+
+        // Render Card 1 and Card 3 Gauges
+        function renderGauges() {
+            renderGauge('clicksGauge', 98, '#ef4d23', true, '0.8s load', '1.2s load');
+            renderGauge('videoStartsGauge', 68, '#9ca3af', false);
+        }
+
+        // Form Submit Routing to WhatsApp API
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const platform = document.getElementById('formPlatform').value;
+            const speed = document.getElementById('formSpeed').value;
+            const budget = document.getElementById('formBudget').value;
+            const features = document.getElementById('formFeatures').value;
+            
+            const message = `Hello Dominal Tech, I'd like to build a project with these details:\n\n` +
+                            `- Platform Type: ${platform}\n` +
+                            `- Speed Tier: ${speed}\n` +
+                            `- Estimated Budget: ₹${budget}\n` +
+                            `- Number of Features: ${features}`;
+            
+            const whatsappUrl = `https://wa.me/918766882442?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Set up click toggling on cards
+        function initTogglePills() {
+            // Card 1 Toggle
+            const clicksToggle = document.getElementById('clicksToggle');
+            if (clicksToggle) {
+                const btns = clicksToggle.querySelectorAll('.toggle-btn');
+                btns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        btns.forEach(b => {
+                            b.classList.remove('active');
+                            b.classList.add('text-neutral-500');
+                        });
+                        btn.classList.add('active');
+                        btn.classList.remove('text-neutral-500');
+                    });
+                });
+            }
+
+            // Card 3 Toggle
+            const videoToggle = document.getElementById('videoToggle');
+            if (videoToggle) {
+                const btns = videoToggle.querySelectorAll('.toggle-btn');
+                btns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        btns.forEach(b => {
+                            b.classList.remove('active');
+                            b.classList.add('text-neutral-500');
+                        });
+                        btn.classList.add('active');
+                        btn.classList.remove('text-neutral-500');
+                    });
+                });
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderGauges();
+            initTogglePills();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominal Tech — AI-Powered App & Software Engineering Studio</title>
+    <meta name="description" content="We craft beautiful mobile apps, responsive web systems, PWAs, Google SEO, and smart AI solutions that scale.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@1,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        white: '#ffffff',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS Styles for Liquid Glass & Typography -->
+    <style>
+        :root {
+            --radius: 1rem;
+        }
+
+        /* Default Font Framework */
+        * {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            border-radius: inherit;
+        }
+
+        /* Serif Accent Typography */
+        .font-serif {
+            font-family: 'Source Serif 4', Georgia, serif !important;
+            font-style: italic;
+        }
+
+        /* Headings Default Weight */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 500;
+        }
+
+        /* Liquid Glass Tier 1 (Light) */
+        .liquid-glass {
+            background: rgba(255, 255, 255, 0.015);
+            background-blend-mode: luminosity;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .liquid-glass::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1.4px; /* Border Width */
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 20%, transparent 40%, transparent 60%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0.45) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* Liquid Glass Tier 2 (Heavy) */
+        .liquid-glass-strong {
+            background: rgba(255, 255, 255, 0.02);
+            background-blend-mode: luminosity;
+            backdrop-filter: blur(50px);
+            -webkit-backdrop-filter: blur(50px);
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .liquid-glass-strong::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1.4px; /* Border Width */
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 20%, transparent 40%, transparent 60%, rgba(255, 255, 255, 0.2) 80%, rgba(255, 255, 255, 0.5) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* Interactive Element Micro-Animations */
+        .interactive-hover {
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+        }
+        .interactive-hover:hover {
+            transform: scale(1.05);
+        }
+        .interactive-hover:active {
+            transform: scale(0.97);
+        }
+
+        /* Image grayscale filter override */
+        .img-grayscale {
+            filter: grayscale(100%);
+            opacity: 0.85;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+        .img-grayscale:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-black text-white overflow-hidden w-screen h-screen">
+
+    <!-- Loop background video (covers entire viewport) -->
+    <video class="absolute inset-0 w-full h-full object-cover z-0 select-none pointer-events-none" autoplay loop muted playsinline>
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260315_073750_51473149-4350-4920-ae24-c8214286f323.mp4" type="video/mp4">
+    </video>
+
+    <!-- Content Overlays -->
+    <div class="relative z-10 w-full h-full flex flex-row min-h-screen">
+        
+        <!-- LEFT PANEL (52% on desktop, full-screen on mobile) -->
+        <div class="w-full lg:w-[52%] h-full p-4 lg:p-6 flex flex-col justify-between relative min-h-screen">
+            
+            <!-- Heavy Glass Overlay Panel -->
+            <div class="absolute inset-4 lg:inset-6 rounded-3xl liquid-glass-strong z-0 shadow-2xl"></div>
+            
+            <!-- Inner Content wrapper -->
+            <div class="relative z-10 w-full h-full flex flex-col justify-between p-6 sm:p-8 lg:p-10 flex-grow min-h-0 overflow-y-auto">
+                
+                <!-- TOP NAVBAR -->
+                <header class="flex items-center justify-between w-full select-none">
+                    <!-- Brand Logo + Name -->
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center bg-white">
+                            <!-- Logo image with SVG inline fallback -->
+                            <img src="indianrailways.png" alt="dominal logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.parentNode.innerHTML='<svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'black\' stroke-width=\'2\' class=\'w-6 h-6\'><circle cx=\'12\' cy=\'12\' r=\'10\'/><path d=\'M12 8v8M8 12h8\'/></svg>'">
+                        </div>
+                        <span class="text-white font-semibold text-2xl tracking-tighter">dominal</span>
+                    </div>
+                    
+                    <!-- Menu button -->
+                    <a href="chat.html" class="liquid-glass rounded-full px-5 py-2.5 flex items-center gap-2.5 text-xs sm:text-sm font-medium tracking-wide text-white/90 interactive-hover">
+                        <span>Chatbot</span>
+                        <i data-lucide="message-square" class="w-4 h-4 text-white"></i>
+                    </a>
+                </header>
+                
+                <!-- HERO CENTER PANEL -->
+                <main class="flex-grow flex flex-col items-center justify-center text-center gap-6 md:gap-8 my-8 lg:my-0">
+                    <!-- Hero Center Logo Icon -->
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden flex items-center justify-center select-none bg-white p-2 shadow">
+                        <img src="indianrailways.png" alt="dominal giant logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.parentNode.innerHTML='<svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'black\' stroke-width=\'1.5\' class=\'w-12 h-12 text-white/80\'><circle cx=\'12\' cy=\'12\' r=\'10\'/><path d=\'M12 6v12M6 12h12\'/></svg>'">
+                    </div>
+                    
+                    <!-- Main Heading -->
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.05em] text-white max-w-2xl leading-[1.1]">
+                        Innovating the <br>
+                        <span class="font-serif italic text-white/80">spirit</span> of base tech
+                    </h1>
+                    
+                    <!-- Three Pills Row -->
+                    <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 my-1">
+                        <span class="liquid-glass rounded-full px-4 py-2 text-[10px] sm:text-xs text-white/80 tracking-wide font-medium interactive-hover select-none">
+                            Mobile & Web
+                        </span>
+                        <span class="liquid-glass rounded-full px-4 py-2 text-[10px] sm:text-xs text-white/80 tracking-wide font-medium interactive-hover select-none">
+                            AI Chatbots
+                        </span>
+                        <span class="liquid-glass rounded-full px-4 py-2 text-[10px] sm:text-xs text-white/80 tracking-wide font-medium interactive-hover select-none">
+                            Scalable Cloud
+                        </span>
+                    </div>
+                    
+                    <!-- CTA Button -->
+                    <a href="tel:+918766882442" class="liquid-glass-strong rounded-full pl-6 pr-2 py-2 flex items-center gap-4 text-xs sm:text-sm font-medium tracking-wider text-white interactive-hover shadow-lg">
+                        <span>EXPLORE SERVICES</span>
+                        <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/15 flex items-center justify-center text-white flex-shrink-0">
+                            <i data-lucide="phone" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+                        </span>
+                    </a>
+                </main>
+                
+                <!-- BOTTOM VISIONARY QUOTE -->
+                <footer class="flex flex-col items-center gap-4 w-full select-none">
+                    <span class="text-[9px] sm:text-xs tracking-[0.25em] uppercase text-white/50 font-semibold">Startup Engineering</span>
+                    
+                    <p class="text-sm sm:text-base md:text-lg max-w-xl mx-auto leading-relaxed text-white/90 text-center">
+                        <span class="font-sans">We imagined a </span>
+                        <span class="font-serif italic text-white/80">realm</span>
+                        <span class="font-sans"> with no </span>
+                        <span class="font-serif italic text-white/80">ending limits.</span>
+                    </p>
+                    
+                    <!-- Author banner with lines -->
+                    <div class="flex items-center gap-4 w-full max-w-md justify-center">
+                        <div class="h-[1px] bg-white/10 flex-grow rounded"></div>
+                        <span class="text-[9px] sm:text-[10px] tracking-[0.2em] font-semibold text-white/60">DOMINAL TECH TEAM</span>
+                        <div class="h-[1px] bg-white/10 flex-grow rounded"></div>
+                    </div>
+                </footer>
+                
+            </div>
+            
+        </div>
+        
+        <!-- RIGHT PANEL (48% on desktop, hidden on mobile) -->
+        <div class="hidden lg:flex lg:w-[48%] flex-col justify-between p-6 gap-6 relative min-h-screen">
+            
+            <!-- TOP BAR (Socials + Account) -->
+            <div class="flex items-center justify-between w-full select-none">
+                <!-- Social Icons in a Pill with ArrowRight -->
+                <div class="liquid-glass rounded-full pl-5 pr-1.5 py-1.5 flex items-center gap-4 shadow">
+                    <div class="flex items-center gap-3">
+                        <a href="https://wa.me/918766882442" target="_blank" class="text-white hover:text-white/60 transition-colors duration-300" aria-label="WhatsApp">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/dominal-tech/" target="_blank" class="text-white hover:text-white/60 transition-colors duration-300" aria-label="LinkedIn">
+                            <i data-lucide="linkedin" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://www.instagram.com/abdominal.in" target="_blank" class="text-white hover:text-white/60 transition-colors duration-300" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                    <a href="chat.html" class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-white cursor-pointer hover:bg-white/20 transition-colors duration-300">
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+                
+                <!-- Account Button -->
+                <a href="chat.html" class="liquid-glass rounded-full px-5 py-2.5 flex items-center gap-2 text-xs font-semibold tracking-wider text-white interactive-hover">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-white/90"></i>
+                    <span>DISCUSS PROJECT</span>
+                </a>
+            </div>
+            
+            <!-- MIDDLE COMMUNITY CARD (Left-aligned) -->
+            <div class="self-start ml-4 shadow-xl select-none">
+                <div class="liquid-glass w-56 rounded-3xl p-5 flex flex-col gap-3">
+                    <h4 class="text-xs font-bold tracking-wider text-white/90 uppercase">Build your base</h4>
+                    <p class="text-[10px] leading-relaxed text-white/60">Hire an expert engineering team to build, optimize, and scale your digital products securely.</p>
+                </div>
+            </div>
+            
+            <!-- BOTTOM FEATURE CARD CONTAINER -->
+            <div class="mt-auto w-full">
+                <!-- Outer Liquid Glass Panel -->
+                <div class="liquid-glass rounded-[2.5rem] p-6 flex flex-col gap-4 shadow-2xl">
+                    
+                    <!-- Side-by-side cards -->
+                    <div class="grid grid-cols-2 gap-4">
+                        
+                        <!-- Processing Card (Wand2) -->
+                        <div class="liquid-glass rounded-3xl p-5 flex flex-col gap-4 group cursor-pointer hover:bg-white/[0.03] transition-colors duration-300">
+                            <div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-white flex-shrink-0 shadow">
+                                <i data-lucide="smartphone" class="w-4.5 h-4.5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold tracking-wide text-white/90 mb-1">Mobile Dev</h4>
+                                <p class="text-[10px] text-white/50 leading-relaxed">High-performance iOS & Android Apps.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Growth Archive Card (BookOpen) -->
+                        <div class="liquid-glass rounded-3xl p-5 flex flex-col gap-4 group cursor-pointer hover:bg-white/[0.03] transition-colors duration-300">
+                            <div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-white flex-shrink-0 shadow">
+                                <i data-lucide="globe" class="w-4.5 h-4.5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold tracking-wide text-white/90 mb-1">Web Systems</h4>
+                                <p class="text-[10px] text-white/50 leading-relaxed">Modern web setups & Google SEO hubs.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Bottom Flower Card -->
+                    <a href="tel:+918766882442" class="liquid-glass rounded-3xl p-4 flex items-center justify-between gap-4 block">
+                        <div class="flex items-center gap-4">
+                            <!-- Image thumbnail with grayscale overlay -->
+                            <div class="w-24 h-16 rounded-xl overflow-hidden select-none bg-[#111111] shadow flex-shrink-0 border border-white/5 bg-white p-1">
+                                <img src="lokpradhan.jpeg" alt="Lokpradhan News" class="w-full h-full object-contain img-grayscale">
+                            </div>
+                            <div>
+                                <h4 class="text-xs sm:text-sm font-semibold tracking-wide text-white/90 mb-1">Advanced Web Systems</h4>
+                                <p class="text-[10px] sm:text-xs text-white/50">High scalability & automation bases</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Add Button -->
+                        <div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 interactive-hover flex-shrink-0">
+                            <i data-lucide="plus" class="w-4.5 h-4.5"></i>
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <!-- Lucide Icons Library CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Start Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominal Studio - Futuristic Software Designs</title>
+    <meta name="description" content="Explore our portfolio of amazing design projects at Continent Studio.">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #FFFFFF;
+            --primary-text: #000000;
+            --accent-blue: #2563eb;
+            --accent-blue-light: #1d4ed8;
+            --transition-speed: 0.4s;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px rgba(37, 99, 235, 0.15));
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary-text);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #000000, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links li a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all var(--transition-speed);
+            text-transform: uppercase;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-light));
+            transition: width var(--transition-speed);
+        }
+
+        .nav-links li a:hover {
+            color: var(--accent-blue-light);
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: var(--primary-text);
+            margin: 4px 0;
+            transition: all var(--transition-speed);
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        /* Hero Section */
+        .studio-hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 150px 5% 80px;
+            background: radial-gradient(circle at center, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+        }
+
+        .studio-hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #000000 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 20px rgba(37, 99, 235, 0.15));
+            }
+            50% {
+                filter: drop-shadow(0 0 40px rgba(37, 99, 235, 0.3));
+            }
+        }
+
+        .studio-hero p {
+            font-size: 1.5rem;
+            color: rgba(0, 0, 0, 0.7);
+            max-width: 800px;
+        }
+
+        /* Projects Grid */
+        .projects-section {
+            padding: 80px 5% 100px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.08);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        .project-thumbnail {
+            width: 100%;
+            height: 300px;
+            background: #f9fafb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all var(--transition-speed);
+            display: block;
+            opacity: 0;
+        }
+
+        .project-thumbnail img.loaded {
+            opacity: 1;
+        }
+
+        .project-card:hover .project-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .project-emoji {
+            font-size: 4rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            transition: opacity 0.3s;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all var(--transition-speed);
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay p {
+            font-size: 1.1rem;
+            text-align: center;
+            line-height: 1.6;
+            color: var(--primary-text);
+        }
+
+        .project-info {
+            padding: 2rem;
+        }
+
+        .project-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-text);
+        }
+
+        .project-info p {
+            font-size: 1.1rem;
+            color: rgba(0, 0, 0, 0.7);
+            line-height: 1.6;
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(37, 99, 235, 0.1);
+            border-top-color: var(--accent-blue-light);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.02);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 3rem;
+                transition: right var(--transition-speed);
+                backdrop-filter: blur(20px);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .logo-image {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo-text {
+                font-size: 1.4rem;
+            }
+
+            .studio-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .studio-hero p {
+                font-size: 1.2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .project-thumbnail {
+                height: 250px;
+            }
+
+            .project-emoji {
+                font-size: 3rem;
+            }
+        }
+    
+        /* Unified Navigation Styles */
+        .nav-container {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            padding: 1.2rem 5% !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            z-index: 1000 !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+            height: auto !important;
+        }
+
+        .nav-container.scrolled {
+            padding: 0.8rem 5% !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15) !important;
+            background: rgba(255, 255, 255, 0.98) !important;
+        }
+
+        .logo {
+            display: flex !important;
+            align-items: center !important;
+            gap: 1rem !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            text-decoration: none !important;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px) !important;
+        }
+
+        .logo-image {
+            width: 50px !important;
+            height: 50px !important;
+            object-fit: contain !important;
+            border-radius: 8px !important;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif !important;
+            font-size: 1.4rem !important;
+            font-weight: 900 !important;
+            letter-spacing: 3px !important;
+            color: #000000 !important;
+            background: none !important;
+            -webkit-text-fill-color: #000000 !important;
+        }
+
+        .nav-links {
+            display: flex !important;
+            list-style: none !important;
+            gap: 2.5rem !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            flex-direction: row !important;
+            position: static !important;
+            width: auto !important;
+            height: auto !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+
+        .nav-links li {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .nav-links li a {
+            color: #000000 !important;
+            text-decoration: none !important;
+            font-size: 0.95rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 1.5px !important;
+            position: relative !important;
+            transition: all 0.3s ease !important;
+            text-transform: uppercase !important;
+            opacity: 0.65 !important;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            opacity: 1 !important;
+        }
+
+        .nav-links li a::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: -5px !important;
+            left: 0 !important;
+            width: 0 !important;
+            height: 2px !important;
+            background: #000000 !important;
+            transition: width 0.3s ease !important;
+        }
+
+        .nav-links li a:hover::after,
+        .nav-links li a.active::after {
+            width: 100% !important;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none !important;
+            flex-direction: column !important;
+            cursor: pointer !important;
+            z-index: 1001 !important;
+            gap: 6px !important;
+        }
+
+        .hamburger span {
+            width: 28px !important;
+            height: 2px !important;
+            background: #000000 !important;
+            transition: all 0.3s ease !important;
+            display: block !important;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px) !important;
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0 !important;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px) !important;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed !important;
+                top: 0 !important;
+                right: -100% !important;
+                width: 70% !important;
+                height: 100vh !important;
+                background: rgba(255, 255, 255, 0.98) !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 2.5rem !important;
+                transition: right 0.3s ease !important;
+                border-left: 1px solid rgba(0,0,0,0.08) !important;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.05) !important;
+                z-index: 1000 !important;
+            }
+
+            .nav-links.active {
+                right: 0 !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+            }
+
+            .logo-image {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .logo-text {
+                font-size: 1.1rem !important;
+            }
+        }
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+        <nav class="nav-container" id="navbar">
+        <div class="logo" onclick="window.location.href='index.html'">
+            <img src="dominalnew.jpeg" alt="Dominal Tech Logo" class="logo-image">
+            <span class="logo-text">DOMINAL TECH</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="founder.html">FOUNDERS</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+            <li><a href="startups.html">STARTUP PROGRAM</a></li>
+            <li><a href="revenue.html">REVENUE</a></li>
+            <li><a href="hosting.html">HOSTING</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Studio Hero -->
+    <section class="studio-hero">
+        <h1>Dominal Studio</h1>
+        <p>We Create Most Advanced and Futuristic Designs</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="projects-grid">
+            <!-- Project 1 - Galaxy Explorer -->
+            <div class="project-card" onclick="window.location.href='studio/blackhole.html'">
+                <div class="project-thumbnail">
+                    <div class="loading-spinner"></div>
+                    <img data-supabase-url="https://nsnacwwcrszpjmanskti.supabase.co/storage/v1/object/public/Continent%20studio/blackhole.gif" alt="Galaxy Explorer" class="project-media project-gif">
+                    
+                    <div class="project-overlay">
+                        </div>
+                </div>
+                <div class="project-info">
+                    <h3>Blackhole 3D</h3>
+                    <p>One of the most advanced and futuristic Design that we have, 3D black hole simulations made purely with HTML, CSS, and JS.<br>
+You can zoom out and move around to explore the mesmerizing depths of this pure CSS creation.</p>
+                </div>
+            </div>
+
+            <!-- Project 2 - E-Commerce -->
+            
+
+            <!-- Project 2 - Healthcare -->
+            <div class="project-card" onclick="window.location.href='studio/rubiks.html'">
+                <div class="project-thumbnail">
+                    <div class="loading-spinner"></div>
+                    <img src="" data-supabase-url="https://nsnacwwcrszpjmanskti.supabase.co/storage/v1/object/public/Continent%20studio/rubikscube.gif" alt="Healthcare Portal" class="project-media project-gif">
+                    
+                </div>
+                <div class="project-info">
+                    <h3>Rubiks Cube Simulator</h3>
+                    <p>Most Advanced 3D Rubik's Cube Simulator. You can rotate and even solve the cube just like the real one</p>
+                </div>
+            </div>
+
+            <!-- Project 4 - FinTech -->
+            <div class="project-card" onclick="window.location.href='studio/parallax.html'">
+                <div class="project-thumbnail">
+                    <div class="loading-spinner"></div>
+                    <img src="" data-supabase-url="https://your-project.supabase.co/storage/v1/object/public/projects/fintech.gif" alt="FinTech Dashboard" class="project-media project-gif">
+                    
+                </div>
+                <div class="project-info">
+                    <h3>Parallax Scroll Website</h3>
+                    <p>Amazing Parallax Animation made with Pure HTML,CSS, JS</p>
+                </div>
+            </div>
+
+            <!-- Project 5 - Education -->
+            <div class="project-card" onclick="window.location.href='education.html'">
+                <div class="project-thumbnail">
+                    <div class="loading-spinner"></div>
+                    <img src="" data-supabase-url="https://your-project.supabase.co/storage/v1/object/public/projects/education.gif" alt="Education Platform" class="project-media project-gif">
+                    <span class="project-emoji">📚</span>
+                    <div class="project-overlay">
+                        <p>Interactive learning platform with live classes and assessments.</p>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Education Platform</h3>
+                    <p>Online learning management system with AI-powered features.</p>
+                </div>
+            </div>
+
+            <!-- Project 6 - Social Network -->
+            <div class="project-card" onclick="window.location.href='social.html'">
+                <div class="project-thumbnail">
+                    <div class="loading-spinner"></div>
+                    <img src="" data-supabase-url="https://your-project.supabase.co/storage/v1/object/public/projects/social.gif" alt="Social Network" class="project-media project-gif">
+                    <span class="project-emoji">👥</span>
+                    <div class="project-overlay">
+                        <p>Next-generation social networking platform with real-time connections.</p>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Social Network</h3>
+                    <p>Connect, share, and engage with a global community.</p>
+                </div>
+            </div>
+
+            <!-- Project 7 - Travel -->
+            <div class="project-card" onclick="window.location.href='travel.html'">
+                <div class="project-thumbnail">
+                    <div class="loading-spinner"></div>
+                    <img src="" data-supabase-url="https://your-project.supabase.co/storage/v1/object/public/projects/travel.gif" alt="Travel Booking App" class="project-media project-gif">
+                    <span class="project-emoji">✈️</span>
+                    <div class="project-overlay">
+                        <p>Complete travel booking system with itinerary planning.</p>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Travel Booking App</h3>
+                    <p>Plan, book, and manage your journeys seamlessly.</p>
+                </div>
+            </div>
+
+            <!-- Project 8 - Fitness -->
+            <div class="project-card" onclick="window.location.href='fitness.html'">
+                <div class="project-thumbnail">
+                    <div class="loading-spinner"></div>
+                    <img src="" data-supabase-url="https://your-project.supabase.co/storage/v1/object/public/projects/fitness.gif" alt="Fitness Tracker" class="project-media project-gif">
+                    <span class="project-emoji">💪</span>
+                    <div class="project-overlay">
+                        <p>Personalized fitness tracking and workout planning application.</p>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Fitness Tracker</h3>
+                    <p>Track workouts, nutrition, and achieve your health goals.</p>
+                </div>
+            </div>
+
+            <!-- Project 9 - Real Estate -->
+            <div class="project-card" onclick="window.location.href='realestate.html'">
+                <div class="project-thumbnail">
+                    <div class="loading-spinner"></div>
+                    <img src="" data-supabase-url="https://your-project.supabase.co/storage/v1/object/public/projects/realestate.gif" alt="Real Estate Portal" class="project-media project-gif">
+                    <span class="project-emoji">🏠</span>
+                    <div class="project-overlay">
+                        <p>Property listing and management platform with virtual tours.</p>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Real Estate Portal</h3>
+                    <p>Find your dream home with advanced search and filters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Dominal Group Pvt Ltd. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Supabase Configuration (Optional - only needed for private buckets)
+        const SUPABASE_URL = 'https://your-project.supabase.co'; 
+        const SUPABASE_ANON_KEY = 'your-anon-key-here';
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Function to load images/gifs from Supabase
+        async function loadSupabaseMedia() {
+            const mediaElements = document.querySelectorAll('.project-media');
+            
+            mediaElements.forEach(async (media) => {
+                const supabaseUrl = media.getAttribute('data-supabase-url');
+                const emoji = media.parentElement.querySelector('.project-emoji');
+                const spinner = media.parentElement.querySelector('.loading-spinner');
+                
+                if (supabaseUrl) {
+                    try {
+                        // Show spinner
+                        if (spinner) spinner.style.display = 'block';
+                        
+                        // Set the image source directly
+                        media.src = supabaseUrl;
+                        
+                        // Handle successful load
+                        media.onload = function() {
+                            media.classList.add('loaded');
+                            if (emoji) emoji.style.opacity = '0';
+                            if (spinner) spinner.style.display = 'none';
+                            
+                            // If it's a GIF, restart it
+                            if (media.classList.contains('project-gif')) {
+                                setTimeout(() => restartGif(media), 100);
+                            }
+                        };
+                        
+                        // Handle error
+                        media.onerror = function() {
+                            console.error('Failed to load media:', supabaseUrl);
+                            media.style.display = 'none';
+                            if (emoji) {
+                                emoji.style.opacity = '1';
+                                emoji.style.display = 'block';
+                            }
+                            if (spinner) spinner.style.display = 'none';
+                        };
+                        
+                    } catch (error) {
+                        console.error('Error loading Supabase media:', error);
+                        if (emoji) emoji.style.display = 'block';
+                        if (spinner) spinner.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // GIF Restart Functionality
+        function restartGif(gifElement) {
+            if (gifElement && gifElement.src && gifElement.src.includes('.gif')) {
+                const originalSrc = gifElement.src;
+                const cacheBuster = '?t=' + new Date().getTime();
+                gifElement.src = originalSrc.split('?')[0] + cacheBuster;
+            }
+        }
+
+        
+        window.addEventListener('load', () => {
+            loadSupabaseMedia();
+        });
+
+        
+        const observerOptions = {
+            root: null,
+            threshold: 0.3,
+            rootMargin: '0px'
+        };
+
+        const gifObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const gif = entry.target.querySelector('.project-gif');
+                    if (gif && gif.src && gif.classList.contains('loaded')) {
+                        restartGif(gif);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                gifObserver.observe(card);
+            });
+        });
+    </script>
+
+    <script>
+        // Navigation Scripts
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const navbar = document.getElementById('navbar');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+
+        if (navbar) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        }
+</script>
+</body>
+</html>
+

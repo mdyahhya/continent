@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominal Tech Pvt Ltd - Create the Tech Base for Your Business</title>
+    <meta name="description" content="We create the base for your startup ideas and scale them online with mobile apps, web development, PWA, AI solutions, and chatbots.">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" href="ctbase.png" type="image/png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#DEDBC8', // warm cream
+                    },
+                    fontFamily: {
+                        serif: ['"Instrument Serif"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS Styles -->
+    <style>
+        /* Global Default Font */
+        * {
+            font-family: 'Almarai', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Custom font classes */
+        .font-serif {
+            font-family: 'Instrument Serif', serif !important;
+            font-style: italic;
+        }
+
+        /* SVG Noise Textures */
+        .noise-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Custom ease-out cubic-bezier transition curves */
+        .transition-pullup {
+            transition: transform 1000ms cubic-bezier(0.16, 1, 0.3, 1), opacity 1000ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Scroll reveal text setup */
+        .scroll-char {
+            transition: opacity 120ms ease-out;
+        }
+
+        /* Custom pull-up animation styles */
+        .word-inner {
+            transform: translateY(24px);
+            opacity: 0;
+            display: inline-block;
+            transition: transform 1000ms cubic-bezier(0.16, 1, 0.3, 1), opacity 1000ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .is-active .word-inner {
+            transform: translateY(0) !important;
+            opacity: 1 !important;
+        }
+
+        /* Feature cards scroll animations */
+        .feature-card {
+            transform: scale(0.95);
+            opacity: 0;
+            transition: transform 1200ms cubic-bezier(0.22, 1, 0.36, 1), opacity 1200ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .feature-card.is-active {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        /* Speed Gauge Needle Animation */
+        .speed-gauge .gauge-needle {
+            transform-origin: 12px 12px;
+            animation: gaugeRev 2.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+        }
+
+        @keyframes gaugeRev {
+            0% { transform: rotate(-80deg); }
+            40% { transform: rotate(60deg); }
+            60% { transform: rotate(50deg); }
+            100% { transform: rotate(-80deg); }
+        }
+
+        /* Fixed floating action buttons styling */
+        .fixed-contact-icon {
+            position: fixed;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000000;
+            background: #DEDBC8;
+            border: 2px solid #DEDBC8;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 999;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .fixed-contact-icon:hover {
+            transform: scale(1.1) translateY(-3px);
+            background: #ffffff;
+            border-color: #ffffff;
+            box-shadow: 0 15px 30px rgba(222, 220, 200, 0.4);
+        }
+
+        .fixed-contact-icon svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .call-icon {
+            bottom: 30px;
+            left: 30px;
+        }
+
+        .whatsapp-icon {
+            bottom: 100px;
+            left: 30px;
+        }
+
+        /* Hide scrollbars but keep functionality */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1a1a1a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2a2a2a;
+        }
+
+        /* Typing cursor styling */
+        .chat-cursor {
+            width: 2px;
+            height: 1.1rem;
+            background: #E1E0CC;
+            display: inline-block;
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-black text-[#E1E0CC] overflow-x-hidden">
+
+    <!-- SECTION 1: HERO -->
+    <section class="h-screen w-full p-4 md:p-6 bg-black relative flex flex-col justify-between select-none">
+        <!-- Inset Rounded Container -->
+        <div class="w-full h-full rounded-2xl md:rounded-[2rem] overflow-hidden relative bg-black flex flex-col justify-between border border-white/5">
+            
+            <!-- Background Video -->
+            <video class="absolute inset-0 w-full h-full object-cover z-0" autoplay loop muted playsinline>
+                <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4" type="video/mp4">
+            </video>
+            
+            <!-- Noise Overlay -->
+            <div class="absolute inset-0 noise-overlay opacity-[0.7] mix-blend-overlay pointer-events-none z-10"></div>
+            
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70 z-10"></div>
+            
+            <!-- Navbar -->
+            <nav class="absolute top-0 left-1/2 transform -translate-x-1/2 z-20 w-max max-w-full px-4">
+                <div class="bg-black rounded-b-2xl md:rounded-b-3xl px-4 py-2.5 md:px-10 md:py-3.5 flex items-center justify-center gap-3 sm:gap-6 md:gap-12 lg:gap-14 border-x border-b border-white/[0.08] shadow-lg shadow-black/80">
+                    <a href="#services" class="font-medium tracking-wide transition-colors duration-300 text-[10px] sm:text-xs md:text-sm select-none" style="color: rgba(225, 224, 204, 0.8);" onmouseover="this.style.color='#E1E0CC'" onmouseout="this.style.color='rgba(225, 224, 204, 0.8)'">Services</a>
+                    <a href="#clients" class="font-medium tracking-wide transition-colors duration-300 text-[10px] sm:text-xs md:text-sm select-none" style="color: rgba(225, 224, 204, 0.8);" onmouseover="this.style.color='#E1E0CC'" onmouseout="this.style.color='rgba(225, 224, 204, 0.8)'">Clients</a>
+                    <a href="#about" class="font-medium tracking-wide transition-colors duration-300 text-[10px] sm:text-xs md:text-sm select-none" style="color: rgba(225, 224, 204, 0.8);" onmouseover="this.style.color='#E1E0CC'" onmouseout="this.style.color='rgba(225, 224, 204, 0.8)'">About</a>
+                    <a href="#contact" class="font-medium tracking-wide transition-colors duration-300 text-[10px] sm:text-xs md:text-sm select-none" style="color: rgba(225, 224, 204, 0.8);" onmouseover="this.style.color='#E1E0CC'" onmouseout="this.style.color='rgba(225, 224, 204, 0.8)'">Enquiry</a>
+                    <a href="chat.html" class="font-medium tracking-wide transition-colors duration-300 text-[10px] sm:text-xs md:text-sm select-none" style="color: rgba(225, 224, 204, 0.8);" onmouseover="this.style.color='#E1E0CC'" onmouseout="this.style.color='rgba(225, 224, 204, 0.8)'">Chatbot</a>
+                </div>
+            </nav>
+            
+            <!-- Hero Content (Centered/Bottom aligned) -->
+            <div class="w-full absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-12 lg:p-16 z-20">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-end">
+                    
+                    <!-- Left column (8 cols): Giant Heading + Speed Badge + AI Chat -->
+                    <div class="lg:col-span-8 flex flex-col items-start overflow-visible gap-4 md:gap-6">
+                        
+                        <!-- Speed float badge -->
+                        <div class="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2 rounded-full backdrop-blur-md shadow-lg shadow-black/40 self-start text-[10px] sm:text-xs tracking-wide">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 speed-gauge text-primary">
+                                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" opacity="0.2" />
+                                <path d="M3.6 9h16.8M12 2v3M2 12h3M19 12h3" opacity="0.4" />
+                                <path d="M12 2a10 10 0 0 1 10 10" stroke-dasharray="4 4" />
+                                <line x1="12" y1="12" x2="18" y2="8" class="gauge-needle" />
+                                <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                            </svg>
+                            <span class="font-medium text-[#E1E0CC]">We make Apps faster than Zomato delivers food 😉</span>
+                        </div>
+
+                        <!-- Dominal Giant Heading -->
+                        <h1 data-words-pull-up data-show-asterisk class="font-medium leading-[0.85] tracking-[-0.07em] text-[26vw] sm:text-[24vw] md:text-[22vw] lg:text-[20vw] xl:text-[19vw] 2xl:text-[20vw] select-none text-left" style="color: #E1E0CC;">
+                            Dominal
+                        </h1>
+
+                        <!-- AI Chat Interface typing banner (Original function, Prisma visual design) -->
+                        <div class="w-full max-w-lg bg-black/60 border border-white/10 rounded-full px-5 py-3 flex items-center justify-between gap-3 shadow-lg shadow-black/50 cursor-pointer group hover:border-primary transition-all duration-300" id="heroChatTrigger">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-[#E1E0CC] flex items-center justify-center text-black">
+                                    <i data-lucide="message-square" class="w-4 h-4 text-black"></i>
+                                </div>
+                                <div class="text-xs sm:text-sm text-[#E1E0CC]/80 font-medium">
+                                    <span id="heroChatTyping">Click to chat with Dominal AI Assistant</span>
+                                    <span class="chat-cursor"></span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button class="w-7 h-7 rounded-full border border-white/20 flex items-center justify-center bg-transparent group-hover:bg-white group-hover:text-black transition-colors duration-300 chat-mic-btn">
+                                    <i data-lucide="mic" class="w-3.5 h-3.5"></i>
+                                </button>
+                                <button class="w-7 h-7 rounded-full border border-white/20 flex items-center justify-center bg-transparent group-hover:bg-white group-hover:text-black transition-colors duration-300 chat-send-btn">
+                                    <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <!-- Right column (4 cols): Text + CTA Button -->
+                    <div class="lg:col-span-4 flex flex-col gap-6 lg:gap-8 justify-end items-start lg:pb-8">
+                        <p id="hero-description" class="text-primary/70 text-xs sm:text-sm md:text-base leading-[1.3] transform translate-y-[20px] opacity-0 transition-all duration-[1000ms]" style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1); transition-delay: 0.5s;">
+                            Dominal doesn't just build fast—we build smart. We specialize in custom Mobile & Web Apps, smart AI integration, business automation, and scalable cloud systems designed to help you grow effortlessly.
+                        </p>
+                        
+                        <a href="#services" id="hero-cta" class="group inline-flex items-center justify-between gap-4 bg-primary text-black rounded-full pl-6 pr-2 py-2 sm:pl-8 sm:pr-2.5 sm:py-2.5 hover:gap-6 transition-all duration-300 font-medium text-sm sm:text-base transform translate-y-[20px] opacity-0" style="transition: all 1000ms cubic-bezier(0.16, 1, 0.3, 1) 0.7s;">
+                            <span>Explore Services</span>
+                            <span class="bg-black rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                                <i class="w-4 h-4 sm:w-5 sm:h-5 text-white" data-lucide="arrow-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- SECTION: OUR TOP CLIENTS -->
+    <section class="bg-black py-24 px-4 md:px-8 border-t border-white/[0.03]" id="clients">
+        <div class="w-full max-w-6xl mx-auto flex flex-col items-center">
+            
+            <span class="text-primary tracking-[0.25em] uppercase text-[10px] sm:text-xs font-semibold mb-3">Proven Track Record</span>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#E1E0CC] mb-12 text-center">OUR TOP CLIENTS</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+                <!-- 1) Indian Govt. - Central Railway -->
+                <div class="bg-[#101010] border border-white/5 rounded-2xl p-6 flex items-center gap-4 hover:border-primary/30 transition-colors duration-300">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center p-2 flex-shrink-0 overflow-hidden">
+                        <img src="indianrailways.png" alt="Central Railway" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#E1E0CC] text-sm sm:text-base">Central Railway</h4>
+                        <p class="text-xs text-gray-500 font-mono">Indian Government</p>
+                    </div>
+                </div>
+
+                <!-- 2) 5 Star Hotel CRM -->
+                <div class="bg-[#101010] border border-white/5 rounded-2xl p-6 flex items-center gap-4 hover:border-primary/30 transition-colors duration-300">
+                    <div class="w-14 h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center flex-shrink-0 text-primary">
+                        <i data-lucide="building" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#E1E0CC] text-sm sm:text-base">5 Star Hotel</h4>
+                        <p class="text-xs text-gray-500 font-mono">CRM Software</p>
+                    </div>
+                </div>
+
+                <!-- 3) Furniture Factory -->
+                <div class="bg-[#101010] border border-white/5 rounded-2xl p-6 flex items-center gap-4 hover:border-primary/30 transition-colors duration-300">
+                    <div class="w-14 h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center flex-shrink-0 text-primary">
+                        <i data-lucide="package" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#E1E0CC] text-sm sm:text-base">Steel Factory</h4>
+                        <p class="text-xs text-gray-500 font-mono">450+ Products CRM</p>
+                    </div>
+                </div>
+
+                <!-- 4) Walltone Decors -->
+                <div class="bg-[#101010] border border-white/5 rounded-2xl p-6 flex items-center gap-4 hover:border-primary/30 transition-colors duration-300">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center p-2 flex-shrink-0 overflow-hidden">
+                        <img src="walltone.png" alt="Walltone Decors" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#E1E0CC] text-sm sm:text-base">Walltone Decors</h4>
+                        <p class="text-xs text-gray-500 font-mono">walltone.in</p>
+                    </div>
+                </div>
+
+                <!-- 5) HCC High School Solapur -->
+                <div class="bg-[#101010] border border-white/5 rounded-2xl p-6 flex items-center gap-4 hover:border-primary/30 transition-colors duration-300">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center p-2 flex-shrink-0 overflow-hidden">
+                        <img src="hccsolapur.jpg" alt="HCC High School" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#E1E0CC] text-sm sm:text-base">HCC High School</h4>
+                        <p class="text-xs text-gray-500 font-mono">hccsolapur.in</p>
+                    </div>
+                </div>
+
+                <!-- 6) Libas Collection -->
+                <div class="bg-[#101010] border border-white/5 rounded-2xl p-6 flex items-center gap-4 hover:border-primary/30 transition-colors duration-300">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center p-2 flex-shrink-0 overflow-hidden">
+                        <img src="libas.jpg" alt="Libas Collection" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#E1E0CC] text-sm sm:text-base">Libas Collection</h4>
+                        <p class="text-xs text-gray-500 font-mono">libassolapur.in</p>
+                    </div>
+                </div>
+
+                <!-- 7) Lokpradhan News Channel -->
+                <div class="bg-[#101010] border border-white/5 rounded-2xl p-6 flex items-center gap-4 hover:border-primary/30 transition-colors duration-300 sm:col-span-2 lg:col-span-3 lg:max-w-md lg:mx-auto w-full">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center p-2 flex-shrink-0 overflow-hidden">
+                        <img src="lokpradhan.jpeg" alt="Lokpradhan" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#E1E0CC] text-sm sm:text-base">Lokpradhan News</h4>
+                        <p class="text-xs text-gray-500 font-mono">lokpradhan.in</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NDA warning badge -->
+            <div class="mt-12 bg-white/5 border border-white/10 rounded-full px-6 py-3 flex items-center gap-3 max-w-xl text-center">
+                <i data-lucide="lock" class="text-primary w-4 h-4 flex-shrink-0"></i>
+                <p class="text-xs text-gray-400 font-medium">...and much more, we can't reveal some names due to NDA (Non Disclosure Agreement)</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT -->
+    <section class="bg-black py-20 px-4 md:px-8 flex items-center justify-center relative min-h-screen" id="about">
+        <!-- Inner Card -->
+        <div class="bg-[#101010] rounded-[2rem] w-full max-w-6xl py-16 px-6 md:py-24 md:px-12 flex flex-col items-center justify-center text-center gap-8 relative overflow-hidden border border-white/5 shadow-2xl">
+            
+            <!-- Small Label -->
+            <span class="text-primary tracking-[0.25em] uppercase text-[10px] sm:text-xs font-semibold mb-2">Our philosophy</span>
+            
+            <!-- Main Heading (WordsPullUpMultiStyle) -->
+            <h2 data-words-pull-up-multi class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl max-w-4xl mx-auto leading-[1.05] sm:leading-[0.95] tracking-tight mb-8">
+                <span data-style="font-normal text-[#E1E0CC]">We are Dominal, </span>
+                <span data-style="italic font-serif text-primary">a product engineering studio. </span>
+                <span data-style="font-normal text-[#E1E0CC]/90">We craft mobile apps, web development, PWA, and smart AI solutions.</span>
+            </h2>
+            
+            <!-- Body Paragraph with Scroll Reveal -->
+            <div class="w-full max-w-3xl mt-4">
+                <p id="scroll-reveal-text" class="text-[#DEDBC8] text-xs sm:text-sm md:text-base leading-[1.6] tracking-wide text-center">
+                    Over the last few years, we have worked with visionary startups, established businesses, and government departments like the Central Railway. Together, we have created high-performance platforms, automated workflows, and online technologies that scale.
+                </p>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- SECTION 3: FEATURES / EXPERTISE -->
+    <section class="min-h-screen bg-black py-24 md:py-32 relative overflow-hidden flex flex-col justify-center" id="services">
+        <!-- Subtle Background Noise overlay -->
+        <div class="absolute inset-0 bg-noise opacity-[0.15] pointer-events-none z-0"></div>
+        
+        <!-- Header Text -->
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 text-center mb-16 md:mb-20">
+            <h2 data-words-pull-up-multi class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal leading-snug max-w-4xl mx-auto">
+                <span data-style="text-primary font-normal block mb-3">High-performance tech base for scaling businesses.</span>
+                <span data-style="text-gray-500 font-normal block">Built for pure scale. Powered by code.</span>
+            </h2>
+        </div>
+        
+        <!-- 4-Column Card Grid -->
+        <div class="features-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-2.5 lg:gap-1.5 w-full max-w-[1400px] mx-auto px-4 md:px-8 relative z-10 lg:h-[480px] items-stretch">
+            
+            <!-- Card 1 - Video Card -->
+            <div class="feature-card h-full rounded-2xl md:rounded-3xl relative overflow-hidden flex flex-col justify-end p-6 md:p-8 min-h-[360px] lg:min-h-0 border border-white/5 group shadow-lg">
+                <!-- Video Background -->
+                <video class="absolute inset-0 w-full h-full object-cover z-0" autoplay loop muted playsinline>
+                    <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_133058_0504132a-0cf3-4450-a370-8ea3b05c95d4.mp4" type="video/mp4">
+                </video>
+                <!-- Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10"></div>
+                <!-- Card content -->
+                <p class="text-lg sm:text-xl font-medium relative z-20 font-serif italic" style="color: #E1E0CC;">
+                    Your growth engine.
+                </p>
+            </div>
+            
+            <!-- Card 2 - Mobile & Web Apps -->
+            <div class="feature-card bg-[#212121] rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-between h-full relative overflow-hidden border border-white/5 shadow-xl min-h-[360px] lg:min-h-0">
+                <div>
+                    <!-- Icon -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/5 border border-white/10 rounded flex items-center justify-center mb-6 text-primary shadow">
+                        <i data-lucide="smartphone" class="w-6 h-6"></i>
+                    </div>
+                    
+                    <!-- Title & number -->
+                    <div class="flex justify-between items-baseline mb-4">
+                        <h3 class="text-lg sm:text-xl font-medium" style="color: #E1E0CC;">Mobile & Web</h3>
+                        <span class="text-xs font-mono text-primary/60">01</span>
+                    </div>
+                    
+                    <!-- Checklist -->
+                    <ul class="space-y-3 mt-6">
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="text-primary w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-400 text-xs sm:text-sm">Cross-platform mobile frameworks</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="text-primary w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-400 text-xs sm:text-sm">Stunning, highly responsive portals</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="text-primary w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-400 text-xs sm:text-sm">Highly optimized page loading</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="text-primary w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-400 text-xs sm:text-sm">Custom backend integrations</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Learn more -->
+                <a href="#contact" class="group/btn inline-flex items-center gap-2 text-primary font-medium text-xs sm:text-sm transition-colors duration-300 hover:text-white mt-8">
+                    <span>Enquire now</span>
+                    <span class="inline-block transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-300">
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 transform -rotate-45 text-primary"></i>
+                    </span>
+                </a>
+            </div>
+            
+            <!-- Card 3 - Smart AI Solutions -->
+            <div class="feature-card bg-[#212121] rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-between h-full relative overflow-hidden border border-white/5 shadow-xl min-h-[360px] lg:min-h-0">
+                <div>
+                    <!-- Icon -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/5 border border-white/10 rounded flex items-center justify-center mb-6 text-primary shadow">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    
+                    <!-- Title & number -->
+                    <div class="flex justify-between items-baseline mb-4">
+                        <h3 class="text-lg sm:text-xl font-medium" style="color: #E1E0CC;">Smart AI Bots</h3>
+                        <span class="text-xs font-mono text-primary/60">02</span>
+                    </div>
+                    
+                    <!-- Checklist -->
+                    <ul class="space-y-3 mt-6">
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="text-primary w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-400 text-xs sm:text-sm">AI-driven chatbot assistance</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="text-primary w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-400 text-xs sm:text-sm">Context-aware NLP setups</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="text-primary w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-400 text-xs sm:text-sm">Automated business pipelines</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Learn more -->
+                <a href="#contact" class="group/btn inline-flex items-center gap-2 text-primary font-medium text-xs sm:text-sm transition-colors duration-300 hover:text-white mt-8">
+                    <span>Enquire now</span>
+                    <span class="inline-block transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-300">
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 transform -rotate-45 text-primary"></i>
+                    </span>
+                </a>
+            </div>
+            
+            <!-- Card 4 - Cloud & PWA -->
+            <div class="feature-card bg-[#212121] rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-between h-full relative overflow-hidden border border-white/5 shadow-xl min-h-[360px] lg:min-h-0">
+                <div>
+                    <!-- Icon -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/5 border border-white/10 rounded flex items-center justify-center mb-6 text-primary shadow">
+                        <i data-lucide="cloud" class="w-6 h-6"></i>
+                    </div>
+                    
+                    <!-- Title & number -->
+                    <div class="flex justify-between items-baseline mb-4">
+                        <h3 class="text-lg sm:text-xl font-medium" style="color: #E1E0CC;">Cloud & PWA</h3>
+                        <span class="text-xs font-mono text-primary/60">03</span>
+                    </div>
+                    
+                    <!-- Checklist -->
+                    <ul class="space-y-3 mt-6">
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="text-primary w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-400 text-xs sm:text-sm">Offline-first mobile design</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="text-primary w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-400 text-xs sm:text-sm">Scalable AWS/GCP infrastructures</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="text-primary w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-400 text-xs sm:text-sm">Robust domain & hosting security</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Learn more -->
+                <a href="#contact" class="group/btn inline-flex items-center gap-2 text-primary font-medium text-xs sm:text-sm transition-colors duration-300 hover:text-white mt-8">
+                    <span>Enquire now</span>
+                    <span class="inline-block transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-300">
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 transform -rotate-45 text-primary"></i>
+                    </span>
+                </a>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- SECTION 4: CONTACT / ENQUIRY -->
+    <section class="bg-black py-24 px-4 md:px-8 border-t border-white/[0.03]" id="contact">
+        <div class="w-full max-w-6xl mx-auto">
+            
+            <div class="text-center mb-16">
+                <span class="text-primary tracking-[0.25em] uppercase text-[10px] sm:text-xs font-semibold mb-3">Collaboration</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#E1E0CC] text-center">GET IN TOUCH</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                
+                <!-- Left (5 cols): Contact links -->
+                <div class="lg:col-span-5 flex flex-col gap-4">
+                    
+                    <a href="https://www.instagram.com/abdominal.in" target="_blank" class="bg-[#101010] border border-white/5 rounded-2xl p-6 flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:bg-[#DEDBC8] group-hover:text-black transition-colors duration-300">
+                                <i data-lucide="instagram" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#E1E0CC] text-sm">INSTAGRAM</h4>
+                                <p class="text-xs text-gray-500">Follow us for updates</p>
+                            </div>
+                        </div>
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-gray-500 group-hover:text-[#E1E0CC] transform group-hover:translate-x-1 transition-all duration-300"></i>
+                    </a>
+
+                    <a href="https://wa.me/918766882442?text=Hi, I want to know more about your services" target="_blank" class="bg-[#101010] border border-white/5 rounded-2xl p-6 flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:bg-[#DEDBC8] group-hover:text-black transition-colors duration-300">
+                                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#E1E0CC] text-sm">WHATSAPP</h4>
+                                <p class="text-xs text-gray-500">Chat with us directly</p>
+                            </div>
+                        </div>
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-gray-500 group-hover:text-[#E1E0CC] transform group-hover:translate-x-1 transition-all duration-300"></i>
+                    </a>
+
+                    <a href="tel:+918766882442" class="bg-[#101010] border border-white/5 rounded-2xl p-6 flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:bg-[#DEDBC8] group-hover:text-black transition-colors duration-300">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#E1E0CC] text-sm">CALL US</h4>
+                                <p class="text-xs text-gray-500">+91 8766882442</p>
+                            </div>
+                        </div>
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-gray-500 group-hover:text-[#E1E0CC] transform group-hover:translate-x-1 transition-all duration-300"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/company/dominal-tech/" target="_blank" class="bg-[#101010] border border-white/5 rounded-2xl p-6 flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:bg-[#DEDBC8] group-hover:text-black transition-colors duration-300">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#E1E0CC] text-sm">LINKEDIN</h4>
+                                <p class="text-xs text-gray-500">Connect professionally</p>
+                            </div>
+                        </div>
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-gray-500 group-hover:text-[#E1E0CC] transform group-hover:translate-x-1 transition-all duration-300"></i>
+                    </a>
+
+                </div>
+                
+                <!-- Right (7 cols): Enquiry form -->
+                <div class="lg:col-span-7 bg-[#101010] border border-white/5 rounded-[2rem] p-6 md:p-10 shadow-2xl w-full">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-8 text-primary uppercase tracking-wide">Send Enquiry</h3>
+                    
+                    <form id="enquiryForm" class="space-y-6">
+                        <div class="flex flex-col gap-2">
+                            <label for="name" class="text-xs text-gray-400 font-semibold tracking-wider">YOUR NAME</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your name" class="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-[#E1E0CC] text-sm placeholder-gray-600 focus:outline-none focus:border-primary transition-all duration-300">
+                        </div>
+                        
+                        <div class="flex flex-col gap-2">
+                            <label for="service" class="text-xs text-gray-400 font-semibold tracking-wider">SERVICE INTERESTED IN</label>
+                            <select id="service" name="service" required class="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-[#E1E0CC] text-sm focus:outline-none focus:border-primary transition-all duration-300">
+                                <option value="">Select a service</option>
+                                <option value="Mobile App Development">Mobile App Development</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Progressive Web Apps">Progressive Web Apps</option>
+                                <option value="AI Solutions">AI Solutions</option>
+                                <option value="AI Chatbots">AI Chatbots</option>
+                                <option value="Domain & Hosting">Domain & Hosting</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="flex flex-col gap-2">
+                            <label for="message" class="text-xs text-gray-400 font-semibold tracking-wider">YOUR MESSAGE</label>
+                            <textarea id="message" name="message" required placeholder="Tell us about your project..." rows="4" class="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-[#E1E0CC] text-sm placeholder-gray-600 focus:outline-none focus:border-primary resize-none transition-all duration-300"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-4 bg-primary text-black rounded-xl font-bold uppercase tracking-wider text-sm flex items-center justify-center gap-3 hover:bg-white transition-colors duration-300 shadow">
+                            <span>Send Message</span>
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-12 px-4 md:px-8 border-t border-white/[0.03]">
+        <div class="w-full max-w-6xl mx-auto flex flex-col items-center justify-center gap-4 text-center">
+            <p class="text-xs sm:text-sm text-gray-500 font-medium">&copy; 2026 Dominal Tech Pvt Ltd. All Rights Reserved.</p>
+            <div class="w-16 h-[1.5px] bg-[#DEDBC8]/40 rounded"></div>
+        </div>
+    </footer>
+
+    <!-- FIXED CONTACT ACTIONS -->
+    <a href="tel:+918766882442" class="fixed-contact-icon call-icon" aria-label="Call Dominal">
+        <i data-lucide="phone"></i>
+    </a>
+    
+    <a href="https://wa.me/918766882442?text=Hi%20Team%2C%20I%20want%20to%20know%20about%20your%20services" class="fixed-contact-icon whatsapp-icon" aria-label="WhatsApp Dominal">
+        <i data-lucide="message-circle"></i>
+    </a>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Interactive Scripts & Animations -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 1. WordsPullUp Animation Engine
+        function initWordsPullUp() {
+            const elements = document.querySelectorAll('[data-words-pull-up]');
+            elements.forEach(el => {
+                const text = el.textContent.trim();
+                const words = text.split(/\s+/);
+                el.innerHTML = '';
+                el.className += ' inline-flex flex-wrap justify-center lg:justify-start';
+                
+                words.forEach((word, index) => {
+                    const wordSpan = document.createElement('span');
+                    wordSpan.className = 'inline-block overflow-visible mr-[0.25em] relative';
+                    
+                    const innerSpan = document.createElement('span');
+                    innerSpan.className = 'inline-block transform translate-y-[20px] opacity-0 word-inner';
+                    innerSpan.style.transitionDelay = `${index * 0.08}s`;
+                    
+                    // Superscript Asterisk on final letter of giant heading
+                    if (index === words.length - 1 && el.hasAttribute('data-show-asterisk')) {
+                        innerSpan.className += ' relative pr-[0.3em]';
+                        innerSpan.innerHTML = word + '<span class="absolute top-[0.65em] -right-[0.3em] text-[0.31em] text-primary font-serif font-medium">*</span>';
+                    } else {
+                        innerSpan.textContent = word;
+                    }
+                    
+                    wordSpan.appendChild(innerSpan);
+                    el.appendChild(wordSpan);
+                });
+            });
+        }
+
+        // 2. WordsPullUpMultiStyle Animation Engine
+        function initWordsPullUpMulti() {
+            const elements = document.querySelectorAll('[data-words-pull-up-multi]');
+            elements.forEach(el => {
+                const childSpans = Array.from(el.children);
+                el.innerHTML = '';
+                el.className += ' flex flex-wrap justify-center text-center';
+                
+                let totalWordIndex = 0;
+                
+                childSpans.forEach(child => {
+                    const text = child.textContent.trim();
+                    const styleClasses = child.getAttribute('data-style') || '';
+                    const words = text.split(/\s+/);
+                    
+                    const isBlock = styleClasses.includes('block');
+                    const cleanClasses = styleClasses.replace(/\bblock\b/g, '').trim();
+                    
+                    let container = el;
+                    if (isBlock) {
+                        container = document.createElement('div');
+                        container.className = 'w-full flex flex-wrap justify-center text-center';
+                        el.appendChild(container);
+                    }
+                    
+                    words.forEach(word => {
+                        const wordSpan = document.createElement('span');
+                        wordSpan.className = `inline-block overflow-hidden mr-[0.25em] ${cleanClasses}`;
+                        
+                        const innerSpan = document.createElement('span');
+                        innerSpan.className = 'inline-block transform translate-y-[20px] opacity-0 word-inner';
+                        innerSpan.style.transitionDelay = `${totalWordIndex * 0.08}s`;
+                        innerSpan.textContent = word;
+                        
+                        wordSpan.appendChild(innerSpan);
+                        container.appendChild(wordSpan);
+                        
+                        totalWordIndex++;
+                    });
+                });
+            });
+        }
+
+        // 3. Scroll-linked character opacity animation setup
+        let charSpans = [];
+        let totalChars = 0;
+        const textElement = document.getElementById('scroll-reveal-text');
+
+        function initScrollRevealText() {
+            if (textElement) {
+                const text = textElement.textContent.trim();
+                textElement.innerHTML = '';
+                const chars = [...text];
+                charSpans = chars.map((char, index) => {
+                    const span = document.createElement('span');
+                    span.className = 'scroll-char';
+                    span.style.opacity = '0.2';
+                    if (char === ' ') {
+                        span.innerHTML = '&nbsp;';
+                    } else {
+                        span.textContent = char;
+                    }
+                    textElement.appendChild(span);
+                    return span;
+                });
+                totalChars = charSpans.length;
+            }
+        }
+
+        function updateScrollReveal() {
+            if (!textElement || totalChars === 0) return;
+            const rect = textElement.getBoundingClientRect();
+            const viewHeight = window.innerHeight;
+            
+            // Offset range: start 0.8 (bottom 80% viewport), end 0.2 (top 20% viewport)
+            const start = viewHeight * 0.8;
+            const end = viewHeight * 0.2;
+            const total = start - end;
+            
+            const progress = (start - rect.top) / total;
+            const clampedProgress = Math.max(0, Math.min(1, progress));
+            
+            charSpans.forEach((span, index) => {
+                const charProgress = index / totalChars;
+                const minProgress = charProgress - 0.1;
+                const maxProgress = charProgress + 0.05;
+                
+                let opacity = 0.2;
+                if (clampedProgress >= maxProgress) {
+                    opacity = 1.0;
+                } else if (clampedProgress <= minProgress) {
+                    opacity = 0.2;
+                } else {
+                    // Linear interpolation
+                    const factor = (clampedProgress - minProgress) / (maxProgress - minProgress);
+                    opacity = 0.2 + 0.8 * factor;
+                }
+                span.style.opacity = opacity;
+            });
+        }
+
+        // 4. Typing Banner Controller
+        const typingPhrases = [
+            "Click to chat with Dominal AI Assistant",
+            "Ask us anything about our services...",
+            "Let's build your custom system together...",
+            "AI-powered scaling solutions 24/7..."
+        ];
+        
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 70;
+        
+        function typeBannerEffect() {
+            const el = document.getElementById('heroChatTyping');
+            if (!el) return;
+            
+            const phrase = typingPhrases[phraseIndex];
+            
+            if (isDeleting) {
+                el.textContent = phrase.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 30;
+            } else {
+                el.textContent = phrase.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 70;
+            }
+            
+            if (!isDeleting && charIndex === phrase.length) {
+                isDeleting = true;
+                typingSpeed = 3000; // Hold phrase
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % typingPhrases.length;
+                typingSpeed = 400; // Pause before typing
+            }
+            
+            setTimeout(typeBannerEffect, typingSpeed);
+        }
+
+        // 5. IntersectionObserver for triggering entrance pull-ups and card grids
+        function initIntersectionObservers() {
+            // Text Pull Ups Observer
+            const pullUpObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-active');
+                        pullUpObserver.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -100px 0px' });
+
+            document.querySelectorAll('[data-words-pull-up], [data-words-pull-up-multi]').forEach(el => {
+                pullUpObserver.observe(el);
+            });
+
+            // Card grid entrance observer (Trigger all cards in group with staggered delays)
+            const cardGridObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const cards = entry.target.querySelectorAll('.feature-card');
+                        cards.forEach((card, index) => {
+                            card.style.transitionDelay = `${index * 0.15}s`;
+                            card.classList.add('is-active');
+                        });
+                        cardGridObserver.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '-100px 0px -100px 0px' });
+
+            const featuresGrid = document.querySelector('.features-grid');
+            if (featuresGrid) {
+                cardGridObserver.observe(featuresGrid);
+            }
+        }
+
+        // 6. Form Submission & Smooth Scroll
+        function initGlobalHanders() {
+            // Enquiry submission handler
+            const form = document.getElementById('enquiryForm');
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const name = document.getElementById('name').value;
+                    const service = document.getElementById('service').value;
+                    const message = document.getElementById('message').value;
+                    
+                    const textMsg = `Hi, I am ${name}. I am interested in ${service}. ${message}`;
+                    const whatsappURL = `https://wa.me/918766882442?text=${encodeURIComponent(textMsg)}`;
+                    window.open(whatsappURL, '_blank');
+                    this.reset();
+                });
+            }
+
+            // Chat banner routing
+            const trigger = document.getElementById('heroChatTrigger');
+            if (trigger) {
+                trigger.addEventListener('click', () => {
+                    window.location.href = 'chat.html';
+                });
+                
+                // prevent child element propagation
+                const innerBtns = trigger.querySelectorAll('button');
+                innerBtns.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        window.location.href = 'chat.html';
+                    });
+                });
+            }
+
+            // Smooth scroll anchor triggers
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Bootstrapping
+        window.addEventListener('DOMContentLoaded', () => {
+            initWordsPullUp();
+            initWordsPullUpMulti();
+            initScrollRevealText();
+            initIntersectionObservers();
+            initGlobalHanders();
+            typeBannerEffect();
+            
+            // Active Hero content entrance on boot
+            setTimeout(() => {
+                const heroHeading = document.querySelector('[data-words-pull-up]');
+                if (heroHeading) heroHeading.classList.add('is-active');
+                
+                const desc = document.getElementById('hero-description');
+                if (desc) desc.classList.remove('translate-y-[20px]', 'opacity-0');
+                
+                const cta = document.getElementById('hero-cta');
+                if (cta) cta.classList.remove('translate-y-[20px]', 'opacity-0');
+            }, 200);
+
+            // Scroll listeners
+            window.addEventListener('scroll', updateScrollReveal, { passive: true });
+            window.addEventListener('resize', updateScrollReveal, { passive: true });
+            updateScrollReveal();
+        });
+
+        // Console Easter Egg
+        console.log('%c🚀 DOMINAL TECH', 'font-size: 24px; font-weight: bold; color: #DEDBC8; background: #000000; padding: 10px;');
+        console.log('%cWelcome to Dominal Tech! Looking for developers? Check out our careers page!', 'font-size: 14px; color: #E1E0CC;');
+        console.log('%cWebsite crafted with ❤️ by Dominal Tech Team', 'font-size: 12px; color: #888888;');
+    </script>
+</body>
+</html>

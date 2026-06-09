@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenue & Impact — Dominal Tech</title>
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #FFFFFF;
+            --primary-text: #000000;
+            --accent-blue: #2563eb;
+            --accent-blue-light: #3b82f6;
+            --gray-100: #F9FAFB;
+            --gray-200: #F3F4F6;
+            --gray-300: #E5E7EB;
+            --transition-speed: 0.4s;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Nav Styling */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+        }
+
+        .logo-image {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links li a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: opacity var(--transition-speed);
+            opacity: 0.65;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            opacity: 1;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--primary-text);
+            transition: all var(--transition-speed);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 180px 5% 60px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2.5rem, 6vw, 4.8rem);
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: #4b5563;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Dashboard Container */
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5% 120px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 6rem;
+        }
+
+        .stat-card {
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-radius: 28px;
+            padding: 3.5rem 2.5rem;
+            transition: all var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-text);
+            background: var(--primary-bg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+        }
+
+        .stat-number {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(3rem, 7vw, 4.5rem);
+            line-height: 1;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+        }
+
+        .stat-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .stat-desc {
+            font-size: 1rem;
+            color: #4b5563;
+        }
+
+        .highlight-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--accent-blue-light);
+        }
+
+        .stat-card:nth-child(2) .highlight-bar {
+            background: #10b981; /* Green for Profit share */
+        }
+
+        .stat-card:nth-child(3) .highlight-bar {
+            background: #f59e0b; /* Amber for Revenue */
+        }
+
+        .partnership-subtext {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed var(--gray-300);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #10b981;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Interactive Profit Share Visualization Widget */
+        .widget-section {
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-radius: 32px;
+            padding: 4rem;
+            margin-bottom: 6rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .widget-text h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .widget-text p {
+            font-size: 1.05rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+
+        .widget-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .visual-circle {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--accent-blue) 0% 80%,
+                #10b981 80% 100%
+            );
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            transition: transform var(--transition-speed);
+        }
+
+        .visual-circle:hover {
+            transform: scale(1.03) rotate(15deg);
+        }
+
+        .visual-center {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: var(--primary-bg);
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: inset 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .center-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .center-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #6b7280;
+            margin-top: 2px;
+        }
+
+        .legend {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .legend-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+        }
+
+        .legend-dot.partner { background-color: var(--accent-blue); }
+        .legend-dot.dominal { background-color: #10b981; }
+
+        /* Footer */
+        footer {
+            background: var(--gray-100);
+            padding: 4rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        /* Responsive Layouts */
+        @media (max-width: 992px) {
+            .widget-section {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right var(--transition-speed);
+                border-left: 1px solid var(--gray-200);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+        }
+    
+        /* Unified Navigation Styles */
+        .nav-container {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            padding: 1.2rem 5% !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            z-index: 1000 !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+            height: auto !important;
+        }
+
+        .nav-container.scrolled {
+            padding: 0.8rem 5% !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15) !important;
+            background: rgba(255, 255, 255, 0.98) !important;
+        }
+
+        .logo {
+            display: flex !important;
+            align-items: center !important;
+            gap: 1rem !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            text-decoration: none !important;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px) !important;
+        }
+
+        .logo-image {
+            width: 50px !important;
+            height: 50px !important;
+            object-fit: contain !important;
+            border-radius: 8px !important;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif !important;
+            font-size: 1.4rem !important;
+            font-weight: 900 !important;
+            letter-spacing: 3px !important;
+            color: #000000 !important;
+            background: none !important;
+            -webkit-text-fill-color: #000000 !important;
+        }
+
+        .nav-links {
+            display: flex !important;
+            list-style: none !important;
+            gap: 2.5rem !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            flex-direction: row !important;
+            position: static !important;
+            width: auto !important;
+            height: auto !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+
+        .nav-links li {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .nav-links li a {
+            color: #000000 !important;
+            text-decoration: none !important;
+            font-size: 0.95rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 1.5px !important;
+            position: relative !important;
+            transition: all 0.3s ease !important;
+            text-transform: uppercase !important;
+            opacity: 0.65 !important;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            opacity: 1 !important;
+        }
+
+        .nav-links li a::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: -5px !important;
+            left: 0 !important;
+            width: 0 !important;
+            height: 2px !important;
+            background: #000000 !important;
+            transition: width 0.3s ease !important;
+        }
+
+        .nav-links li a:hover::after,
+        .nav-links li a.active::after {
+            width: 100% !important;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none !important;
+            flex-direction: column !important;
+            cursor: pointer !important;
+            z-index: 1001 !important;
+            gap: 6px !important;
+        }
+
+        .hamburger span {
+            width: 28px !important;
+            height: 2px !important;
+            background: #000000 !important;
+            transition: all 0.3s ease !important;
+            display: block !important;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px) !important;
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0 !important;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px) !important;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed !important;
+                top: 0 !important;
+                right: -100% !important;
+                width: 70% !important;
+                height: 100vh !important;
+                background: rgba(255, 255, 255, 0.98) !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 2.5rem !important;
+                transition: right 0.3s ease !important;
+                border-left: 1px solid rgba(0,0,0,0.08) !important;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.05) !important;
+                z-index: 1000 !important;
+            }
+
+            .nav-links.active {
+                right: 0 !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+            }
+
+            .logo-image {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .logo-text {
+                font-size: 1.1rem !important;
+            }
+        }
+</style>
+</head>
+<body>
+    
+        <nav class="nav-container" id="navbar">
+        <div class="logo" onclick="window.location.href='index.html'">
+            <img src="dominalnew.jpeg" alt="Dominal Tech Logo" class="logo-image">
+            <span class="logo-text">DOMINAL TECH</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="founder.html">FOUNDERS</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+            <li><a href="startups.html">STARTUP PROGRAM</a></li>
+            <li><a href="revenue.html" class="active">REVENUE</a></li>
+            <li><a href="hosting.html">HOSTING</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Economic scale, built by design.</h1>
+        <p>A statistical breakdown of our active project operations, revenue impact, and partnership models.</p>
+    </header>
+
+    <main class="dashboard-container">
+        <!-- Stats Grid -->
+        <section class="stats-grid">
+            <!-- Stat 1: Delivered Projects -->
+            <div class="stat-card">
+                <div class="highlight-bar"></div>
+                <div>
+                    <div class="stat-number">70+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                    <div class="stat-desc">Successfully deployed custom applications, web platforms, and database integrations for clients worldwide.</div>
+                </div>
+            </div>
+
+            <!-- Stat 2: Active Partners -->
+            <div class="stat-card">
+                <div class="highlight-bar"></div>
+                <div>
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Tech Partnerships</div>
+                    <div class="stat-desc">Currently acting as the exclusive technology partner for growing businesses, running all operations.</div>
+                    <div class="partnership-subtext">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                            <polyline points="16 7 22 7 22 13"/>
+                        </svg>
+                        Profit Sharing Partnership Model
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stat 3: Client Revenue -->
+            <div class="stat-card">
+                <div class="highlight-bar"></div>
+                <div>
+                    <div class="stat-number">1Cr+</div>
+                    <div class="stat-label">Client Revenue Impact</div>
+                    <div class="stat-desc">Helped our clients optimize sales pipelines, scale reach, and generate over 1 Crore INR in active revenue.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profit Share Breakdown Widget -->
+        <section class="widget-section">
+            <div class="widget-text">
+                <h2>Exclusive 20% Partner Program</h2>
+                <p>For select high-growth businesses, we run a dedicated Partner Program where we take care of 100% of their engineering, software scaling, and sales infrastructure with zero upfront costs.</p>
+                <p>We are currently exclusive tech partners with <strong>4 growing businesses</strong> under this structure, taking a <strong>20% share of profits</strong>. This is an invite-only model tailored for long-term growth and is completely separate from our standard client contracts.</p>
+                
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-dot partner"></div>
+                        <span>80% Partner Share</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot dominal"></div>
+                        <span>20% Dominal Tech Share</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="widget-visual">
+                <div class="visual-circle">
+                    <div class="visual-center">
+                        <span class="center-num">20%</span>
+                        <span class="center-label">Partner Share</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Dominal Group Pvt Ltd. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const navbar = document.getElementById('navbar');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+
+        if (navbar) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

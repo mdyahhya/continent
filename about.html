@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — Dominal Tech</title>
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&family=Outfit:wght@300;400;600&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary-bg: #FFFFFF;
+            --primary-text: #000000;
+            --accent-blue: #2563eb;
+            --accent-blue-light: #3b82f6;
+            --gray-100: #F9FAFB;
+            --gray-200: #F3F4F6;
+            --gray-300: #E5E7EB;
+            --transition: 0.3s ease;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--primary-bg);
+            color: var(--primary-text);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        /* === NAVIGATION === */
+        .nav-container {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            background: rgba(255,255,255,0.95) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            padding: 1.2rem 5% !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            z-index: 1000 !important;
+            border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important;
+        }
+
+        .nav-container.scrolled {
+            padding: 0.8rem 5% !important;
+            background: rgba(255,255,255,0.98) !important;
+        }
+
+        .logo {
+            display: flex !important;
+            align-items: center !important;
+            gap: 1rem !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .logo:hover { transform: translateY(-2px) !important; }
+
+        .logo-image {
+            width: 50px !important;
+            height: 50px !important;
+            object-fit: contain !important;
+            border-radius: 8px !important;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif !important;
+            font-size: 1.4rem !important;
+            font-weight: 900 !important;
+            letter-spacing: 3px !important;
+            color: #000 !important;
+            -webkit-text-fill-color: #000 !important;
+            background: none !important;
+        }
+
+        .nav-links {
+            display: flex !important;
+            list-style: none !important;
+            gap: 2.5rem !important;
+            margin: 0 !important; padding: 0 !important;
+            position: static !important; width: auto !important; height: auto !important;
+            background: transparent !important; flex-direction: row !important;
+        }
+
+        .nav-links li a {
+            color: #000 !important;
+            text-decoration: none !important;
+            font-size: 0.85rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 1.5px !important;
+            text-transform: uppercase !important;
+            opacity: 0.65 !important;
+            position: relative !important;
+            transition: opacity 0.3s ease !important;
+        }
+
+        .nav-links li a:hover, .nav-links li a.active { opacity: 1 !important; }
+
+        .nav-links li a::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: -5px !important; left: 0 !important;
+            width: 0 !important; height: 2px !important;
+            background: #000 !important;
+            transition: width 0.3s ease !important;
+        }
+
+        .nav-links li a:hover::after, .nav-links li a.active::after { width: 100% !important; }
+
+        .hamburger {
+            display: none !important;
+            flex-direction: column !important;
+            cursor: pointer !important;
+            z-index: 1001 !important;
+            gap: 6px !important;
+        }
+
+        .hamburger span {
+            width: 28px !important; height: 2px !important;
+            background: #000 !important;
+            display: block !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px) !important; }
+        .hamburger.active span:nth-child(2) { opacity: 0 !important; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px) !important; }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed !important;
+                top: 0 !important; right: -100% !important;
+                width: 75% !important; height: 100vh !important;
+                background: rgba(255,255,255,0.98) !important;
+                flex-direction: column !important;
+                justify-content: center !important; align-items: center !important;
+                gap: 2.5rem !important;
+                transition: right 0.3s ease !important;
+                border-left: 1px solid rgba(0,0,0,0.08) !important;
+                z-index: 1000 !important;
+            }
+            .nav-links.active { right: 0 !important; }
+            .hamburger { display: flex !important; }
+        }
+
+        /* === PAGE CONTENT === */
+        .hero {
+            padding: 160px 5% 60px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .sub {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: clamp(1.1rem, 3vw, 1.6rem);
+            color: #4b5563;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5% 100px;
+        }
+
+        /* === VISION/MISSION 2-COL === */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 8rem;
+        }
+
+        .two-col h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .two-col p {
+            font-size: 1.05rem;
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        /* === SECTION TITLE === */
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 4rem;
+            letter-spacing: -1px;
+        }
+
+        /* === LEADERSHIP CARDS === */
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 8rem;
+            flex-wrap: wrap;
+        }
+
+        .team-card {
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        }
+
+        .img-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #fff;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover .img-container img { transform: scale(1.08); }
+
+        .team-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .team-role {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: var(--accent-blue-light);
+            margin-bottom: 0.8rem;
+        }
+
+        .team-card p {
+            font-size: 0.95rem;
+            color: #6b7280;
+        }
+
+        /* === JOURNEY TIMELINE === */
+        .journey-section {
+            margin-bottom: 8rem;
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0; bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
+            transform: translateX(-50%);
+        }
+
+        .journey-node {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .journey-node:nth-child(odd) { flex-direction: row; }
+        .journey-node:nth-child(even) { flex-direction: row-reverse; }
+
+        .node-content {
+            width: 43%;
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-radius: 20px;
+            padding: 2rem 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .journey-node:nth-child(odd) .node-content { margin-right: auto; margin-left: 0; }
+        .journey-node:nth-child(even) .node-content { margin-left: auto; margin-right: 0; }
+
+        .node-content:hover {
+            transform: translateY(-4px);
+            border-color: #000;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+        }
+
+        .node-year {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 0.4rem;
+        }
+
+        .node-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .node-desc {
+            font-size: 0.95rem;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .node-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid #000;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .journey-node:hover .node-dot {
+            background: var(--accent-blue-light);
+            border-color: #fff;
+            box-shadow: 0 0 15px rgba(59,130,246,0.5);
+            transform: translateX(-50%) scale(1.4);
+        }
+
+        /* === TOP CLIENTS === */
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 8rem;
+        }
+
+        .client-card {
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .client-card:hover {
+            transform: translateY(-4px);
+            border-color: #000;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+
+        .client-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .client-img-contain {
+            width: 100%;
+            height: 160px;
+            object-fit: contain;
+            display: block;
+            background: #fff;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .timeline-images {
+            display: flex;
+            gap: 12px;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .timeline-img-box {
+            height: 48px;
+            background: #ffffff;
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 4px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .timeline-img-box img {
+            height: 100%;
+            width: auto;
+            max-width: 100px;
+            object-fit: contain;
+        }
+
+        .client-body {
+            padding: 1.5rem 2rem;
+        }
+
+        .client-tag {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: var(--accent-blue-light);
+            margin-bottom: 0.4rem;
+        }
+
+        .client-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .client-card p {
+            font-size: 0.9rem;
+            color: #4b5563;
+        }
+
+        /* === PROFIT SHARE HIGHLIGHT === */
+        .profit-block {
+            background: #000;
+            color: #fff;
+            border-radius: 28px;
+            padding: 4rem 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 8rem;
+        }
+
+        .profit-block h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+        }
+
+        .profit-block p {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .profit-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .donut {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #3b82f6 0% 20%,
+                rgba(255,255,255,0.15) 20% 100%
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: transform 0.4s ease;
+        }
+
+        .donut:hover { transform: scale(1.05) rotate(10deg); }
+
+        .donut-inner {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .donut-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #3b82f6;
+        }
+
+        .donut-label {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* === ACTIVE PARTNERSHIP BANNER === */
+        .active-partnership-banner {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(37, 99, 235, 0.02) 100%);
+            border: 1px dashed rgba(59, 130, 246, 0.3);
+            border-radius: 20px;
+            padding: 1.8rem 2.5rem;
+            margin: 2rem auto 4rem;
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+            max-width: 1000px;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.03);
+            position: relative;
+            overflow: hidden;
+            animation: borderPulse 4s ease-in-out infinite alternate;
+        }
+
+        .active-partnership-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px; height: 100%;
+            background: var(--accent-blue);
+        }
+
+        .banner-pulse-icon {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(59, 130, 246, 0.2);
+            animation: ringExpand 2.5s infinite ease-out;
+        }
+
+        .pulse-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+        }
+
+        .banner-content {
+            flex: 1;
+        }
+
+        .banner-tag {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent-blue-light);
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 0.3rem;
+        }
+
+        .banner-text {
+            font-size: 1.05rem;
+            color: #374151;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .banner-text strong {
+            color: #000;
+            font-weight: 700;
+        }
+
+        @keyframes ringExpand {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.6);
+                opacity: 0;
+            }
+        }
+
+        @keyframes borderPulse {
+            0% {
+                border-color: rgba(59, 130, 246, 0.25);
+                box-shadow: 0 10px 30px rgba(59, 130, 246, 0.02);
+            }
+            100% {
+                border-color: rgba(59, 130, 246, 0.5);
+                box-shadow: 0 10px 30px rgba(59, 130, 246, 0.08);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .active-partnership-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1.5rem;
+                margin-bottom: 3rem;
+            }
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--gray-100);
+            padding: 4rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        footer p { font-size: 0.9rem; color: #6b7280; }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 992px) {
+            .two-col { grid-template-columns: 1fr; gap: 2rem; }
+            .profit-block { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .timeline-line { left: 20px; transform: none; }
+            .journey-node, .journey-node:nth-child(even) {
+                flex-direction: column !important;
+                align-items: flex-start;
+                padding-left: 50px;
+            }
+            .node-content { width: 100% !important; margin: 0 !important; }
+            .node-dot { left: 20px; transform: translateX(-50%); }
+            .journey-node:hover .node-dot { transform: translateX(-50%) scale(1.4); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-container" id="navbar">
+        <div class="logo" onclick="window.location.href='index.html'">
+            <img src="dominalnew.jpeg" alt="Dominal Tech Logo" class="logo-image">
+            <span class="logo-text">DOMINAL TECH</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="founder.html">FOUNDERS</a></li>
+            <li><a href="about.html" class="active">ABOUT</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+            <li><a href="startups.html">STARTUP PROGRAM</a></li>
+            <li><a href="revenue.html">REVENUE</a></li>
+            <li><a href="hosting.html">HOSTING</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <h1>We build the tech.<br>You own the growth.</h1>
+        <p class="sub">Simple idea. Real results. Global reach.</p>
+    </header>
+
+    <main class="container">
+
+        <!-- Animated Partnership Highlight Box -->
+        <div class="active-partnership-banner">
+            <div class="banner-pulse-icon">
+                <span class="pulse-ring"></span>
+                <span class="pulse-dot"></span>
+            </div>
+            <div class="banner-content">
+                <span class="banner-tag">Partner Program Operations</span>
+                <p class="banner-text">We manage the <strong>entire technology infrastructure, system upgrades, and sales strategies</strong> for 4 growing businesses, sharing in their success through a <strong>20% profit-sharing partnership model</strong>.</p>
+            </div>
+        </div>
+
+        <!-- Vision & Mission -->
+        <section class="two-col" style="margin-top: 2rem;">
+            <div>
+                <h2>What We Do</h2>
+                <p>We build websites, mobile apps, CRM systems, and AI tools for businesses that want to grow fast. We handle everything technical — from design to deployment — so you can focus on running your business.</p>
+            </div>
+            <div>
+                <h2>Why We Do It</h2>
+                <p>Most businesses don't have a tech team. We become that team. We bring Silicon Valley-level engineering to Indian businesses, schools, hotels, factories, and startups — at a price that actually makes sense.</p>
+            </div>
+        </section>
+
+        <!-- Leadership -->
+        <section style="margin-bottom: 8rem;">
+            <h2 class="section-title">The Team Behind It</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="img-container">
+                        <img src="Yahya_Mundewadi.jpeg" alt="Yahya Mundewadi">
+                    </div>
+                    <h3>Yahya Mundewadi</h3>
+                    <div class="team-role">Co-Founder &amp; CEO</div>
+                    <p>Drives strategy, client relationships, and business growth. Turned a small tech idea into a company handling government-scale projects.</p>
+                </div>
+                <div class="team-card">
+                    <div class="img-container">
+                        <img src="amir.jpg" alt="Amir Rangrez">
+                    </div>
+                    <h3>Amir Rangrez</h3>
+                    <div class="team-role">Co-Founder &amp; CTO</div>
+                    <p>Leads all product engineering, system architecture, and AI integrations. Builds the systems that make our clients' businesses run smoothly.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey Timeline -->
+        <section class="journey-section">
+            <h2 class="section-title">Our Journey</h2>
+            <div class="timeline-line"></div>
+
+            <div class="journey-node">
+                <div class="node-content">
+                    <div class="node-year">2023</div>
+                    <div class="node-title">Started in India</div>
+                    <p class="node-desc">Yahya and Amir started Dominal Tech with a simple goal — build real software for real businesses. First few clients were local shops and startups who needed websites and apps.</p>
+                </div>
+                <div class="node-dot"></div>
+            </div>
+
+            <div class="journey-node">
+                <div class="node-content">
+                    <div class="node-year">2024</div>
+                    <div class="node-title">Central Railway &amp; 50+ Projects</div>
+                    <p class="node-desc">Got selected to build automation systems for Central Railway — an Indian Government project. Also successfully completed 50+ Indian projects for local shops, schools, hotels, and businesses.</p>
+                    <div class="timeline-images">
+                        <div class="timeline-img-box">
+                            <img src="indianrailways.png" alt="Indian Railways">
+                        </div>
+                    </div>
+                </div>
+                <div class="node-dot"></div>
+            </div>
+
+            <div class="journey-node">
+                <div class="node-content">
+                    <div class="node-year">2025</div>
+                    <div class="node-title">USA 🇺🇸 Expansion &amp; Harvard</div>
+                    <p class="node-desc">Expanded internationally. Worked with clients from the USA 🇺🇸, including research projects with Harvard University. Built data tools and analytics platforms for academic institutions.</p>
+                    <div class="timeline-images">
+                        <div class="timeline-img-box">
+                            <img src="USA.png" alt="USA Flag">
+                        </div>
+                        <div class="timeline-img-box">
+                            <img src="harward.png" alt="Harvard University Logo">
+                        </div>
+                    </div>
+                </div>
+                <div class="node-dot"></div>
+            </div>
+
+            <div class="journey-node">
+                <div class="node-content">
+                    <div class="node-year">2026+</div>
+                    <div class="node-title">Partner Program &amp; Growth</div>
+                    <p class="node-desc">Directly partnering with growing businesses. Build and manage all tech systems in a custom profit-sharing program. 70+ projects delivered worldwide.</p>
+                </div>
+                <div class="node-dot"></div>
+            </div>
+        </section>
+
+        <!-- Profit Share Block -->
+        <section class="profit-block">
+            <div>
+                <h2>We grow with you.</h2>
+                <p>For serious businesses, we offer a dedicated Partner Program — we handle 100% of your technology: website, app, CRM, AI tools, hosting, updates, everything.</p>
+                <p>We work with select partners under a profit-sharing model to align incentives directly with your business growth. This is optional and fully customized per partner.</p>
+                <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">Currently active with partners under this profit-sharing structure.</p>
+            </div>
+            <div class="profit-visual">
+                <div class="donut">
+                    <div class="donut-inner">
+                        <span class="donut-num">GROW</span>
+                        <span class="donut-label">Partner Program</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Clients -->
+        <section>
+            <h2 class="section-title">Key Clients &amp; Partners</h2>
+            <div class="clients-grid">
+                <div class="client-card">
+                    <img src="indianrailways.png" alt="Indian Railways" class="client-img-contain">
+                    <div class="client-body">
+                        <div class="client-tag">Government</div>
+                        <h3>Central Railway</h3>
+                        <p>Built automation and tracking systems for Indian Government's Central Railway. Mission-critical infrastructure used by millions daily.</p>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <img src="harward.png" alt="Harvard University" class="client-img-contain">
+                    <div class="client-body">
+                        <div class="client-tag">Academic</div>
+                        <h3>Harvard University</h3>
+                        <p>Designed custom data visualization tools and research portals for academic departments at Harvard, USA 🇺🇸.</p>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <img src="USA.png" alt="USA Partners" class="client-img-contain">
+                    <div class="client-body">
+                        <div class="client-tag">International</div>
+                        <h3>USA 🇺🇸 Partners</h3>
+                        <p>Multiple enterprise clients across the USA — cloud systems, SaaS platforms, and data pipelines handling high-volume business traffic.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Dominal Group Pvt Ltd. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const navbar = document.getElementById('navbar');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+
+        if (navbar) {
+            window.addEventListener('scroll', () => {
+                navbar.classList.toggle('scrolled', window.scrollY > 50);
+            });
+        }
+    </script>
+</body>
+</html>
