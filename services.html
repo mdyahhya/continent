@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services — Dominal Tech</title>
     <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="dominalnew.jpeg" type="image/jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
 
@@ -2174,7 +2175,9 @@
             }
         }
     
-        /* Unified Navigation Styles */
+        /* ==========================================
+           UNIFIED PREMIUM NAVIGATION & HAMBURGER
+           ========================================== */
         .nav-container {
             position: fixed !important;
             top: 0 !important;
@@ -2183,94 +2186,80 @@
             background: rgba(255, 255, 255, 0.95) !important;
             backdrop-filter: blur(10px) !important;
             -webkit-backdrop-filter: blur(10px) !important;
-            padding: 1.2rem 5% !important;
+            padding: 1rem 5% !important;
             display: flex !important;
             justify-content: space-between !important;
             align-items: center !important;
             z-index: 1000 !important;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
             transition: all 0.3s ease !important;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
-            height: auto !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03) !important;
+            height: 70px !important;
         }
 
         .nav-container.scrolled {
             padding: 0.8rem 5% !important;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.15) !important;
             background: rgba(255, 255, 255, 0.98) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
         }
 
         .logo {
             display: flex !important;
             align-items: center !important;
-            gap: 1rem !important;
+            gap: 0.8rem !important;
             cursor: pointer !important;
-            transition: all 0.3s ease !important;
             text-decoration: none !important;
         }
 
-        .logo:hover {
-            transform: translateY(-2px) !important;
-        }
-
         .logo-image {
-            width: 50px !important;
-            height: 50px !important;
+            width: 42px !important;
+            height: 42px !important;
             object-fit: contain !important;
             border-radius: 8px !important;
+            transition: transform 0.3s ease !important;
+        }
+
+        .logo:hover .logo-image {
+            transform: rotate(-5deg) scale(1.05) !important;
         }
 
         .logo-text {
             font-family: 'Orbitron', sans-serif !important;
-            font-size: 1.4rem !important;
+            font-size: 1.25rem !important;
             font-weight: 900 !important;
-            letter-spacing: 3px !important;
+            letter-spacing: 2px !important;
             color: #000000 !important;
-            background: none !important;
-            -webkit-text-fill-color: #000000 !important;
         }
 
         .nav-links {
             display: flex !important;
             list-style: none !important;
-            gap: 2.5rem !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            flex-direction: row !important;
-            position: static !important;
-            width: auto !important;
-            height: auto !important;
-            background: transparent !important;
-            box-shadow: none !important;
-            border: none !important;
-        }
-
-        .nav-links li {
+            gap: 1.8rem !important;
+            align-items: center !important;
             margin: 0 !important;
             padding: 0 !important;
         }
 
         .nav-links li a {
-            color: #000000 !important;
+            color: #4b5563 !important;
             text-decoration: none !important;
-            font-size: 0.95rem !important;
-            font-weight: 600 !important;
-            letter-spacing: 1.5px !important;
+            font-size: 0.85rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 1px !important;
             position: relative !important;
-            transition: all 0.3s ease !important;
-            text-transform: uppercase !important;
-            opacity: 0.65 !important;
+            transition: color 0.3s ease !important;
+            padding: 0.5rem 0 !important;
         }
 
         .nav-links li a:hover,
         .nav-links li a.active {
-            opacity: 1 !important;
+            color: #000000 !important;
         }
 
         .nav-links li a::after {
             content: '' !important;
             position: absolute !important;
-            bottom: -5px !important;
+            bottom: 0 !important;
             left: 0 !important;
             width: 0 !important;
             height: 2px !important;
@@ -2283,70 +2272,72 @@
             width: 100% !important;
         }
 
-        /* Hamburger Menu */
+        /* Hamburger Menu Button */
         .hamburger {
             display: none !important;
             flex-direction: column !important;
+            justify-content: space-between !important;
+            width: 30px !important;
+            height: 20px !important;
             cursor: pointer !important;
             z-index: 1001 !important;
-            gap: 6px !important;
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
         }
 
         .hamburger span {
-            width: 28px !important;
+            display: block !important;
+            width: 100% !important;
             height: 2px !important;
             background: #000000 !important;
-            transition: all 0.3s ease !important;
-            display: block !important;
+            border-radius: 2px !important;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease !important;
         }
 
+        /* Hamburger Active Animations */
         .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px) !important;
+            transform: translateY(9px) rotate(45deg) !important;
         }
 
         .hamburger.active span:nth-child(2) {
             opacity: 0 !important;
+            transform: translateX(10px) !important;
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px) !important;
+            transform: translateY(-9px) rotate(-45deg) !important;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
+            .hamburger {
+                display: flex !important;
+            }
+
             .nav-links {
                 position: fixed !important;
                 top: 0 !important;
                 right: -100% !important;
-                width: 70% !important;
+                width: 280px !important;
                 height: 100vh !important;
                 background: rgba(255, 255, 255, 0.98) !important;
+                backdrop-filter: blur(15px) !important;
+                -webkit-backdrop-filter: blur(15px) !important;
                 flex-direction: column !important;
                 justify-content: center !important;
                 align-items: center !important;
-                gap: 2.5rem !important;
-                transition: right 0.3s ease !important;
-                border-left: 1px solid rgba(0,0,0,0.08) !important;
-                box-shadow: -10px 0 30px rgba(0,0,0,0.05) !important;
+                gap: 2rem !important;
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+                border-left: 1px solid rgba(0, 0, 0, 0.08) !important;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05) !important;
                 z-index: 1000 !important;
             }
 
             .nav-links.active {
                 right: 0 !important;
             }
-
-            .hamburger {
-                display: flex !important;
-            }
-
-            .logo-image {
-                width: 40px !important;
-                height: 40px !important;
-            }
-
-            .logo-text {
-                font-size: 1.1rem !important;
-            }
         }
+
 
 
         /* Services Page Hero Styles */
@@ -2393,6 +2384,7 @@
             <li><a href="about.html">ABOUT</a></li>
             <li><a href="services.html" class="active">SERVICES</a></li>
             <li><a href="projects.html">PROJECTS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
             <li><a href="startups.html">STARTUP PROGRAM</a></li>
             <li><a href="revenue.html">REVENUE</a></li>
             <li><a href="hosting.html">HOSTING</a></li>
@@ -2919,6 +2911,14 @@
         document.addEventListener('DOMContentLoaded', () => {
             startSvgSwitcher();
         });
+
+        // Intercept browser back button and redirect to index.html
+        (function() {
+            history.pushState(null, document.title, location.href);
+            window.addEventListener('popstate', function(event) {
+                window.location.href = 'index.html';
+            });
+        })();
     </script>
 
 </body>

@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Revenue & Impact — Dominal Tech</title>
     <link rel="manifest" href="manifest.json">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="dominalnew.jpeg" type="image/jpeg">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&family=Outfit:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -167,7 +171,7 @@
             transform: translateY(-5px);
             border-color: var(--primary-text);
             background: var(--primary-bg);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
         }
 
         .stat-number {
@@ -201,11 +205,13 @@
         }
 
         .stat-card:nth-child(2) .highlight-bar {
-            background: #10b981; /* Green for Profit share */
+            background: #10b981;
+            /* Green for Profit share */
         }
 
         .stat-card:nth-child(3) .highlight-bar {
-            background: #f59e0b; /* Amber for Revenue */
+            background: #f59e0b;
+            /* Amber for Revenue */
         }
 
         .partnership-subtext {
@@ -258,15 +264,13 @@
             width: 260px;
             height: 260px;
             border-radius: 50%;
-            background: conic-gradient(
-                var(--accent-blue) 0% 80%,
-                #10b981 80% 100%
-            );
+            background: conic-gradient(var(--accent-blue) 0% 80%,
+                    #10b981 80% 100%);
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
             transition: transform var(--transition-speed);
         }
 
@@ -285,7 +289,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            box-shadow: inset 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
         .center-num {
@@ -323,8 +327,13 @@
             border-radius: 4px;
         }
 
-        .legend-dot.partner { background-color: var(--accent-blue); }
-        .legend-dot.dominal { background-color: #10b981; }
+        .legend-dot.partner {
+            background-color: var(--accent-blue);
+        }
+
+        .legend-dot.dominal {
+            background-color: #10b981;
+        }
 
         /* Footer */
         footer {
@@ -366,7 +375,7 @@
                 gap: 2rem;
                 transition: right var(--transition-speed);
                 border-left: 1px solid var(--gray-200);
-                box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
             }
 
             .nav-links.active {
@@ -389,7 +398,7 @@
                 transform: rotate(-45deg) translate(6px, -6px);
             }
         }
-    
+
         /* Unified Navigation Styles */
         .nav-container {
             position: fixed !important;
@@ -528,6 +537,7 @@
             transform: rotate(-45deg) translate(6px, -6px) !important;
         }
 
+
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed !important;
@@ -541,8 +551,8 @@
                 align-items: center !important;
                 gap: 2.5rem !important;
                 transition: right 0.3s ease !important;
-                border-left: 1px solid rgba(0,0,0,0.08) !important;
-                box-shadow: -10px 0 30px rgba(0,0,0,0.05) !important;
+                border-left: 1px solid rgba(0, 0, 0, 0.08) !important;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05) !important;
                 z-index: 1000 !important;
             }
 
@@ -563,11 +573,12 @@
                 font-size: 1.1rem !important;
             }
         }
-</style>
+    </style>
 </head>
+
 <body>
-    
-        <nav class="nav-container" id="navbar">
+
+    <nav class="nav-container" id="navbar">
         <div class="logo" onclick="window.location.href='index.html'">
             <img src="dominalnew.jpeg" alt="Dominal Tech Logo" class="logo-image">
             <span class="logo-text">DOMINAL TECH</span>
@@ -578,6 +589,7 @@
             <li><a href="about.html">ABOUT</a></li>
             <li><a href="services.html">SERVICES</a></li>
             <li><a href="projects.html">PROJECTS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
             <li><a href="startups.html">STARTUP PROGRAM</a></li>
             <li><a href="revenue.html" class="active">REVENUE</a></li>
             <li><a href="hosting.html">HOSTING</a></li>
@@ -604,7 +616,8 @@
                 <div>
                     <div class="stat-number">70+</div>
                     <div class="stat-label">Projects Delivered</div>
-                    <div class="stat-desc">Successfully deployed custom applications, web platforms, and database integrations for clients worldwide.</div>
+                    <div class="stat-desc">Successfully deployed custom applications, web platforms, and database
+                        integrations for clients worldwide.</div>
                 </div>
             </div>
 
@@ -614,11 +627,13 @@
                 <div>
                     <div class="stat-number">4</div>
                     <div class="stat-label">Tech Partnerships</div>
-                    <div class="stat-desc">Currently acting as the exclusive technology partner for growing businesses, running all operations.</div>
+                    <div class="stat-desc">Currently acting as the exclusive technology partner for growing businesses,
+                        running all operations.</div>
                     <div class="partnership-subtext">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
-                            <polyline points="16 7 22 7 22 13"/>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                            <polyline points="16 7 22 7 22 13" />
                         </svg>
                         Profit Sharing Partnership Model
                     </div>
@@ -631,7 +646,8 @@
                 <div>
                     <div class="stat-number">1Cr+</div>
                     <div class="stat-label">Client Revenue Impact</div>
-                    <div class="stat-desc">Helped our clients optimize sales pipelines, scale reach, and generate over 1 Crore INR in active revenue.</div>
+                    <div class="stat-desc">Helped our clients optimize sales pipelines, scale reach, and generate over 1
+                        Crore INR in active revenue.</div>
                 </div>
             </div>
         </section>
@@ -639,10 +655,12 @@
         <!-- Profit Share Breakdown Widget -->
         <section class="widget-section">
             <div class="widget-text">
-                <h2>Exclusive 20% Partner Program</h2>
-                <p>For select high-growth businesses, we run a dedicated Partner Program where we take care of 100% of their engineering, software scaling, and sales infrastructure with zero upfront costs.</p>
-                <p>We are currently exclusive tech partners with <strong>4 growing businesses</strong> under this structure, taking a <strong>20% share of profits</strong>. This is an invite-only model tailored for long-term growth and is completely separate from our standard client contracts.</p>
-                
+                <h2>Exclusive 20% Profit Partner</h2>
+
+                <p>We are currently exclusive tech partners with <strong>4 growing businesses</strong> under this
+                    structure, taking a <strong>20% share of profits</strong>. This is an invite-only model tailored for
+                    long-term growth and is completely separate from our standard client contracts.</p>
+
                 <div class="legend">
                     <div class="legend-item">
                         <div class="legend-dot partner"></div>
@@ -698,6 +716,16 @@
                 }
             });
         }
+
+        // Back button: redirect to index.html
+        (function() {
+            history.pushState(null, document.title, location.href);
+            window.addEventListener('popstate', function() {
+                window.location.href = 'index.html';
+            });
+        })();
     </script>
+
 </body>
+
 </html>

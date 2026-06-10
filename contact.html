@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — Dominal Tech</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="dominalnew.jpeg" type="image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&family=Outfit:wght@300;400;600&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pure-black: #FFFFFF;
+            --pure-white: #000000;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --accent-blue: #2563eb;
+            --accent-blue-light: #3b82f6;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--pure-black);
+            color: var(--pure-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+            padding-top: 100px;
+        }
+
+        /* Animated Grid Background */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Unified Navigation Styles */
+        .nav-container {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            padding: 1rem 5% !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            z-index: 1000 !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03) !important;
+            height: 70px !important;
+        }
+
+        .nav-container.scrolled {
+            padding: 0.8rem 5% !important;
+            background: rgba(255, 255, 255, 0.98) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+        }
+
+        .logo {
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.8rem !important;
+            cursor: pointer !important;
+            text-decoration: none !important;
+        }
+
+        .logo-image {
+            width: 42px !important;
+            height: 42px !important;
+            object-fit: contain !important;
+            border-radius: 8px !important;
+            transition: transform 0.3s ease !important;
+        }
+
+        .logo:hover .logo-image {
+            transform: rotate(-5deg) scale(1.05) !important;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif !important;
+            font-size: 1.25rem !important;
+            font-weight: 900 !important;
+            letter-spacing: 2px !important;
+            color: #000000 !important;
+        }
+
+        .nav-links {
+            display: flex !important;
+            list-style: none !important;
+            gap: 1.8rem !important;
+            align-items: center !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .nav-links li a {
+            color: #4b5563 !important;
+            text-decoration: none !important;
+            font-size: 0.85rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 1px !important;
+            position: relative !important;
+            transition: color 0.3s ease !important;
+            padding: 0.5rem 0 !important;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: #000000 !important;
+        }
+
+        .nav-links li a::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            width: 0 !important;
+            height: 2px !important;
+            background: #000000 !important;
+            transition: width 0.3s ease !important;
+        }
+
+        .nav-links li a:hover::after,
+        .nav-links li a.active::after {
+            width: 100% !important;
+        }
+
+        /* Hamburger Menu Button */
+        .hamburger {
+            display: none !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            width: 30px !important;
+            height: 20px !important;
+            cursor: pointer !important;
+            z-index: 1001 !important;
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+        }
+
+        .hamburger span {
+            display: block !important;
+            width: 100% !important;
+            height: 2px !important;
+            background: #000000 !important;
+            border-radius: 2px !important;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease !important;
+        }
+
+        /* Hamburger Active Animations */
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg) !important;
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0 !important;
+            transform: translateX(10px) !important;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg) !important;
+        }
+
+        @media (max-width: 992px) {
+            .hamburger {
+                display: flex !important;
+            }
+
+            .nav-links {
+                position: fixed !important;
+                top: 0 !important;
+                right: -100% !important;
+                width: 280px !important;
+                height: 100vh !important;
+                background: rgba(255, 255, 255, 0.98) !important;
+                backdrop-filter: blur(15px) !important;
+                -webkit-backdrop-filter: blur(15px) !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 2rem !important;
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+                border-left: 1px solid rgba(0, 0, 0, 0.08) !important;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05) !important;
+                z-index: 1000 !important;
+            }
+
+            .nav-links.active {
+                right: 0 !important;
+            }
+        }
+
+        /* === COMPANY IDENTITY BANNER === */
+        .company-identity {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 3rem 5% 0.5rem;
+            text-align: center;
+            animation: fadeSlideDown 0.7s ease-out both;
+        }
+
+        @keyframes fadeSlideDown {
+            from { opacity: 0; transform: translateY(-12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .company-identity-logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 14px;
+            object-fit: contain;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease;
+        }
+
+        .company-identity-logo:hover {
+            transform: scale(1.05) rotate(-3deg);
+        }
+
+        .company-identity-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #374151;
+            text-transform: uppercase;
+        }
+
+        /* Contact Section styling */
+        .contact-hero {
+            text-align: center;
+            padding: 1rem 5% 1rem;
+        }
+
+        .contact-hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        .contact-hero p {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-section {
+            padding: 2rem 5% 5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 900px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        /* Contact Cards Stack */
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            background: #ffffff;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all var(--transition);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--pure-white);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pure-white);
+            transition: all var(--transition);
+        }
+
+        .contact-card:hover .contact-icon {
+            background: var(--pure-white);
+            color: var(--pure-black);
+        }
+
+        .contact-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .contact-info {
+            flex-grow: 1;
+        }
+
+        .contact-info h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-info p {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .contact-arrow svg {
+            width: 20px;
+            height: 20px;
+            color: #9ca3af;
+            transition: transform var(--transition);
+        }
+
+        .contact-card:hover .contact-arrow svg {
+            transform: translateX(5px);
+            color: var(--pure-white);
+        }
+
+        /* Form styling */
+        .enquiry-form {
+            background: #ffffff;
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+        }
+
+        .enquiry-form h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .enquiry-form h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--pure-white);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            background: var(--gray-100);
+            color: var(--pure-white);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            transition: all var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--pure-white);
+            background: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--pure-white);
+            color: var(--pure-black);
+            border: none;
+            border-radius: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all var(--transition);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .submit-btn svg {
+            width: 18px;
+            height: 18px;
+            transition: transform var(--transition);
+        }
+
+        .submit-btn:hover svg {
+            transform: translate(3px, -3px);
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid var(--gray-200);
+            background: #ffffff;
+        }
+
+        footer p {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-background"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-container" id="navbar">
+        <a class="logo" href="index.html">
+            <img src="dominalnew.jpeg" alt="Dominal Tech Logo" class="logo-image">
+            <span class="logo-text">DOMINAL TECH</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="founder.html">FOUNDERS</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+            <li><a href="contact.html" class="active">CONTACT</a></li>
+            <li><a href="startups.html">STARTUP PROGRAM</a></li>
+            <li><a href="revenue.html">REVENUE</a></li>
+            <li><a href="hosting.html">HOSTING</a></li>
+        </ul>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Header Section -->
+    <!-- Company Identity Banner -->
+    <div class="company-identity">
+        <img src="dominalnew.jpeg" alt="Dominal Technology Logo" class="company-identity-logo">
+        <p class="company-identity-name">Dominal Technology Pvt. Ltd.</p>
+    </div>
+
+    <header class="contact-hero">
+        <h1>GET IN TOUCH</h1>
+        <p>Whether you want to build a startup, scale your custom CRM systems, or partner with us, we are here to make it happen.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="contact-section">
+        <div class="contact-container">
+            <!-- Contact Methods -->
+            <div class="contact-methods">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/918766882442?text=Hi%20Team%2C%20I%20want%20to%20know%20about%20your%20services" target="_blank" class="contact-card">
+                    <div class="contact-icon" style="background:#25D366;">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <h4>WHATSAPP</h4>
+                        <p>Chat directly with our tech team</p>
+                    </div>
+                    <div class="contact-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/company/dominal-tech/" target="_blank" class="contact-card">
+                    <div class="contact-icon" style="background:#0077b5;">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <h4>LINKEDIN</h4>
+                        <p>Connect with our professional network</p>
+                    </div>
+                    <div class="contact-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/dominaltech" target="_blank" class="contact-card">
+                    <div class="contact-icon" style="background:#E1306C;">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <h4>INSTAGRAM</h4>
+                        <p>@dominaltech</p>
+                    </div>
+                    <div class="contact-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Enquiry Form -->
+            <div class="enquiry-form">
+                <h3>SEND ENQUIRY</h3>
+                <form id="enquiryForm">
+                    <div class="form-group">
+                        <label for="name">YOUR NAME</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">SERVICE INTERESTED IN</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="Mobile App Development">Mobile App Development</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Progressive Web Apps">Progressive Web Apps</option>
+                            <option value="AI Solutions">AI Solutions</option>
+                            <option value="AI Chatbots">AI Chatbots</option>
+                            <option value="Domain & Hosting">Domain & Hosting</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">YOUR MESSAGE</label>
+                        <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span>SEND MESSAGE</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Dominal Group Pvt Ltd. All Rights Reserved.</p>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script>
+        // Hamburger Menu Toggle
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Navigation Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Enquiry Form Submit to WhatsApp
+        document.getElementById('enquiryForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+
+            const whatsappMessage = `Hi, I am ${name}. I am interested in ${service}. ${message}`;
+            const whatsappURL = `https://wa.me/918766882442?text=${encodeURIComponent(whatsappMessage)}`;
+
+            window.open(whatsappURL, '_blank');
+            this.reset();
+        });
+
+        // Intercept browser back button and redirect to index.html
+        (function() {
+            history.pushState(null, document.title, location.href);
+            window.addEventListener('popstate', function(event) {
+                window.location.href = 'index.html';
+            });
+        })();
+    </script>
+</body>
+
+</html>

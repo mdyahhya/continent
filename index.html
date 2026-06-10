@@ -11,7 +11,7 @@
     <meta name="theme-color" content="#000000">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="ctbase.png" type="image/png">
+    <link rel="icon" href="dominalnew.jpeg" type="image/jpeg">
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -268,115 +268,223 @@
 } */
 
         /* ==========================================
-   NAVIGATION
-   ========================================== */
+           UNIFIED PREMIUM NAVIGATION & HAMBURGER
+           ========================================== */
         .nav-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.2rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            border-bottom: 1px solid var(--gray-100);
-            transition: all var(--transition);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            padding: 1rem 5% !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            z-index: 1000 !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03) !important;
+            height: 70px !important;
         }
 
         .nav-container.scrolled {
-            padding: 0.8rem 5%;
-            border-bottom: 1px solid var(--gray-200);
-            background: rgba(255, 255, 255, 0.98);
+            padding: 0.8rem 5% !important;
+            background: rgba(255, 255, 255, 0.98) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            cursor: pointer;
-            transition: all var(--transition);
-        }
-
-        .logo:hover {
-            transform: translateY(-2px);
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.8rem !important;
+            cursor: pointer !important;
+            text-decoration: none !important;
         }
 
         .logo-image {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-            border-radius: 8px;
+            width: 42px !important;
+            height: 42px !important;
+            object-fit: contain !important;
+            border-radius: 8px !important;
+            transition: transform 0.3s ease !important;
+        }
+
+        .logo:hover .logo-image {
+            transform: rotate(-5deg) scale(1.05) !important;
         }
 
         .logo-text {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 900;
-            letter-spacing: 3px;
-            color: var(--pure-white);
+            font-family: 'Orbitron', sans-serif !important;
+            font-size: 1.25rem !important;
+            font-weight: 900 !important;
+            letter-spacing: 2px !important;
+            color: #000000 !important;
         }
 
         .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
+            display: flex !important;
+            list-style: none !important;
+            gap: 1.8rem !important;
+            align-items: center !important;
+            margin: 0 !important;
+            padding: 0 !important;
         }
 
         .nav-links li a {
-            color: var(--pure-white);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            position: relative;
-            transition: all var(--transition);
+            color: #4b5563 !important;
+            text-decoration: none !important;
+            font-size: 0.85rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 1px !important;
+            position: relative !important;
+            transition: color 0.3s ease !important;
+            padding: 0.5rem 0 !important;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: #000000 !important;
         }
 
         .nav-links li a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--pure-white);
-            transition: width var(--transition);
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            width: 0 !important;
+            height: 2px !important;
+            background: #000000 !important;
+            transition: width 0.3s ease !important;
         }
 
-        .nav-links li a:hover::after {
-            width: 100%;
+        .nav-links li a:hover::after,
+        .nav-links li a.active::after {
+            width: 100% !important;
         }
 
-        /* Hamburger Menu */
+        /* Hamburger Menu Button */
         .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            z-index: 1001;
+            display: none !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            width: 30px !important;
+            height: 20px !important;
+            cursor: pointer !important;
+            z-index: 1001 !important;
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
         }
 
         .hamburger span {
-            width: 28px;
-            height: 2px;
-            background: var(--pure-white);
-            margin: 4px 0;
-            transition: all var(--transition);
+            display: block !important;
+            width: 100% !important;
+            height: 2px !important;
+            background: #000000 !important;
+            border-radius: 2px !important;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease !important;
         }
 
+        /* Hamburger Active Animations */
         .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
+            transform: translateY(9px) rotate(45deg) !important;
         }
 
         .hamburger.active span:nth-child(2) {
-            opacity: 0;
+            opacity: 0 !important;
+            transform: translateX(10px) !important;
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(8px, -8px);
+            transform: translateY(-9px) rotate(-45deg) !important;
+        }
+
+        @media (max-width: 992px) {
+            .hamburger {
+                display: flex !important;
+            }
+
+            .nav-links {
+                position: fixed !important;
+                top: 0 !important;
+                right: -100% !important;
+                width: 280px !important;
+                height: 100vh !important;
+                background: rgba(255, 255, 255, 0.98) !important;
+                backdrop-filter: blur(15px) !important;
+                -webkit-backdrop-filter: blur(15px) !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 2rem !important;
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+                border-left: 1px solid rgba(0, 0, 0, 0.08) !important;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05) !important;
+                z-index: 1000 !important;
+            }
+
+            .nav-links.active {
+                right: 0 !important;
+            }
+        }
+
+        /* Floating Contact Stack */
+        .fixed-contact-stack {
+            position: fixed !important;
+            bottom: 30px !important;
+            left: 25px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 12px !important;
+            z-index: 99999 !important;
+        }
+
+        .fixed-contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: all var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .fixed-contact-icon:hover {
+            transform: scale(1.1) translateY(-2px);
+        }
+
+        .fixed-contact-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .whatsapp-floater {
+            background: #25D366;
+        }
+
+        .whatsapp-floater:hover {
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .linkedin-floater {
+            background: #0077b5;
+        }
+
+        .linkedin-floater:hover {
+            box-shadow: 0 8px 25px rgba(0, 119, 181, 0.4);
+        }
+
+        .instagram-floater {
+            background: #E1306C;
+        }
+
+        .instagram-floater:hover {
+            box-shadow: 0 8px 25px rgba(225, 48, 108, 0.4);
         }
 
         /* ==========================================
@@ -1673,52 +1781,8 @@
         }
 
         /* ==========================================
-   FIXED CONTACT ICONS
+   FIXED CONTACT ICONS (Legacy override removed — now using .fixed-contact-stack)
    ========================================== */
-        .fixed-contact-icon {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #FFFFFF;
-            text-decoration: none;
-            transition: all var(--transition);
-            z-index: 999;
-        }
-
-        .fixed-contact-icon:hover {
-            transform: scale(1.1);
-        }
-
-        .fixed-contact-icon svg {
-            width: 30px;
-            height: 30px;
-        }
-
-        .call-icon {
-            bottom: 80px;
-            left: 20px;
-            background: #3b82f6;
-            border: 2px solid #3b82f6;
-        }
-
-        .call-icon:hover {
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.5);
-        }
-
-        .whatsapp-icon {
-            bottom: 150px;
-            left: 20px;
-            background: #25D366;
-            border: 2px solid #25D366;
-        }
-
-        .whatsapp-icon:hover {
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
-        }
 
         /* ==========================================
    RESPONSIVE DESIGN
@@ -2262,179 +2326,7 @@
             }
         }
     
-        /* Unified Navigation Styles */
-        .nav-container {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            background: rgba(255, 255, 255, 0.95) !important;
-            backdrop-filter: blur(10px) !important;
-            -webkit-backdrop-filter: blur(10px) !important;
-            padding: 1.2rem 5% !important;
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            z-index: 1000 !important;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
-            transition: all 0.3s ease !important;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
-            height: auto !important;
-        }
 
-        .nav-container.scrolled {
-            padding: 0.8rem 5% !important;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.15) !important;
-            background: rgba(255, 255, 255, 0.98) !important;
-        }
-
-        .logo {
-            display: flex !important;
-            align-items: center !important;
-            gap: 1rem !important;
-            cursor: pointer !important;
-            transition: all 0.3s ease !important;
-            text-decoration: none !important;
-        }
-
-        .logo:hover {
-            transform: translateY(-2px) !important;
-        }
-
-        .logo-image {
-            width: 50px !important;
-            height: 50px !important;
-            object-fit: contain !important;
-            border-radius: 8px !important;
-        }
-
-        .logo-text {
-            font-family: 'Orbitron', sans-serif !important;
-            font-size: 1.4rem !important;
-            font-weight: 900 !important;
-            letter-spacing: 3px !important;
-            color: #000000 !important;
-            background: none !important;
-            -webkit-text-fill-color: #000000 !important;
-        }
-
-        .nav-links {
-            display: flex !important;
-            list-style: none !important;
-            gap: 2.5rem !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            flex-direction: row !important;
-            position: static !important;
-            width: auto !important;
-            height: auto !important;
-            background: transparent !important;
-            box-shadow: none !important;
-            border: none !important;
-        }
-
-        .nav-links li {
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-
-        .nav-links li a {
-            color: #000000 !important;
-            text-decoration: none !important;
-            font-size: 0.95rem !important;
-            font-weight: 600 !important;
-            letter-spacing: 1.5px !important;
-            position: relative !important;
-            transition: all 0.3s ease !important;
-            text-transform: uppercase !important;
-            opacity: 0.65 !important;
-        }
-
-        .nav-links li a:hover,
-        .nav-links li a.active {
-            opacity: 1 !important;
-        }
-
-        .nav-links li a::after {
-            content: '' !important;
-            position: absolute !important;
-            bottom: -5px !important;
-            left: 0 !important;
-            width: 0 !important;
-            height: 2px !important;
-            background: #000000 !important;
-            transition: width 0.3s ease !important;
-        }
-
-        .nav-links li a:hover::after,
-        .nav-links li a.active::after {
-            width: 100% !important;
-        }
-
-        /* Hamburger Menu */
-        .hamburger {
-            display: none !important;
-            flex-direction: column !important;
-            cursor: pointer !important;
-            z-index: 1001 !important;
-            gap: 6px !important;
-        }
-
-        .hamburger span {
-            width: 28px !important;
-            height: 2px !important;
-            background: #000000 !important;
-            transition: all 0.3s ease !important;
-            display: block !important;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px) !important;
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0 !important;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px) !important;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed !important;
-                top: 0 !important;
-                right: -100% !important;
-                width: 70% !important;
-                height: 100vh !important;
-                background: rgba(255, 255, 255, 0.98) !important;
-                flex-direction: column !important;
-                justify-content: center !important;
-                align-items: center !important;
-                gap: 2.5rem !important;
-                transition: right 0.3s ease !important;
-                border-left: 1px solid rgba(0,0,0,0.08) !important;
-                box-shadow: -10px 0 30px rgba(0,0,0,0.05) !important;
-                z-index: 1000 !important;
-            }
-
-            .nav-links.active {
-                right: 0 !important;
-            }
-
-            .hamburger {
-                display: flex !important;
-            }
-
-            .logo-image {
-                width: 40px !important;
-                height: 40px !important;
-            }
-
-            .logo-text {
-                font-size: 1.1rem !important;
-            }
-        }
 
         @media (max-width: 768px) {
             .hero-image-wrapper {
@@ -2468,6 +2360,7 @@
             <li><a href="about.html">ABOUT</a></li>
             <li><a href="services.html">SERVICES</a></li>
             <li><a href="projects.html">PROJECTS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
             <li><a href="startups.html">STARTUP PROGRAM</a></li>
             <li><a href="revenue.html">REVENUE</a></li>
             <li><a href="hosting.html">HOSTING</a></li>
@@ -2659,7 +2552,18 @@
         </div>
 
         <div class="clients-grid">
-            <!-- 1) Indian Govt. - Central Railway -->
+            <!-- 1) Charzdev EV Company -->
+            <div class="client-card">
+                <div class="client-logo-box">
+                    <img src="cykedevlogo.png" alt="Charzdev Logo" style="object-fit: contain; padding: 4px;">
+                </div>
+                <div class="client-info-group">
+                    <div class="client-main-name">Charzdev</div>
+                    <div class="client-sub-desc"><a href="https://charzdev.com" target="_blank">charzdev.com</a></div>
+                </div>
+            </div>
+
+            <!-- 2) Indian Govt. - Central Railway -->
             <div class="client-card">
                 <div class="client-logo-box">
                     <img src="indianrailways.png" alt="Central Railway">
@@ -3240,20 +3144,27 @@
     </footer>
 
     <!-- Fixed Contact Icons -->
-    <a href="tel:+918766882442" class="fixed-contact-icon call-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-            <path
-                d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
-        </svg>
-    </a>
-
-    <a href="https://wa.me/918766882442?text=Hi%20Team%2C%20I%20want%20to%20know%20about%20your%20services"
-        class="fixed-contact-icon whatsapp-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-            <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-        </svg>
-    </a>
+    <!-- Fixed Contact Stack -->
+    <div class="fixed-contact-stack">
+        <a href="https://wa.me/918766882442?text=Hi%20Team%2C%20I%20want%20to%20know%20about%20your%20services"
+            class="fixed-contact-icon whatsapp-floater" target="_blank" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            </svg>
+        </a>
+        <a href="https://www.linkedin.com/company/dominal-tech/"
+            class="fixed-contact-icon linkedin-floater" target="_blank" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+        </a>
+        <a href="https://www.instagram.com/dominaltech"
+            class="fixed-contact-icon instagram-floater" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+        </a>
+    </div>
 
     <script>
 
@@ -3786,6 +3697,14 @@
                 navigator.serviceWorker.controller.postMessage({ type: 'CHECK_UPDATE' });
             }
         }, 5 * 60 * 1000); // Check every 5 minutes
+
+        // Back button: since index is home, just prevent going back further
+        (function() {
+            history.pushState(null, document.title, location.href);
+            window.addEventListener('popstate', function() {
+                history.pushState(null, document.title, location.href);
+            });
+        })();
     </script>
 </body>
 
