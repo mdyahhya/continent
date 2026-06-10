@@ -135,7 +135,7 @@ const CUSTOM_DATA = {
   ],
   
   clients: [
-    { name: "Charzdev", details: "3D Website for EV Company", link: "charzdev.com" },
+    { name: "Cyked EV", details: "3D Website for EV Company", link: "cykedev.netlify.app" },
     { name: "Indian Govt. - Central Railway", details: "Internal systems integration", link: null },
     { name: "5 Star Hotel", details: "CRM Software Development", link: null },
     { name: "Furniture and Steel Factory", details: "450+ Products Inventory CRM", link: null },

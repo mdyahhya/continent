@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us — Dominal Tech</title>
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="dominalnew.jpeg" type="image/jpeg">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&family=Outfit:wght@300;400;600&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&family=Outfit:wght@300;400;600&family=Orbitron:wght@400;700;900&display=swap"
+        rel="stylesheet">
+
     <!-- AI SEO FAQ Schema -->
     <script type="application/ld+json">
     {
@@ -58,7 +61,11 @@
     }
     </script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         :root {
             --primary-bg: #FFFFFF;
@@ -79,7 +86,9 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         /* === NAVIGATION === */
         /* ==========================================
@@ -384,7 +393,7 @@
 
         .team-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
         }
 
         .img-container {
@@ -394,7 +403,7 @@
             border-radius: 50%;
             overflow: hidden;
             border: 4px solid #fff;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
         }
 
         .img-container img {
@@ -404,7 +413,9 @@
             transition: transform 0.3s ease;
         }
 
-        .team-card:hover .img-container img { transform: scale(1.08); }
+        .team-card:hover .img-container img {
+            transform: scale(1.08);
+        }
 
         .team-card h3 {
             font-family: 'Space Grotesk', sans-serif;
@@ -437,7 +448,8 @@
         .timeline-line {
             position: absolute;
             left: 50%;
-            top: 0; bottom: 0;
+            top: 0;
+            bottom: 0;
             width: 3px;
             background: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
             transform: translateX(-50%);
@@ -450,8 +462,13 @@
             position: relative;
         }
 
-        .journey-node:nth-child(odd) { flex-direction: row; }
-        .journey-node:nth-child(even) { flex-direction: row-reverse; }
+        .journey-node:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .journey-node:nth-child(even) {
+            flex-direction: row-reverse;
+        }
 
         .node-content {
             width: 43%;
@@ -462,13 +479,20 @@
             transition: all 0.3s ease;
         }
 
-        .journey-node:nth-child(odd) .node-content { margin-right: auto; margin-left: 0; }
-        .journey-node:nth-child(even) .node-content { margin-left: auto; margin-right: 0; }
+        .journey-node:nth-child(odd) .node-content {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        .journey-node:nth-child(even) .node-content {
+            margin-left: auto;
+            margin-right: 0;
+        }
 
         .node-content:hover {
             transform: translateY(-4px);
             border-color: #000;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
         }
 
         .node-year {
@@ -496,7 +520,8 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 18px; height: 18px;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
             background: #fff;
             border: 4px solid #000;
@@ -507,7 +532,7 @@
         .journey-node:hover .node-dot {
             background: var(--accent-blue-light);
             border-color: #fff;
-            box-shadow: 0 0 15px rgba(59,130,246,0.5);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
             transform: translateX(-50%) scale(1.4);
         }
 
@@ -530,7 +555,7 @@
         .client-card:hover {
             transform: translateY(-4px);
             border-color: #000;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
         }
 
         .client-img {
@@ -567,7 +592,7 @@
             align-items: center;
             justify-content: center;
             box-sizing: border-box;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
         }
 
         .timeline-img-box img {
@@ -625,7 +650,7 @@
 
         .profit-block p {
             font-size: 1rem;
-            color: rgba(255,255,255,0.75);
+            color: rgba(255, 255, 255, 0.75);
             line-height: 1.7;
             margin-bottom: 1rem;
         }
@@ -640,10 +665,8 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background: conic-gradient(
-                #3b82f6 0% 20%,
-                rgba(255,255,255,0.15) 20% 100%
-            );
+            background: conic-gradient(#3b82f6 0% 20%,
+                    rgba(255, 255, 255, 0.15) 20% 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -651,7 +674,9 @@
             transition: transform 0.4s ease;
         }
 
-        .donut:hover { transform: scale(1.05) rotate(10deg); }
+        .donut:hover {
+            transform: scale(1.05) rotate(10deg);
+        }
 
         .donut-inner {
             width: 130px;
@@ -674,7 +699,7 @@
 
         .donut-label {
             font-size: 0.7rem;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255, 255, 255, 0.5);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -699,8 +724,10 @@
         .active-partnership-banner::before {
             content: '';
             position: absolute;
-            top: 0; left: 0;
-            width: 4px; height: 100%;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
             background: var(--accent-blue);
         }
 
@@ -763,6 +790,7 @@
                 transform: scale(0.5);
                 opacity: 1;
             }
+
             100% {
                 transform: scale(1.6);
                 opacity: 0;
@@ -774,6 +802,7 @@
                 border-color: rgba(59, 130, 246, 0.25);
                 box-shadow: 0 10px 30px rgba(59, 130, 246, 0.02);
             }
+
             100% {
                 border-color: rgba(59, 130, 246, 0.5);
                 box-shadow: 0 10px 30px rgba(59, 130, 246, 0.08);
@@ -802,8 +831,15 @@
         }
 
         @keyframes fadeSlideDown {
-            from { opacity: 0; transform: translateY(-12px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .company-identity-logo {
@@ -837,24 +873,51 @@
             border-top: 1px solid var(--gray-200);
         }
 
-        footer p { font-size: 0.9rem; color: #6b7280; }
+        footer p {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
 
         /* === RESPONSIVE === */
         @media (max-width: 992px) {
-            .two-col { grid-template-columns: 1fr; gap: 2rem; }
-            .profit-block { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 2rem; }
+            .two-col {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .profit-block {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                padding: 3rem 2rem;
+            }
         }
 
         @media (max-width: 768px) {
-            .timeline-line { left: 20px; transform: none; }
-            .journey-node, .journey-node:nth-child(even) {
+            .timeline-line {
+                left: 20px;
+                transform: none;
+            }
+
+            .journey-node,
+            .journey-node:nth-child(even) {
                 flex-direction: column !important;
                 align-items: flex-start;
                 padding-left: 50px;
             }
-            .node-content { width: 100% !important; margin: 0 !important; }
-            .node-dot { left: 20px; transform: translateX(-50%); }
-            .journey-node:hover .node-dot { transform: translateX(-50%) scale(1.4); }
+
+            .node-content {
+                width: 100% !important;
+                margin: 0 !important;
+            }
+
+            .node-dot {
+                left: 20px;
+                transform: translateX(-50%);
+            }
+
+            .journey-node:hover .node-dot {
+                transform: translateX(-50%) scale(1.4);
+            }
         }
 
         /* FAQ Section Styles */
@@ -936,6 +999,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <nav class="nav-container" id="navbar">
@@ -981,7 +1045,9 @@
             </div>
             <div class="banner-content">
                 <span class="banner-tag">Active Partnerships</span>
-                <p class="banner-text">We are currently profit partners with <strong>4 growing businesses</strong>, managing their entire technology and sales infrastructure, in exchange for them sharing <strong>20% of their profits</strong> with Dominal.</p>
+                <p class="banner-text">We are currently profit partners with <strong>4 growing businesses</strong>,
+                    managing their entire technology and sales infrastructure, in exchange for them sharing <strong>20%
+                        of their profits</strong> with Dominal.</p>
             </div>
         </div>
 
@@ -989,11 +1055,15 @@
         <section class="two-col" style="margin-top: 2rem;">
             <div>
                 <h2>What We Do</h2>
-                <p>We build websites, mobile apps, CRM systems, and AI tools for businesses that want to grow fast. We handle everything technical — from design to deployment — so you can focus on running your business.</p>
+                <p>We build websites, mobile apps, CRM systems, and AI tools for businesses that want to grow fast. We
+                    handle everything technical — from design to deployment — so you can focus on running your business.
+                </p>
             </div>
             <div>
                 <h2>Why We Do It</h2>
-                <p>Most businesses don't have a tech team. We become that team. We bring Silicon Valley-level engineering to Indian businesses, schools, hotels, factories, and startups — at a price that actually makes sense.</p>
+                <p>Most businesses don't have a tech team. We become that team. We bring Silicon Valley-level
+                    engineering to Indian businesses, schools, hotels, factories, and startups — at a price that
+                    actually makes sense.</p>
             </div>
         </section>
 
@@ -1007,7 +1077,8 @@
                     </div>
                     <h3>Yahya Mundewadi</h3>
                     <div class="team-role">Co-Founder &amp; CEO</div>
-                    <p>Drives strategy, client relationships, and business growth. Turned a small tech idea into a company handling government-scale projects.</p>
+                    <p>Drives strategy, client relationships, and business growth. Turned a small tech idea into a
+                        company handling government-scale projects.</p>
                 </div>
                 <div class="team-card">
                     <div class="img-container">
@@ -1015,7 +1086,8 @@
                     </div>
                     <h3>Amir Rangrez</h3>
                     <div class="team-role">Co-Founder &amp; CTO</div>
-                    <p>Leads all product engineering, system architecture, and AI integrations. Builds the systems that make our clients' businesses run smoothly.</p>
+                    <p>Leads all product engineering, system architecture, and AI integrations. Builds the systems that
+                        make our clients' businesses run smoothly.</p>
                 </div>
             </div>
         </section>
@@ -1029,7 +1101,9 @@
                 <div class="node-content">
                     <div class="node-year">2023</div>
                     <div class="node-title">Started in India</div>
-                    <p class="node-desc">Yahya and Amir started Dominal Tech with a simple goal — build real software for real businesses. First few clients were local shops and startups who needed websites and apps.</p>
+                    <p class="node-desc">Yahya and Amir started Dominal Tech with a simple goal — build real software
+                        for real businesses. First few clients were local shops and startups who needed websites and
+                        apps.</p>
                 </div>
                 <div class="node-dot"></div>
             </div>
@@ -1038,7 +1112,9 @@
                 <div class="node-content">
                     <div class="node-year">2024</div>
                     <div class="node-title">Central Railway &amp; 50+ Projects</div>
-                    <p class="node-desc">Got selected to build automation systems for Central Railway — an Indian Government project. Also successfully completed 50+ Indian projects for local shops, schools, hotels, and businesses.</p>
+                    <p class="node-desc">Got selected to build automation systems for Central Railway — an Indian
+                        Government project. Also successfully completed 50+ Indian projects for local shops, schools,
+                        hotels, and businesses.</p>
                     <div class="timeline-images">
                         <div class="timeline-img-box">
                             <img src="indianrailways.png" alt="Indian Railways">
@@ -1052,7 +1128,9 @@
                 <div class="node-content">
                     <div class="node-year">2025</div>
                     <div class="node-title">USA 🇺🇸 Expansion &amp; Harvard</div>
-                    <p class="node-desc">Expanded internationally. Worked with clients from the USA 🇺🇸, including research projects with Harvard University. Built data tools and analytics platforms for academic institutions.</p>
+                    <p class="node-desc">Expanded internationally. Worked with clients from the USA 🇺🇸, including
+                        research projects with Harvard University. Built data tools and analytics platforms for academic
+                        institutions.</p>
                     <div class="timeline-images">
                         <div class="timeline-img-box">
                             <img src="USA.png" alt="USA Flag">
@@ -1069,7 +1147,8 @@
                 <div class="node-content">
                     <div class="node-year">2026+</div>
                     <div class="node-title">Partner Program &amp; Growth</div>
-                    <p class="node-desc">Directly partnering with growing businesses. Build and manage all tech systems in a custom profit-sharing program. 70+ projects delivered worldwide.</p>
+                    <p class="node-desc">Directly partnering with growing businesses. Build and manage all tech systems
+                        in a custom profit-sharing program. 70+ projects delivered worldwide.</p>
                 </div>
                 <div class="node-dot"></div>
             </div>
@@ -1079,9 +1158,12 @@
         <section class="profit-block">
             <div>
                 <h2>We grow with you.</h2>
-                <p>For serious businesses, we offer a dedicated Partner Program — we handle 100% of your technology: website, app, CRM, AI tools, hosting, updates, everything.</p>
-                <p>We work with select partners under a profit-sharing model to align incentives directly with your business growth. This is optional and fully customized per partner.</p>
-                <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">Currently active with partners under this profit-sharing structure.</p>
+                <p>For serious businesses, we offer a dedicated Partner Program — we handle 100% of your technology:
+                    website, app, CRM, AI tools, hosting, updates, everything.</p>
+                <p>We work with select partners under a profit-sharing model to align incentives directly with your
+                    business growth. This is optional and fully customized per partner.</p>
+                <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">Currently active with partners under this
+                    profit-sharing structure.</p>
             </div>
             <div class="profit-visual">
                 <div class="donut">
@@ -1098,11 +1180,16 @@
             <h2 class="section-title">Key Clients &amp; Partners</h2>
             <div class="clients-grid">
                 <div class="client-card">
-                    <img src="cykedevlogo.png" alt="Charzdev" class="client-img-contain" style="object-fit: contain; padding: 10px;">
+                    <img src="cykedevlogo.png" alt="Cyked EV" class="client-img-contain"
+                        style="object-fit: contain; padding: 10px;">
                     <div class="client-body">
                         <div class="client-tag">Automotive &amp; 3D</div>
-                        <h3>Charzdev</h3>
-                        <p>Developed a high-fidelity interactive 3D Web experience showcasing electric vehicles, batteries, and technology features for a major EV manufacturer. Must-visit site at <a href="https://charzdev.com" target="_blank" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">charzdev.com</a>.</p>
+                        <h3>Cyked EV</h3>
+                        <p>Developed a high-fidelity interactive 3D Web experience showcasing electric vehicles,
+                            batteries, and technology features for a major EV manufacturer. Must-visit site at <a
+                                href="https://cykedev.netlify.app" target="_blank"
+                                style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">cykedev.netlify.app</a>.
+                        </p>
                     </div>
                 </div>
 
@@ -1111,7 +1198,8 @@
                     <div class="client-body">
                         <div class="client-tag">Government</div>
                         <h3>Central Railway</h3>
-                        <p>Built automation and tracking systems for Indian Government's Central Railway. Mission-critical infrastructure used by millions daily.</p>
+                        <p>Built automation and tracking systems for Indian Government's Central Railway.
+                            Mission-critical infrastructure used by millions daily.</p>
                     </div>
                 </div>
                 <div class="client-card">
@@ -1119,7 +1207,8 @@
                     <div class="client-body">
                         <div class="client-tag">Academic</div>
                         <h3>Harvard University</h3>
-                        <p>Designed custom data visualization tools and research portals for academic departments at Harvard, USA 🇺🇸.</p>
+                        <p>Designed custom data visualization tools and research portals for academic departments at
+                            Harvard, USA 🇺🇸.</p>
                     </div>
                 </div>
                 <div class="client-card">
@@ -1127,7 +1216,8 @@
                     <div class="client-body">
                         <div class="client-tag">International</div>
                         <h3>USA 🇺🇸 Partners</h3>
-                        <p>Multiple enterprise clients across the USA — cloud systems, SaaS platforms, and data pipelines handling high-volume business traffic.</p>
+                        <p>Multiple enterprise clients across the USA — cloud systems, SaaS platforms, and data
+                            pipelines handling high-volume business traffic.</p>
                     </div>
                 </div>
             </div>
@@ -1140,60 +1230,90 @@
                 <div class="faq-item">
                     <button class="faq-question">
                         <span>Which is the best software development company in Solapur?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Dominal Tech is recognized as a leading and top software development company in Solapur, Maharashtra, delivering custom web applications, mobile apps, CRM systems, and AI integration for global clients.</p>
+                        <p>Dominal Tech is recognized as a leading and top software development company in Solapur,
+                            Maharashtra, delivering custom web applications, mobile apps, CRM systems, and AI
+                            integration for global clients.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
                         <span>What services do software companies in Solapur like Dominal Tech offer?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </button>
                     <div class="faq-answer">
-                        <p>We provide a comprehensive range of software solutions, including custom web development, native and cross-platform mobile app development, dedicated startup accelerator programs, custom CRM systems, profit-sharing IT partnerships, and premium domain hosting support.</p>
+                        <p>We provide a comprehensive range of software solutions, including custom web development,
+                            native and cross-platform mobile app development, dedicated startup accelerator programs,
+                            custom CRM systems, profit-sharing IT partnerships, and premium domain hosting support.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
                         <span>How can I hire the best software developers in Solapur and Pune?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </button>
                     <div class="faq-answer">
-                        <p>You can connect directly with the engineering team at Dominal Tech. With active developer offices in Solapur and Pune, Maharashtra, we construct custom solutions for clients in India, the USA, and globally. Reach out via our enquiry form or WhatsApp.</p>
+                        <p>You can connect directly with the engineering team at Dominal Tech. With active developer
+                            offices in Solapur and Pune, Maharashtra, we construct custom solutions for clients in
+                            India, the USA, and globally. Reach out via our enquiry form or WhatsApp.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
                         <span>Can a local software company in Solapur handle enterprise-grade projects?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Absolutely. Dominal Tech has engineered high-scale solutions for major government bodies like Central Railway (Indian Railways), developed interactive 3D platforms, and worked on Harvard University research projects, handling millions of data points securely.</p>
+                        <p>Absolutely. Dominal Tech has engineered high-scale solutions for major government bodies like
+                            Central Railway (Indian Railways), developed interactive 3D platforms, and worked on Harvard
+                            University research projects, handling millions of data points securely.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
                         <span>What is the price of website development and software services?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Pricing is tailored to the project scope. We offer flexible plans for startups, fixed rates for standard web projects, and a unique profit-sharing Partner Program for select growing businesses where we manage 100% of their technology stack without upfront costs.</p>
+                        <p>Pricing is tailored to the project scope. We offer flexible plans for startups, fixed rates
+                            for standard web projects, and a unique profit-sharing Partner Program for select growing
+                            businesses where we manage 100% of their technology stack without upfront costs.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
                         <span>How does the Dominal Tech Partner Program work?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </button>
                     <div class="faq-answer">
-                        <p>In our Partner Program, we handle all your technology needs—from system design, mobile app creation, AI tool integration, to server maintenance—in exchange for a small percentage of business profits. This completely aligns our success with your growth.</p>
+                        <p>In our Partner Program, we handle all your technology needs—from system design, mobile app
+                            creation, AI tool integration, to server maintenance—in exchange for a small percentage of
+                            business profits. This completely aligns our success with your growth.</p>
                     </div>
                 </div>
             </div>
@@ -1202,25 +1322,34 @@
     </main>
 
     <footer>
-        <div class="footer-locations" style="margin-bottom: 2rem; display: flex; justify-content: center; gap: 4rem; text-align: center; flex-wrap: wrap;">
+        <div class="footer-locations"
+            style="margin-bottom: 2rem; display: flex; justify-content: center; gap: 4rem; text-align: center; flex-wrap: wrap;">
             <div class="location-item" style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2563eb" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                     <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #000000; font-size: 1.1rem; letter-spacing: 0.5px;">Solapur</div>
-                <div style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #4b5563;">Solapur, Maharashtra</div>
+                <div
+                    style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #000000; font-size: 1.1rem; letter-spacing: 0.5px;">
+                    Solapur</div>
+                <div style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #4b5563;">Solapur, Maharashtra
+                </div>
             </div>
             <div class="location-item" style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2563eb" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                     <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #000000; font-size: 1.1rem; letter-spacing: 0.5px;">Pune</div>
-                <div style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #4b5563;">Pune, Maharashtra</div>
+                <div
+                    style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #000000; font-size: 1.1rem; letter-spacing: 0.5px;">
+                    Pune</div>
+                <div style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #4b5563;">Pune, Maharashtra
+                </div>
             </div>
         </div>
-        <p>&copy; 2026 Dominal Group Pvt Ltd. All Rights Reserved.</p>
+        <p>&copy; 2026 Dominal Technology Pvt Ltd. All Rights Reserved.</p>
     </footer>
 
     <!-- Fixed Contact Stack -->
@@ -1228,19 +1357,22 @@
         <a href="https://wa.me/918766882442?text=Hi%20Team%2C%20I%20want%20to%20know%20about%20your%20services"
             class="fixed-contact-icon whatsapp-floater" target="_blank" aria-label="WhatsApp">
             <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
             </svg>
         </a>
-        <a href="https://www.linkedin.com/company/dominal-tech/"
-            class="fixed-contact-icon linkedin-floater" target="_blank" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/company/dominal-tech/" class="fixed-contact-icon linkedin-floater"
+            target="_blank" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
             </svg>
         </a>
-        <a href="https://www.instagram.com/dominaltech"
-            class="fixed-contact-icon instagram-floater" target="_blank" aria-label="Instagram">
+        <a href="https://www.instagram.com/dominaltech" class="fixed-contact-icon instagram-floater" target="_blank"
+            aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
             </svg>
         </a>
     </div>
@@ -1274,16 +1406,16 @@
             button.addEventListener('click', () => {
                 const item = button.parentElement;
                 const answer = item.querySelector('.faq-answer');
-                
+
                 // Toggle active class
                 item.classList.toggle('active');
-                
+
                 if (item.classList.contains('active')) {
                     answer.style.maxHeight = answer.scrollHeight + 'px';
                 } else {
                     answer.style.maxHeight = '0px';
                 }
-                
+
                 // Close other items
                 document.querySelectorAll('.faq-item').forEach(otherItem => {
                     if (otherItem !== item && otherItem.classList.contains('active')) {
@@ -1295,12 +1427,13 @@
         });
 
         // Intercept browser back button and redirect to index.html
-        (function() {
+        (function () {
             history.pushState(null, document.title, location.href);
-            window.addEventListener('popstate', function(event) {
+            window.addEventListener('popstate', function (event) {
                 window.location.href = 'index.html';
             });
         })();
     </script>
 </body>
+
 </html>
