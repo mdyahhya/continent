@@ -7,6 +7,56 @@
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="dominalnew.jpeg" type="image/jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&family=Outfit:wght@300;400;600&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- AI SEO FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which is the best software development company in Solapur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dominal Tech is recognized as a leading and top software development company in Solapur, Maharashtra, delivering custom web applications, mobile apps, CRM systems, and AI integration for global clients."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What services do software companies in Solapur like Dominal Tech offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dominal Tech offers a comprehensive range of software solutions including custom web development, native and cross-platform mobile app development, custom CRM/ERP systems, profit-sharing IT partnerships, and web hosting support."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I hire the best software developers in Solapur and Pune?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can connect directly with the engineering team at Dominal Tech. With active developer offices in Solapur and Pune, Maharashtra, we build robust custom systems for clients in India, the USA, and globally."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a software company in Solapur handle enterprise-grade projects?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Dominal Tech has engineered automation systems for Central Railway (Indian Railways), built high-performance SaaS tools, and collaborated on Harvard University departments projects."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the price of website development and software services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dominal Tech provides customized pricing based on project scope, offering competitive rates for startups, standard web development, and an option for partnership growth plans."
+          }
+        }
+      ]
+    }
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -806,6 +856,84 @@
             .node-dot { left: 20px; transform: translateX(-50%); }
             .journey-node:hover .node-dot { transform: translateX(-50%) scale(1.4); }
         }
+
+        /* FAQ Section Styles */
+        .faq-section {
+            margin: 6rem 0;
+            padding-top: 4rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .faq-item {
+            background: var(--gray-100);
+            border-radius: 12px;
+            border: 1px solid var(--gray-200);
+            overflow: hidden;
+            transition: all var(--transition);
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            border-color: var(--accent-blue-light);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            text-align: left;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            cursor: pointer;
+            outline: none;
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--accent-blue);
+        }
+
+        .faq-question svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--primary-text);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+            stroke: var(--accent-blue);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .faq-answer p {
+            padding: 0 2rem 1.5rem 2rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #4b5563;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -1005,9 +1133,93 @@
             </div>
         </section>
 
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Which is the best software development company in Solapur?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Dominal Tech is recognized as a leading and top software development company in Solapur, Maharashtra, delivering custom web applications, mobile apps, CRM systems, and AI integration for global clients.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What services do software companies in Solapur like Dominal Tech offer?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We provide a comprehensive range of software solutions, including custom web development, native and cross-platform mobile app development, dedicated startup accelerator programs, custom CRM systems, profit-sharing IT partnerships, and premium domain hosting support.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How can I hire the best software developers in Solapur and Pune?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You can connect directly with the engineering team at Dominal Tech. With active developer offices in Solapur and Pune, Maharashtra, we construct custom solutions for clients in India, the USA, and globally. Reach out via our enquiry form or WhatsApp.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can a local software company in Solapur handle enterprise-grade projects?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. Dominal Tech has engineered high-scale solutions for major government bodies like Central Railway (Indian Railways), developed interactive 3D platforms, and worked on Harvard University research projects, handling millions of data points securely.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What is the price of website development and software services?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Pricing is tailored to the project scope. We offer flexible plans for startups, fixed rates for standard web projects, and a unique profit-sharing Partner Program for select growing businesses where we manage 100% of their technology stack without upfront costs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How does the Dominal Tech Partner Program work?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>In our Partner Program, we handle all your technology needs—from system design, mobile app creation, AI tool integration, to server maintenance—in exchange for a small percentage of business profits. This completely aligns our success with your growth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer>
+        <div class="footer-locations" style="margin-bottom: 2rem; display: flex; justify-content: center; gap: 4rem; text-align: center; flex-wrap: wrap;">
+            <div class="location-item" style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #000000; font-size: 1.1rem; letter-spacing: 0.5px;">Solapur</div>
+                <div style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #4b5563;">Solapur, Maharashtra</div>
+            </div>
+            <div class="location-item" style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #000000; font-size: 1.1rem; letter-spacing: 0.5px;">Pune</div>
+                <div style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #4b5563;">Pune, Maharashtra</div>
+            </div>
+        </div>
         <p>&copy; 2026 Dominal Group Pvt Ltd. All Rights Reserved.</p>
     </footer>
 
@@ -1056,6 +1268,31 @@
                 navbar.classList.toggle('scrolled', window.scrollY > 50);
             });
         }
+
+        // FAQ Accordion Toggle
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const answer = item.querySelector('.faq-answer');
+                
+                // Toggle active class
+                item.classList.toggle('active');
+                
+                if (item.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                } else {
+                    answer.style.maxHeight = '0px';
+                }
+                
+                // Close other items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').style.maxHeight = '0px';
+                    }
+                });
+            });
+        });
 
         // Intercept browser back button and redirect to index.html
         (function() {

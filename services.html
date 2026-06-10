@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services — Dominal Tech</title>
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="dominalnew.jpeg" type="image/jpeg">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
-
         /* ==========================================
    DOMINAL TECH - REDESIGNED STYLES
    Pure Black Background with White Elements
@@ -1215,13 +1217,27 @@
         }
 
         @keyframes pulseNodeLeft {
-            0% { transform: scale(1); transform-origin: 7.5px 12px; }
-            100% { transform: scale(1.35); transform-origin: 7.5px 12px; }
+            0% {
+                transform: scale(1);
+                transform-origin: 7.5px 12px;
+            }
+
+            100% {
+                transform: scale(1.35);
+                transform-origin: 7.5px 12px;
+            }
         }
 
         @keyframes pulseNodeRight {
-            0% { transform: scale(1); transform-origin: 16.5px 12px; }
-            100% { transform: scale(1.35); transform-origin: 16.5px 12px; }
+            0% {
+                transform: scale(1);
+                transform-origin: 16.5px 12px;
+            }
+
+            100% {
+                transform: scale(1.35);
+                transform-origin: 16.5px 12px;
+            }
         }
 
         .hero-description {
@@ -2174,7 +2190,7 @@
                 letter-spacing: 0.8px;
             }
         }
-    
+
         /* ==========================================
            UNIFIED PREMIUM NAVIGATION & HAMBURGER
            ========================================== */
@@ -2367,6 +2383,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Animated Grid Background -->
     <div class="grid-background"></div>
@@ -2742,10 +2759,11 @@
     </section>
 
     <!-- Footer -->
-    <footer class="site-footer" style="background: #FFFFFF; padding: 4rem 5%; text-align: center; border-top: 1px solid var(--gray-100);">
-        <p>© 2026 Dominal Group Pvt Ltd. All Rights Reserved.</p>
+    <footer class="site-footer"
+        style="background: #FFFFFF; padding: 4rem 5%; text-align: center; border-top: 1px solid var(--gray-100);">
+        <p>© 2026 Dominal Technology Pvt Ltd. All Rights Reserved.</p>
     </footer>
-    
+
     <script>
         // Navigation Scripts
         const hamburger = document.getElementById('hamburger');
@@ -2785,9 +2803,9 @@
             function goTo(idx) {
                 const prevSlide = document.getElementById(slides[current]);
                 if (prevSlide) prevSlide.classList.remove('is-active');
-                
+
                 current = idx % slides.length;
-                
+
                 const el = document.getElementById(slides[current]);
                 if (el) {
                     el.classList.add('is-active');
@@ -2913,13 +2931,14 @@
         });
 
         // Intercept browser back button and redirect to index.html
-        (function() {
+        (function () {
             history.pushState(null, document.title, location.href);
-            window.addEventListener('popstate', function(event) {
+            window.addEventListener('popstate', function (event) {
                 window.location.href = 'index.html';
             });
         })();
     </script>
 
 </body>
+
 </html>
