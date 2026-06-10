@@ -2,13 +2,13 @@ const CUSTOM_DATA = {
   profile: {
     name: "Yahya",
     father: "Ab. Wahid Mundewadi",
-  education: {
-    degree: "Computer Science Engineering",
-    college: "VVPIET",
-    cgpa: "7.5",
-    backlogs: "None (All clear in 4 years)",
-    class12: "87% in 12th Board"
-  },
+    education: {
+      degree: "Computer Science Engineering",
+      college: "VVPIET",
+      cgpa: "7.5",
+      backlogs: "None (All clear in 4 years)",
+      class12: "87% in 12th Board"
+    },
     role: "Founder & Full-Stack Developer",
     company: "Dominal Tech",
     background: "Training and Placement student in-charge at VVPIET, coordinated with industry HR managers, maintains professional connections",
@@ -27,14 +27,14 @@ const CUSTOM_DATA = {
     technologies: ["Kotlin", "Python", "SQL", "HTML", "CSS", "JavaScript", "React", "Flutter", "Supabase", "PostgreSQL"],
     communication: "Fluent English"
   },
-  
+
   company: {
     name: "Dominal Tech",
     founder: "Yahya",
     type: "IT Company",
     focus: "Full-stack development, mobile apps, AI integration, educational platforms"
   },
-  
+
   projects: [
     {
       name: "pydefine",
@@ -133,7 +133,7 @@ const CUSTOM_DATA = {
       tags: ["python", "ide", "data-science", "ml"]
     }
   ],
-  
+
   clients: [
     { name: "Cyked EV", details: "3D Website for EV Company", link: "cykedev.netlify.app" },
     { name: "Indian Govt. - Central Railway", details: "Internal systems integration", link: null },
@@ -142,6 +142,6 @@ const CUSTOM_DATA = {
     { name: "Walltone Decors", details: "E-commerce & Brand site", link: "walltone.in" },
     { name: "HCC High School Solapur", details: "Academic portal", link: "hccsolapur.in" },
     { name: "Libas Collection Solapur", details: "Retail presence", link: "libassolapur.in" },
-    { name: "Lokpradhan News Channel", details: "Digital news integration", link: "lokpradhan.in" }
+    { name: "Lokpradhan News Channel", details: "Digital news integration", link: "lokpradhan.com" }
   ]
 };

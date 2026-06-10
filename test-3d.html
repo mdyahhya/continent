@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Model Viewer Test</title>
+
+  <!-- Model Viewer Library - MUST be loaded as module -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: sans-serif;
+      color: #fff;
+      gap: 20px;
+    }
+    h1 { font-size: 1.2rem; opacity: 0.7; }
+    #status {
+      background: #222;
+      border: 1px solid #444;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: #0f0;
+      letter-spacing: 1px;
+    }
+    model-viewer {
+      width: 700px;
+      height: 420px;
+      background: #1a1a2e;
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(0,150,255,0.2);
+    }
+    @media (max-width: 750px) {
+      model-viewer { width: 95vw; height: 55vw; }
+    }
+    #error-box {
+      display: none;
+      background: #400;
+      border: 1px solid #f00;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: #f88;
+      max-width: 600px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔬 3D Model Viewer — Test Page</h1>
+  <div id="status">⏳ LOADING MODEL...</div>
+  <div id="error-box"></div>
+
+  <model-viewer
+    id="testViewer"
+    src="laptop.glb"
+    alt="Laptop 3D Model"
+    auto-rotate
+    camera-controls
+    shadow-intensity="1.5"
+    exposure="1.0"
+    environment-image="neutral"
+    interaction-prompt="none">
+  </model-viewer>
+
+  <p style="opacity:0.4; font-size:0.75rem;">Drag to rotate • Scroll to zoom • If blank, check console (F12) for errors</p>
+
+  <script type="module">
+    const viewer = document.getElementById('testViewer');
+    const status = document.getElementById('status');
+    const errorBox = document.getElementById('error-box');
+
+    viewer.addEventListener('load', () => {
+      status.textContent = '✅ MODEL LOADED SUCCESSFULLY!';
+      status.style.color = '#0f0';
+    });
+
+    viewer.addEventListener('error', (e) => {
+      const msg = e.detail?.message || e.detail?.type || 'Unknown error';
+      status.textContent = '❌ LOAD FAILED';
+      status.style.color = '#f55';
+      errorBox.style.display = 'block';
+      errorBox.innerHTML = `
+        <strong>Error:</strong> ${msg}<br><br>
+        <strong>Likely Cause:</strong> You are opening this file directly via <code>file://</code>.<br>
+        Browsers block local 3D asset loading (CORS).<br><br>
+        <strong>Fix:</strong> Open via a local server:<br>
+        Run in terminal: <code>python -m http.server 8080</code><br>
+        Then visit: <code>http://localhost:8080/test-3d.html</code>
+      `;
+    });
+
+    // Check if model-viewer custom element is defined
+    if (!customElements.get('model-viewer')) {
+      status.textContent = '❌ model-viewer NOT REGISTERED';
+      status.style.color = '#f55';
+      errorBox.style.display = 'block';
+      errorBox.textContent = 'The <model-viewer> custom element failed to register. Check your internet connection — the script loads from Google CDN.';
+    }
+  </script>
+
+</body>
+</html>
