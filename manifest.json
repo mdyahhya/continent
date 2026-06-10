@@ -4,7 +4,7 @@
   "description": "We create the base for your startup ideas and scale them online with mobile apps, web development, PWA, AI solutions, and chatbots.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
+  "background_color": "#ffffff",
   "theme_color": "#0A1F44",
   "orientation": "portrait-primary",
   "icons": [
