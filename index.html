@@ -10,7 +10,7 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#000000">
     <!-- Preload 3D model so it starts downloading immediately -->
-    <link rel="preload" href="laptop.glb" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="laptop2.glb" as="fetch" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="dominalnew.jpeg" type="image/jpeg">
@@ -212,7 +212,12 @@
             padding: 0 2rem;
             min-width: 100%;
             justify-content: space-around;
-            animation: scrollMarquee 25s linear infinite;
+            animation: scrollMarquee 35s linear infinite;
+            animation-play-state: paused;
+        }
+
+        .brands-marquee-container.marquee-playing .marquee-content {
+            animation-play-state: running;
         }
 
         .marquee-item {
@@ -579,6 +584,10 @@
             display: block;
             animation: modelFloat 7s ease-in-out infinite;
             transition: opacity 0.8s ease;
+        }
+
+        .hero-3d-model.spinning {
+            pointer-events: none;
         }
 
         /* Hint text below the 3D model */
@@ -1333,6 +1342,16 @@
         .chat-send-btn:hover {
             background: var(--pure-white);
             border-color: var(--pure-white);
+        }
+
+        .chat-hint {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.85rem;
+            color: #555555;
+            font-weight: 600;
+            margin-top: 0.6rem;
+            text-align: center;
+            letter-spacing: 0.5px;
         }
 
         .chat-mic-btn:hover svg,
@@ -2504,7 +2523,7 @@
                     <span class="loader-text">LOADING 3D MODEL...</span>
                 </div>
                 <!-- No auto-rotate: gentle float via CSS animation only -->
-                <model-viewer id="laptopModel" src="laptop.glb" alt="3D Laptop Model" camera-controls
+                <model-viewer id="laptopModel" src="laptop2.glb" alt="3D Laptop Model" camera-controls
                     shadow-intensity="1" exposure="1.1" environment-image="neutral" interaction-prompt="none"
                     loading="eager" reveal="auto" bounds="tight" class="hero-3d-model" style="opacity: 0;">
                 </model-viewer>
@@ -2523,12 +2542,59 @@
                 (function () {
                     const modelViewer = document.getElementById('laptopModel');
                     const loader = document.getElementById('modelLoader');
+
                     if (modelViewer && loader) {
+                        let spinStarted = false;
+
+                        const startInitialSpin = () => {
+                            if (spinStarted) return;
+                            spinStarted = true;
+
+                            // Temporarily disable user interaction during the intro spin
+                            modelViewer.classList.add('spinning');
+
+                            let startTime = null;
+                            const duration = 2800; // 2.8 seconds for smooth premium 360 spin
+                            const startOrbit = modelViewer.getCameraOrbit();
+
+                            if (!startOrbit) {
+                                modelViewer.classList.remove('spinning');
+                                return;
+                            }
+
+                            const startTheta = startOrbit.theta;
+
+                            function animateSpin(timestamp) {
+                                if (!startTime) startTime = timestamp;
+                                const elapsed = timestamp - startTime;
+                                const progress = Math.min(elapsed / duration, 1);
+
+                                // Easing curve: easeInOutCubic
+                                const ease = progress < 0.5
+                                    ? 4 * progress * progress * progress
+                                    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+                                const currentTheta = startTheta + (2 * Math.PI) * ease;
+
+                                modelViewer.cameraOrbit = `${currentTheta}rad ${startOrbit.phi}rad ${startOrbit.radius}m`;
+
+                                if (progress < 1) {
+                                    requestAnimationFrame(animateSpin);
+                                } else {
+                                    modelViewer.classList.remove('spinning');
+                                }
+                            }
+                            requestAnimationFrame(animateSpin);
+                        };
+
                         const hideLoader = () => {
                             loader.style.opacity = '0';
                             loader.style.visibility = 'hidden';
                             modelViewer.style.opacity = '1';
+                            // Start smooth entry spin
+                            setTimeout(startInitialSpin, 100);
                         };
+
                         if (modelViewer.loaded) {
                             hideLoader();
                         } else {
@@ -2570,7 +2636,7 @@
                             </svg>
                         </button>
                     </div>
-                    <!-- <p class="chat-hint">Powered by Dominal AI • Available 24/7</p> -->
+                    <p class="chat-hint">Chat with Dominal AI — Ask doubts, explore projects, or learn about us.</p>
                 </div>
 
                 <div class="hero-cta-group">
@@ -2649,28 +2715,24 @@
 
     <!-- Sliding Brand Marquee Section -->
     <div class="brands-marquee-container">
-        <div class="marquee-title">OUR TOP BRANDS</div>
+        <div class="marquee-title">TRUSTED BY</div>
         <div class="marquee-wrapper">
             <div class="marquee-content">
-                <span class="marquee-item">Google Partner</span>
-                <span class="marquee-item">AWS Consult</span>
-                <span class="marquee-item">Microsoft Cloud</span>
-                <span class="marquee-item">NVIDIA AI</span>
-                <span class="marquee-item">Stripe Dev</span>
-                <span class="marquee-item">Flutter Base</span>
-                <span class="marquee-item">Razorpay Integration</span>
-                <span class="marquee-item">Vercel Deploy</span>
+                <span class="marquee-item">Clothing Brands</span>
+                <span class="marquee-item">Y Combinator Startup</span>
+                <span class="marquee-item">Harward University</span>
+                <span class="marquee-item">Central Railway</span>
+                <span class="marquee-item">Healthcare Companies</span>
+                <span class="marquee-item">News Channels</span>
             </div>
             <!-- Duplicate content for seamless looping -->
             <div class="marquee-content" aria-hidden="true">
-                <span class="marquee-item">Google Partner</span>
-                <span class="marquee-item">AWS Consult</span>
-                <span class="marquee-item">Microsoft Cloud</span>
-                <span class="marquee-item">NVIDIA AI</span>
-                <span class="marquee-item">Stripe Dev</span>
-                <span class="marquee-item">Flutter Base</span>
-                <span class="marquee-item">Razorpay Integration</span>
-                <span class="marquee-item">Vercel Deploy</span>
+                <span class="marquee-item">Y Combinator Startup</span>
+                <span class="marquee-item">Harward University</span>
+                <span class="marquee-item">Central Railway</span>
+                <span class="marquee-item">Clothing Brands</span>
+                <span class="marquee-item">Healthcare Companies</span>
+                <span class="marquee-item">News Channels</span>
             </div>
         </div>
     </div>
@@ -2683,7 +2745,18 @@
         </div>
 
         <div class="clients-grid">
-            <!-- 1) Cyked EV Company -->
+            <!-- 1) Y Combinator Startup -->
+            <div class="client-card">
+                <div class="client-logo-box">
+                    <img src="ycombinatorlogo.png" alt="Y Combinator Logo" style="object-fit: contain; padding: 4px;">
+                </div>
+                <div class="client-info-group">
+                    <div class="client-main-name">Y Combinator Startup</div>
+                    <div class="client-sub-desc">Worked with them</div>
+                </div>
+            </div>
+
+            <!-- 2) Cyked EV Company -->
             <div class="client-card">
                 <div class="client-logo-box">
                     <img src="cykedevlogo.png" alt="Cyked EV Logo" style="object-fit: contain; padding: 4px;">
@@ -2695,7 +2768,7 @@
                 </div>
             </div>
 
-            <!-- 2) Indian Govt. - Central Railway -->
+            <!-- 3) Indian Govt. - Central Railway -->
             <div class="client-card">
                 <div class="client-logo-box">
                     <img src="indianrailways.png" alt="Central Railway">
@@ -2706,7 +2779,7 @@
                 </div>
             </div>
 
-            <!-- 2) 5 Star Hotel CRM Software (SVG) -->
+            <!-- 4) 5 Star Hotel CRM Software (SVG) -->
             <div class="client-card">
                 <div class="client-logo-box">
                     <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -2721,7 +2794,7 @@
                 </div>
             </div>
 
-            <!-- 3) Furniture Factory - CRM (SVG) -->
+            <!-- 5) Furniture Factory - CRM (SVG) -->
             <div class="client-card">
                 <div class="client-logo-box">
                     <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -2736,7 +2809,7 @@
                 </div>
             </div>
 
-            <!-- 4) Walltone Decors -->
+            <!-- 6) Walltone Decors -->
             <div class="client-card">
                 <div class="client-logo-box">
                     <img src="walltone.png" alt="Walltone Decors">
@@ -2747,7 +2820,7 @@
                 </div>
             </div>
 
-            <!-- 5) HCC High School Solapur -->
+            <!-- 7) HCC High School Solapur -->
             <div class="client-card">
                 <div class="client-logo-box">
                     <img src="hccsolapur.jpg" alt="HCC High School">
@@ -2758,7 +2831,7 @@
                 </div>
             </div>
 
-            <!-- 6) Libas Collection Solapur -->
+            <!-- 8) Libas Collection Solapur -->
             <div class="client-card">
                 <div class="client-logo-box">
                     <img src="libas.jpg" alt="Libas Collection">
@@ -2770,7 +2843,7 @@
                 </div>
             </div>
 
-            <!-- 7) Lokpradhan News Channel -->
+            <!-- 9) Lokpradhan News Channel -->
             <div class="client-card" style="grid-column: span 1;">
                 <div class="client-logo-box">
                     <img src="lokpradhan.jpeg" alt="Lokpradhan">
@@ -3637,6 +3710,21 @@
             serviceCards.forEach(card => card.classList.add('reveal'));
             contactCards.forEach(card => card.classList.add('reveal'));
             if (enquiryForm) enquiryForm.classList.add('reveal');
+
+            // Marquee Visibility Observer
+            const marquee = document.querySelector('.brands-marquee-container');
+            if (marquee) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            marquee.classList.add('marquee-playing');
+                        } else {
+                            marquee.classList.remove('marquee-playing');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                observer.observe(marquee);
+            }
 
             // Initial check
             reveal();

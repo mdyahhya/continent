@@ -37,6 +37,12 @@ const CUSTOM_DATA = {
 
   projects: [
     {
+      name: "Y Combinator Startup",
+      description: "Did a project for Y Combinator Startup. Worked with them as a technology partner to design and develop their core web applications, cloud infrastructure, and custom features.",
+      category: "SaaS Platform",
+      tags: ["web", "cloud", "saas", "scaling"]
+    },
+    {
       name: "pydefine",
       description: "Custom Python library converting raw errors into easy-to-understand explanations with emojis",
       category: "Development Tool",
@@ -133,8 +139,9 @@ const CUSTOM_DATA = {
       tags: ["python", "ide", "data-science", "ml"]
     }
   ],
-
+ 
   clients: [
+    { name: "Y Combinator Startup", details: "Worked with them as tech partner", link: null },
     { name: "Cyked EV", details: "3D Website for EV Company", link: "cykedev.netlify.app" },
     { name: "Indian Govt. - Central Railway", details: "Internal systems integration", link: null },
     { name: "5 Star Hotel", details: "CRM Software Development", link: null },
